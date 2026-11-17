@@ -1,0 +1,138 @@
+{
+  "die_um": [
+    0.0,
+    0.0,
+    2987.0,
+    2987.0
+  ],
+  "logic_bbox_um": [
+    443.09000000000003,
+    442.53000000000003,
+    2543.9500000000003,
+    2544.51
+  ],
+  "logic_instances": 1421,
+  "views": {
+    "die": {
+      "box_um": [
+        -29.87,
+        -29.87,
+        3016.87,
+        3016.87
+      ],
+      "width": 4096,
+      "height": 4096,
+      "layers": [
+        "comp",
+        "poly",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "pad",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "core": {
+      "box_um": [
+        284.88149999999996,
+        284.88149999999996,
+        2702.1585,
+        2702.1585
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "corner": {
+      "box_um": [
+        0.0,
+        0.0,
+        900.0,
+        900.0
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "pad",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "cells": {
+      "box_um": [
+        1463.52,
+        1463.52,
+        1523.52,
+        1523.52
+      ],
+      "width": 2048,
+      "height": 2048,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    }
+  }
+}

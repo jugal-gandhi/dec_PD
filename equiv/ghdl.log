@@ -1,0 +1,27 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang /nix/store/874j5xydsj6nr6i1zdrjvhln5gmxvvrr-clang-wrapper-21.1.8/bin/clang++ 21.1.8)
+
+-- Running command `
+plugin -i ghdl
+ghdl Decoder_32_2.vhd -e Decoder_32_2
+write_verilog -noattr verif/out/gold_ghdl.v
+' --
+
+1. Executing GHDL.
+Importing module Decoder_32_2.
+
+2. Executing Verilog backend.
+
+2.1. Executing BMUXMAP pass.
+
+2.2. Executing DEMUXMAP pass.
+Dumping module `\Decoder_32_2'.
+
+End of script. Logfile hash: 08485279af, time: 0.02s, user: 0.03s, system: 0.01s, MEM: 34.27 MB peak
+Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang /nix/store/874j5xydsj6nr6i1zdrjvhln5gmxvvrr-clang-wrapper-21.1.8/bin/clang++ 21.1.8)
+Time spent: 82% 1x ghdl (0 sec), 13% 1x plugin (0 sec), ...

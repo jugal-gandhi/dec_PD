@@ -1,0 +1,2 @@
+SIM_EQUIV PASS: 500130 vectors, 0 mismatches
+verif/tb_equiv.v:52: $finish called at 500130000 (1ps)
