@@ -50,6 +50,10 @@ fi
 [ -f "$FINAL/metrics.csv" ] && cp -f "$FINAL/metrics.csv" "$R/metrics.csv"
 
 GDS=$(ls "$FINAL"/gds/"$TOP".gds 2>/dev/null | head -n 1)
+if [ -z "$GDS" ] && [ -n "${RUN:-}" ]; then
+  # Flow stopped at a sign-off checker: take the newest GDS of the run
+  GDS=$(ls -1 "$RUN"/*-klayout-filler/"$TOP".gds "$RUN"/*-klayout-streamout/"$TOP".gds 2>/dev/null | sort | tail -n 1)
+fi
 if [ -n "$GDS" ]; then
   gzip -9 -c "$GDS" > "$R/$TOP.gds.gz"
 fi

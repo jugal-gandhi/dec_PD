@@ -22,9 +22,8 @@ set_max_fanout $::env(MAX_FANOUT_CONSTRAINT) [current_design]
 if { [info exists ::env(MAX_TRANSITION_CONSTRAINT)] } {
     set_max_transition $::env(MAX_TRANSITION_CONSTRAINT) [current_design]
 }
-if { [info exists ::env(MAX_CAPACITANCE_CONSTRAINT)] } {
-    set_max_capacitance $::env(MAX_CAPACITANCE_CONSTRAINT) [current_design]
-}
+# No design-level set_max_capacitance: it would apply to the bond-pad ports,
+# whose own capacitance is ~3.4 pF. Cell-pin limits come from the Liberty files.
 
 set_clock_uncertainty $::env(CLOCK_UNCERTAINTY_CONSTRAINT) [get_clocks vclk]
 set_timing_derate -early [expr 1 - [expr $::env(TIME_DERATING_CONSTRAINT) / 100]]

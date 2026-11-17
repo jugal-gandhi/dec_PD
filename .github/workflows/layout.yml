@@ -54,8 +54,9 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-          if [ -f final/gds/chip_top.gds ]; then
-            nix develop --command python3 scripts/render_masks.py final/gds/chip_top.gds results/gf180/masks --pdk gf180
+          GDS=$(ls final/gds/chip_top.gds 2>/dev/null || ls -1 librelane/runs/*/*-klayout-filler/chip_top.gds 2>/dev/null | tail -n 1)
+          if [ -n "$GDS" ]; then
+            nix develop --command python3 scripts/render_masks.py "$GDS" results/gf180/masks --pdk gf180
           fi
       - name: Collect results
         if: always()
@@ -96,8 +97,9 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-          if [ -f final_sky130/gds/posit_decoder_32_2.gds ]; then
-            nix develop --command python3 scripts/render_masks.py final_sky130/gds/posit_decoder_32_2.gds results/sky130/masks --pdk sky130
+          GDS=$(ls final_sky130/gds/posit_decoder_32_2.gds 2>/dev/null || ls -1 librelane/sky130/runs/*/*-klayout-streamout/posit_decoder_32_2.gds 2>/dev/null | tail -n 1)
+          if [ -n "$GDS" ]; then
+            nix develop --command python3 scripts/render_masks.py "$GDS" results/sky130/masks --pdk sky130
           fi
       - name: Collect results
         if: always()

@@ -20,7 +20,7 @@ PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 PNR_SDC_FILE: dir::chip_top.sdc
 SIGNOFF_SDC_FILE: dir::chip_top.sdc
 FALLBACK_SDC: dir::chip_top.sdc
-CLOCK_PERIOD: 30
+CLOCK_PERIOD: 40
 
 # Power / ground nets
 VDD_NETS:
@@ -40,6 +40,10 @@ IGNORE_DISCONNECTED_MODULES:
 FP_SIZING: absolute
 DIE_AREA: [0, 0, 2987, 2987]
 CORE_AREA: [442, 442, 2545, 2545]
+
+# Repair slew with extra margin so the slow corners also stay within limits
+DESIGN_REPAIR_MAX_SLEW_PCT: 40
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 35
 
 # Placement
 PL_TARGET_DENSITY_PCT: 55

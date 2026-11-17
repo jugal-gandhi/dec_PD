@@ -42,10 +42,22 @@ def VP():  # one DVDD + one DVSS pair
 
 
 # Lists are in increasing coordinate order (south/north: x, east/west: y).
-west = VP() + [inp(i) for i in range(16, 24)] + VP() + [inp(i) for i in range(24, 32)] + VP()
-south = VP() + [inp(i) for i in range(15, 7, -1)] + VP() + [inp(i) for i in range(7, -1, -1)] + VP()
-east = [pwr("dvss")] + [outp(i) for i in range(0, 10)] + [pwr("dvdd")] + [outp(i) for i in range(10, 19)] + [pwr("dvss")]
-north = [pwr("dvdd")] + [outp(i) for i in range(37, 27, -1)] + [pwr("dvss")] + [outp(i) for i in range(27, 18, -1)] + [pwr("dvdd")]
+# Signal pads sit at both ends of every side, so no supply pad lines up with
+# the core power ring where it passes the corners.
+def side_in(bits):        # 16 inputs, 3 supply pairs
+    b = list(bits)
+    return b[0:2] + VP() + b[2:8] + VP() + b[8:14] + VP() + b[14:16]
+
+
+def side_out(bits, kinds):  # 19 outputs, 3 single supply pads
+    b = list(bits)
+    return b[0:2] + [pwr(kinds[0])] + b[2:9] + [pwr(kinds[1])] + b[9:17] + [pwr(kinds[2])] + b[17:19]
+
+
+west = side_in(inp(i) for i in range(16, 32))
+south = side_in(inp(i) for i in range(15, -1, -1))
+east = side_out((outp(i) for i in range(0, 19)), ("dvss", "dvdd", "dvss"))
+north = side_out((outp(i) for i in range(37, 18, -1)), ("dvdd", "dvss", "dvdd"))
 
 for side in (west, south, east, north):
     assert len(side) == 22, len(side)
