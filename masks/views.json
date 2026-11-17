@@ -1,0 +1,73 @@
+{
+  "die_um": [
+    0.0,
+    0.0,
+    110.0,
+    110.0
+  ],
+  "logic_bbox_um": [
+    6.71,
+    10.64,
+    103.23,
+    98.16
+  ],
+  "logic_instances": 426,
+  "views": {
+    "die": {
+      "box_um": [
+        -2.2,
+        -2.2,
+        112.2,
+        112.2
+      ],
+      "width": 4096,
+      "height": 4096,
+      "layers": [
+        "nwell",
+        "diff",
+        "tap",
+        "poly",
+        "licon",
+        "li1",
+        "mcon",
+        "m1",
+        "via",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5"
+      ]
+    },
+    "cells": {
+      "box_um": [
+        42.470000000000006,
+        41.9,
+        67.47,
+        66.9
+      ],
+      "width": 2048,
+      "height": 2048,
+      "layers": [
+        "nwell",
+        "diff",
+        "tap",
+        "poly",
+        "licon",
+        "li1",
+        "mcon",
+        "m1",
+        "via",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5"
+      ]
+    }
+  }
+}

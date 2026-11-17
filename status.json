@@ -1,0 +1,9 @@
+{
+  "target": "sky130",
+  "commit": "5df572518b3b4b56a67e8929b940277290682f63",
+  "run_id": "44113874876",
+  "flow_outcome": "success",
+  "equiv_outcome": "skipped",
+  "run_dir": "librelane/sky130/runs/RUN_2026-11-17_15-28-45/",
+  "date_utc": "2026-11-17T15:30:50Z"
+}
