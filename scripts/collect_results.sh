@@ -72,6 +72,8 @@ fi
 if [ -n "$GDS" ]; then
   gzip -9 -c "$GDS" > "$R/$TOP.gds.gz"
 fi
+DEF=$(ls "$FINAL"/def/"$TOP".def 2>/dev/null | head -n 1)
+[ -n "$DEF" ] && gzip -9 -c "$DEF" > "$R/$TOP.def.gz"
 NL=$(ls "$FINAL"/nl/"$TOP".nl.v 2>/dev/null | head -n 1)
 [ -n "$NL" ] && gzip -9 -c "$NL" > "$R/$TOP.nl.v.gz"
 mkdir -p "$R/flow_render"
