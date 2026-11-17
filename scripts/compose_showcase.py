@@ -31,11 +31,11 @@ STYLE_GF180 = [
     ("m3",        "#a855f7", 0.50, 0.25),
     ("via3",      "#f3e8ff", 0.75, 0.00),
     ("m4_fill",   "#ec4899", 0.10, 0.00),
-    ("m4",        "#ec4899", 0.45, 0.30),
+    ("m4",        "#ec4899", 0.38, 0.22),
     ("via4",      "#fce7f3", 0.75, 0.00),
     ("m5_fill",   "#f59e0b", 0.08, 0.00),
-    ("m5",        "#f59e0b", 0.42, 0.35),
-    ("mtop",      "#fde68a", 0.40, 0.30),
+    ("m5",        "#f59e0b", 0.22, 0.12),
+    ("mtop",      "#fde68a", 0.12, 0.05),
     ("pad",       "#fde047", 0.55, 0.60),
 ]
 STYLE_SKY130 = [
@@ -62,7 +62,7 @@ STYLE_SKY130 = [
 # (layer, colour, fill opacity, outline opacity, pattern)
 CLASSIC_GF180 = [
     ("nwell",   "#2f6b3a", 0.00, 0.55, "none"),
-    ("comp",    "#22c55e", 0.55, 0.90, "dots"),
+    ("comp",    "#22c55e", 0.60, 0.95, "fwd"),
     ("poly",    "#ff3b3b", 0.70, 0.95, "back"),
     ("contact", "#ffffff", 0.90, 0.00, "solid"),
     ("m1",      "#3b82f6", 0.45, 0.95, "fwd"),
@@ -79,7 +79,7 @@ CLASSIC_GF180 = [
 ]
 CLASSIC_SKY130 = [
     ("nwell", "#2f6b3a", 0.00, 0.55, "none"),
-    ("diff",  "#22c55e", 0.55, 0.90, "dots"),
+    ("diff",  "#22c55e", 0.60, 0.95, "fwd"),
     ("tap",   "#16a34a", 0.55, 0.90, "dots"),
     ("poly",  "#ff3b3b", 0.70, 0.95, "back"),
     ("licon", "#ffffff", 0.85, 0.00, "solid"),
@@ -100,9 +100,9 @@ CLASSIC_SKY130 = [
 OCCLUDE = 0.55
 
 
-def pattern(kind, h, w, pitch):
+def pattern(kind, h, w, pitch, lwfrac=0.25):
     yy, xx = np.mgrid[0:h, 0:w]
-    lw = max(1, pitch // 4)
+    lw = max(1, int(round(pitch * lwfrac)))
     if kind == "solid":
         p = np.ones((h, w))
     elif kind == "none":
@@ -118,7 +118,7 @@ def pattern(kind, h, w, pitch):
     return p.astype(np.float32)[..., None]
 
 
-def compose_classic(view_dir, layers_present, style, pitch=None):
+def compose_classic(view_dir, layers_present, style, pitch=None, occlude=None, lwfrac=0.25):
     first = Image.open(os.path.join(view_dir, f"{layers_present[0]}.png"))
     w, h = first.size
     pitch = pitch or max(6, w // 512)
@@ -135,9 +135,9 @@ def compose_classic(view_dir, layers_present, style, pitch=None):
         edge = np.clip(m - np.asarray(er, dtype=np.float32)[..., None] / 255.0, 0, 1)
         c = hex_rgb(color)
         # Partly occlude what lies below, so stacked layers stay saturated
-        occ = 0.0 if kind == "solid" or fa == 0 else min(OCCLUDE, fa)
+        occ = 0.0 if kind == "solid" or fa == 0 else min(OCCLUDE if occlude is None else occlude, fa)
         canvas = canvas * (1 - m * occ)
-        a = np.clip(m * fa * pattern(kind, h, w, pitch) + edge * la, 0, 1)
+        a = np.clip(m * fa * pattern(kind, h, w, pitch, lwfrac) + edge * la, 0, 1)
         canvas = canvas * (1 - a) + c * a
     return np.clip(canvas, 0, 1)
 
@@ -199,7 +199,9 @@ def main():
         vdir = os.path.join(args.masks, vname)
         if args.style == "classic":
             style = CLASSIC_GF180 if args.pdk == "gf180" else CLASSIC_SKY130
-            arr = compose_classic(vdir, layers, style)
+            # Transistor-level views show many stacked layers: occlude less
+            arr = compose_classic(vdir, layers, style, occlude=0.2 if vname == "cells" else None,
+                                  lwfrac=0.45 if vname == "cells" else 0.25)
         else:
             style = STYLE_GF180 if args.pdk == "gf180" else STYLE_SKY130
             arr = compose(vdir, layers, style)

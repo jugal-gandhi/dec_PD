@@ -76,9 +76,18 @@ def specs_from_metrics(m, target, period, critical=None):
     drc_k = metric(m, "klayout__drc_error__count")
     drc_m = metric(m, "magic__drc_error__count")
     lvs = metric(m, "design__lvs_error__count")
-    ant = metric(m, "antenna__violating__nets", "route__antenna_violation__count")
+    # Sign-off antenna count comes from the KLayout deck when it ran
+    ant = metric(m, "klayout__antenna_error__count", "antenna__violating__nets", "route__antenna_violation__count")
     rows = []
-    if target == "gf180":
+    if target == "soc":
+        rows.append(("Process", "GlobalFoundries GF180MCU · 180 nm · 5 metals"))
+        rows.append(("Die", f"{(x1 - x0) / 1000:.3f} × {(y1 - y0) / 1000:.3f} mm  ·  40-pad ring"))
+        rows.append(("CPU", "PicoRV32 RISC-V RV32IMC · SPI-flash boot · UART · 16 GPIO"))
+        rows.append(("Hard macros", "4 × 512×8 foundry SRAM (2 KB) · posit‹32,2› decoder"))
+        rows.append(("Logic", f"{logic + inv:,} gates · {metric(m, 'design__instance__count__class:sequential_cell', default=0):,} flip-flops"))
+        if critical:
+            rows.append(("Clock", critical))
+    elif target == "gf180":
         rows.append(("Process", "GlobalFoundries GF180MCU · 180 nm · 5 metals"))
         rows.append(("Die", f"{(x1 - x0) / 1000:.3f} × {(y1 - y0) / 1000:.3f} mm  ({fmt_area_mm2((x1 - x0) * (y1 - y0))})"))
         rows.append(("I/O ring", "88 pads · 32 in · 38 out · 18 supply"))
@@ -86,8 +95,11 @@ def specs_from_metrics(m, target, period, critical=None):
         rows.append(("Process", "SkyWater SKY130 · 130 nm · 5 metals"))
         rows.append(("Macro", f"{x1 - x0:.0f} × {y1 - y0:.0f} µm  ({(x1 - x0) * (y1 - y0):,.0f} µm²)"))
         rows.append(("Pins", "70 · 32 in · 38 out"))
-    rows.append(("Logic", f"{logic + inv:,} gates · {buf:,} buffers · {stdcells:,} cells placed"))
-    if critical:
+    if target != "soc":
+        rows.append(("Logic", f"{logic + inv:,} gates · {buf:,} buffers · {stdcells:,} cells placed"))
+    if target == "soc":
+        pass
+    elif critical:
         rows.append(("Critical path", critical))
     elif ws_tt is not None:
         rows.append(("Timing slack", f"{ws_tt:.2f} ns typical · {ws_all:.2f} ns worst corner"))
@@ -141,7 +153,7 @@ def main():
     ap.add_argument("--metrics", required=True)
     ap.add_argument("--period", type=float, required=True)
     ap.add_argument("--critical", default=None, help="critical-path text taken from the STA reports")
-    ap.add_argument("--target", choices=["gf180", "sky130"], required=True)
+    ap.add_argument("--target", choices=["gf180", "sky130", "soc"], required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--fonts", default="/usr/share/fonts/truetype/google-fonts")
     ap.add_argument("--inter", default="/usr/share/fonts/opentype/inter")
@@ -175,16 +187,25 @@ def main():
     f_value = font(args.inter, "Inter-SemiBold.otf", 44)
     f_foot = font(args.fonts, "Poppins-Medium.ttf", 44)
 
-    kicker = "OPEN-SOURCE RTL-TO-GDSII" if args.target == "gf180" else "OPEN-SOURCE RTL-TO-GDSII · CORE MACRO"
+    kicker = {"gf180": "OPEN-SOURCE RTL-TO-GDSII", "sky130": "OPEN-SOURCE RTL-TO-GDSII · CORE MACRO",
+              "soc": "OPEN-SOURCE RTL-TO-GDSII · RISC-V SOC"}[args.target]
     d.text((x, y), kicker, font=f_kicker, fill=ACCENT[0])
     y += 80
-    draw_posit_title(d, x, y, f_title)
-    y += 150
-    d.text((x, y), "Decoder", font=f_title, fill=TEXT)
+    if args.target == "soc":
+        d.text((x, y), "RISC-V SoC", font=f_title, fill=TEXT)
+        y += 150
+        f_t2 = font(args.fonts, "Poppins-Bold.ttf", 100)
+        d.text((x, y + 20), "+ ", font=f_t2, fill=TEXT)
+        draw_posit_title(d, x + d.textlength("+ ", font=f_t2), y + 20, f_t2)
+    else:
+        draw_posit_title(d, x, y, f_title)
+        y += 150
+        d.text((x, y), "Decoder", font=f_title, fill=TEXT)
     y += 185
     accent_bar(d, x, y, x + 520, 10)
     y += 60
-    sub = "Chip with full I/O pad ring" if args.target == "gf180" else "Hardened standard-cell macro"
+    sub = {"gf180": "Chip with full I/O pad ring", "sky130": "Hardened standard-cell macro",
+           "soc": "Hierarchical chip with posit accelerator"}[args.target]
     d.text((x, y), sub, font=f_sub, fill=MUTED)
     y += 120
 
