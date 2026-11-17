@@ -1,0 +1,9 @@
+{
+  "target": "gf180",
+  "commit": "5df572518b3b4b56a67e8929b940277290682f63",
+  "run_id": "44113874876",
+  "flow_outcome": "failure",
+  "equiv_outcome": "success",
+  "run_dir": "librelane/runs/RUN_2026-11-17_15-27-47/",
+  "date_utc": "2026-11-17T15:28:01Z"
+}

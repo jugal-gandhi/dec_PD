@@ -1,0 +1,10 @@
+39 Lint warnings found.
+[STA-0450] virtual clock vclk can not be propagated.
+[IFP-0028] Core area lower left (1193.500, 1193.500) snapped to (1193.920, 1195.600).
+[STA-0450] virtual clock vclk can not be propagated.
+[PAD-0033] Could not find a block terminal associated with net: "VDD", creating now.
+[PAD-0033] Could not find a block terminal associated with net: "VSS", creating now.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.

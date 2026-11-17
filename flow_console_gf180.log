@@ -1,0 +1,248 @@
+warning: unknown setting 'build-provenance-tags'
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+librelane --condensed librelane/pads.yaml librelane/config.yaml --pdk gf180mcuD --pdk-root /home/runner/work/dec_PD/dec_PD/pdk --manual-pdk --scl gf180mcu_fd_sc_mcu7t5v0 --pad gf180mcu_fd_io --save-views-to /home/runner/work/dec_PD/dec_PD/final
+[15:27:47] [I] Loading the design configuration file has generated config.py:742
+               the following warnings:                                          
+[15:27:47] [W] The configuration variable                          config.py:746
+               'KLAYOUT_ANTENNA_OPTIONS' is deprecated. Please                  
+               check the docs for the usage on the replacement                  
+               variable 'KLAYOUT_ANTENNA_DEFINES'.                              
+[15:27:47] [W] The configuration variable 'KLAYOUT_FILLER_OPTIONS' config.py:746
+               is deprecated. Please check the docs for the usage               
+               on the replacement variable                                      
+               'KLAYOUT_FILLER_DEFINES'.                                        
+[15:27:47] [W] The configuration variable                          config.py:746
+               'KLAYOUT_DENSITY_OPTIONS' is deprecated. Please                  
+               check the docs for the usage on the replacement                  
+               variable 'KLAYOUT_DENSITY_DEFINES'.                              
+[15:27:47] [W] The configuration variable 'KLAYOUT_DRC_OPTIONS' is config.py:746
+               deprecated. Please check the docs for the usage on               
+               the replacement variable 'KLAYOUT_DRC_DEFINES'.                  
+[15:27:47] [I] Starting a new run of the 'Chip'' flow with the tag   flow.py:654
+               'RUN_2026-11-17_15-27-47'.                                       
+[15:27:47] [I] Starting…                                       sequential.py:339
+[15:27:47] [V] Running 'Verilator.Lint' at                          step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/01-verilator             
+               -lint'…                                                          
+[15:27:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/01-verilator             
+               -lint/verilator-lint.log'…                                       
+[15:27:48] [V] Running 'Checker.LintTimingConstructs' at            step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/02-checker-l             
+               inttimingconstructs'…                                            
+[15:27:48] [I] Check for Lint Timing Errors clear.                checker.py:412
+[15:27:48] [V] Running 'Checker.LintErrors' at                      step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/03-checker-l             
+               interrors'…                                                      
+[15:27:48] [I] Check for Lint errors clear.                       checker.py:131
+[15:27:48] [V] Running 'Checker.LintWarnings' at                    step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/04-checker-l             
+               intwarnings'…                                                    
+[15:27:48] [W] 39 Lint warnings found.                            checker.py:122
+[15:27:48] [V] Running 'Yosys.JsonHeader' at                        step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/05-yosys-jso             
+               nheader'…                                                        
+[15:27:48] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/05-yosys-jso             
+               nheader/yosys-jsonheader.log'…                                   
+[15:27:48] [V] Running 'Yosys.Synthesis' at                         step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/06-yosys-syn             
+               thesis'…                                                         
+[15:27:48] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/06-yosys-syn             
+               thesis/yosys-synthesis.log'…                                     
+[15:27:50] [V] Parsing synthesis checks…                            pyosys.py:59
+[15:27:50] [V] Parsing synthesis checks…                            pyosys.py:59
+[15:27:50] [V] Running 'Checker.YosysUnmappedCells' at              step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/07-checker-y             
+               osysunmappedcells'…                                              
+[15:27:50] [I] Check for Unmapped Yosys instances clear.          checker.py:131
+[15:27:50] [V] Running 'Checker.YosysSynthChecks' at                step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/08-checker-y             
+               osyssynthchecks'…                                                
+[15:27:50] [I] Check for Yosys check errors clear.                checker.py:131
+[15:27:50] [V] Running 'Checker.NetlistAssignStatements' at         step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/09-checker-n             
+               etlistassignstatements'…                                         
+[15:27:50] [V] Running 'OpenROAD.CheckSDCFiles' at                  step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/10-openroad-             
+               checksdcfiles'…                                                  
+[15:27:50] [V] Running 'OpenROAD.CheckMacroInstances' at            step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/11-openroad-             
+               checkmacroinstances'…                                            
+[15:27:50] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/11-openroad-             
+               checkmacroinstances/openroad-checkmacroinstances.log             
+               '…                                                               
+[15:27:50] [V] Running 'OpenROAD.STAPrePNR' at                      step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/12-openroad-             
+               staprepnr'…                                                      
+[15:27:50] [I] Starting STA for the nom_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[15:27:50] [I] Starting STA for the nom_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[15:27:50] [I] Starting STA for the nom_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[15:27:50] [I] Skipping corner min_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[15:27:50] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/12-openroad-             
+               staprepnr/nom_tt_025C_5v00/sta.log'…                             
+[15:27:50] [I] Skipping corner min_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[15:27:50] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/12-openroad-             
+               staprepnr/nom_ss_125C_4v50/sta.log'…                             
+[15:27:50] [I] Skipping corner min_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[15:27:50] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/12-openroad-             
+               staprepnr/nom_ff_n40C_5v50/sta.log'…                             
+[15:27:50] [I] Skipping corner max_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[15:27:50] [I] Skipping corner max_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[15:27:50] [I] Skipping corner max_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[15:27:51] [I] Finished STA for the nom_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[15:27:51] [I] Finished STA for the nom_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[15:27:51] [I] Finished STA for the nom_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[15:27:51] [V] Running 'OpenROAD.Floorplan' at                      step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/13-openroad-             
+               floorplan'…                                                      
+[15:27:51] [V] OpenROAD will use 4 threads                       openroad.py:520
+[15:27:51] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/13-openroad-             
+               floorplan/openroad-floorplan.log'…                               
+[15:27:52] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[15:27:52] [W] [IFP-0028] Core area lower left (1193.500,        openroad.py:321
+               1193.500) snapped to (1193.920, 1195.600).                       
+[15:27:52] [V] Running 'OpenROAD.DumpRCValues' at                   step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/14-openroad-             
+               dumprcvalues'…                                                   
+[15:27:52] [V] OpenROAD will use 4 threads                       openroad.py:520
+[15:27:52] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/14-openroad-             
+               dumprcvalues/openroad-dumprcvalues.log'…                         
+[15:27:53] [V] Running 'Odb.CheckMacroAntennaProperties' at         step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/15-odb-check             
+               macroantennaproperties'…                                         
+[15:27:53] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/15-odb-check             
+               macroantennaproperties/odb-checkmacroantennaproperti             
+               es.log'…                                                         
+[15:27:53] [V] Running 'Odb.SetPowerConnections' at                 step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/16-odb-setpo             
+               werconnections'…                                                 
+[15:27:53] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/16-odb-setpo             
+               werconnections/odb-setpowerconnections.log'…                     
+[15:27:54] [V] Running 'OpenROAD.PadRing' at                        step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/17-openroad-             
+               padring'…                                                        
+[15:27:54] [I] 'PAD_CFG' not explicitly set, setting it to      openroad.py:1305
+               /nix/store/2x5v27nhwvwii7nbykkiqy260f8zf28k-pyth                 
+               on3-3.13.13-env/lib/python3.13/site-packages/lib                 
+               relane/scripts/openroad/common/pad_cfg.tcl…                      
+[15:27:54] [V] OpenROAD will use 4 threads                       openroad.py:520
+[15:27:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/17-openroad-             
+               padring/openroad-padring.log'…                                   
+[15:27:55] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[15:27:55] [W] [PAD-0033] Could not find a block terminal        openroad.py:321
+               associated with net: "VDD", creating now.                        
+[15:27:55] [W] [PAD-0033] Could not find a block terminal        openroad.py:321
+               associated with net: "VSS", creating now.                        
+[15:27:55] [V] Running 'Odb.ManualMacroPlacement' at                step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/18-odb-manua             
+               lmacroplacement'…                                                
+[15:27:55] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/18-odb-manua             
+               lmacroplacement/odb-manualmacroplacement.log'…                   
+[15:27:55] [V] Running 'OpenROAD.CutRows' at                        step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/19-openroad-             
+               cutrows'…                                                        
+[15:27:55] [V] OpenROAD will use 4 threads                       openroad.py:520
+[15:27:55] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/19-openroad-             
+               cutrows/openroad-cutrows.log'…                                   
+[15:27:56] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[15:27:56] [V] Running 'OpenROAD.TapEndcapInsertion' at             step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/20-openroad-             
+               tapendcapinsertion'…                                             
+[15:27:56] [V] OpenROAD will use 4 threads                       openroad.py:520
+[15:27:56] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/20-openroad-             
+               tapendcapinsertion/openroad-tapendcapinsertion.log'…             
+[15:27:57] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[15:27:57] [V] Running 'Odb.AddPDNObstructions' at                  step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/21-odb-addpd             
+               nobstructions'…                                                  
+[15:27:57] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.AddPDNObstructions'…                                        
+[15:27:57] [V] Running 'OpenROAD.GeneratePDN' at                    step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/22-openroad-             
+               generatepdn'…                                                    
+[15:27:57] [V] OpenROAD will use 4 threads                       openroad.py:520
+[15:27:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/22-openroad-             
+               generatepdn/openroad-generatepdn.log'…                           
+[15:27:58] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[15:27:59] [V] Running 'Odb.RemovePDNObstructions' at               step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/23-odb-remov             
+               epdnobstructions'…                                               
+[15:27:59] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.RemovePDNObstructions'…                                     
+[15:27:59] [V] Running 'Odb.AddRoutingObstructions' at              step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/24-odb-addro             
+               utingobstructions'…                                              
+[15:27:59] [I] 'ROUTING_OBSTRUCTIONS' is not defined. Skipping        odb.py:589
+               'Odb.AddRoutingObstructions'…                                    
+[15:27:59] [V] Running 'OpenROAD.GlobalPlacementSkipIO' at          step.py:1138
+               'librelane/runs/RUN_2026-11-17_15-27-47/25-openroad-             
+               globalplacementskipio'…                                          
+[15:27:59] [V] OpenROAD will use 4 threads                       openroad.py:520
+[15:27:59] [I] Logging subprocess to                                step.py:1336
+               'librelane/runs/RUN_2026-11-17_15-27-47/25-openroad-             
+               globalplacementskipio/openroad-globalplacementskipio             
+               .log'…                                                           
+[15:27:59] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[15:28:00] [E] [GPL-0305] RePlAce diverged during gradient       openroad.py:319
+               descent calculation, resulting in an invalid step                
+               length (Inf or NaN). This is often caused by                     
+               numerical instability or high placement density.                 
+               Consider reducing placement density to                           
+               potentially resolve the issue.                                   
+[15:28:01] [W] The following warnings were generated by the flow:    flow.py:699
+[15:28:01] [W] [Checker.LintWarnings] 39 Lint warnings found.        flow.py:701
+[15:28:01] [W] [OpenROAD.Floorplan] [STA-0450] virtual clock vclk    flow.py:701
+               can not be propagated. (and 5 similar warnings)                  
+[15:28:01] [W] [OpenROAD.Floorplan] [IFP-0028] Core area lower left  flow.py:701
+               (1193.500, 1193.500) snapped to (1193.920, 1195.600).            
+[15:28:01] [W] [OpenROAD.PadRing] [PAD-0033] Could not find a block  flow.py:701
+               terminal associated with net: "VDD", creating now.               
+               (and 1 similar warnings)                                         
+[15:28:01] [E] The following error was encountered while running __main__.py:189
+               the flow:                                                        
+               OpenROAD.GlobalPlacementSkipIO failed with the                   
+               following errors:                                                
+               [GPL-0305] RePlAce diverged during gradient                      
+               descent calculation, resulting in an invalid step                
+               length (Inf or NaN). This is often caused by                     
+               numerical instability or high placement density.                 
+               Consider reducing placement density to                           
+               potentially resolve the issue.                                   
+[15:28:01] [E] LibreLane will now quit.                          __main__.py:190
+make: *** [Makefile:43: chip] Error 2
