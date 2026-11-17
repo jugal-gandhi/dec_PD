@@ -1,0 +1,138 @@
+{
+  "die_um": [
+    0.0,
+    0.0,
+    2392.0,
+    2392.0
+  ],
+  "logic_bbox_um": [
+    443.09000000000003,
+    442.53000000000003,
+    1949.23,
+    1948.67
+  ],
+  "logic_instances": 22068,
+  "views": {
+    "die": {
+      "box_um": [
+        -23.92,
+        -23.92,
+        2415.92,
+        2415.92
+      ],
+      "width": 4096,
+      "height": 4096,
+      "layers": [
+        "comp",
+        "poly",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "pad",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "core": {
+      "box_um": [
+        330.1294999999999,
+        329.5695000000002,
+        2062.1904999999997,
+        2061.6305
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "corner": {
+      "box_um": [
+        0.0,
+        0.0,
+        900.0,
+        900.0
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "pad",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "cells": {
+      "box_um": [
+        1166.1599999999999,
+        1165.6000000000001,
+        1226.1599999999999,
+        1225.6000000000001
+      ],
+      "width": 2048,
+      "height": 2048,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    }
+  }
+}

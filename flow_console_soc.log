@@ -1,0 +1,1301 @@
+warning: unknown setting 'build-provenance-tags'
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+librelane --condensed librelane/soc/pads.yaml librelane/soc/config.yaml --pdk gf180mcuD --pdk-root /home/runner/work/dec_PD/dec_PD/pdk --manual-pdk --scl gf180mcu_fd_sc_mcu7t5v0 --pad gf180mcu_fd_io --save-views-to /home/runner/work/dec_PD/dec_PD/final_soc
+[18:27:29] [I] Loading the design configuration file has generated config.py:742
+               the following warnings:                                          
+[18:27:29] [W] The configuration variable                          config.py:746
+               'KLAYOUT_ANTENNA_OPTIONS' is deprecated. Please                  
+               check the docs for the usage on the replacement                  
+               variable 'KLAYOUT_ANTENNA_DEFINES'.                              
+[18:27:29] [W] The configuration variable 'KLAYOUT_FILLER_OPTIONS' config.py:746
+               is deprecated. Please check the docs for the usage               
+               on the replacement variable                                      
+               'KLAYOUT_FILLER_DEFINES'.                                        
+[18:27:29] [W] The configuration variable                          config.py:746
+               'KLAYOUT_DENSITY_OPTIONS' is deprecated. Please                  
+               check the docs for the usage on the replacement                  
+               variable 'KLAYOUT_DENSITY_DEFINES'.                              
+[18:27:29] [W] The configuration variable 'KLAYOUT_DRC_OPTIONS' is config.py:746
+               deprecated. Please check the docs for the usage on               
+               the replacement variable 'KLAYOUT_DRC_DEFINES'.                  
+[18:27:29] [I] Starting a new run of the 'Chip'' flow with the tag   flow.py:654
+               'RUN_2026-11-17_18-27-29'.                                       
+[18:27:29] [I] Starting…                                       sequential.py:339
+[18:27:29] [V] Running 'Verilator.Lint' at                          step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/01-veril             
+               ator-lint'…                                                      
+[18:27:29] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/01-veril             
+               ator-lint/verilator-lint.log'…                                   
+[18:27:30] [V] Running 'Checker.LintTimingConstructs' at            step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/02-check             
+               er-linttimingconstructs'…                                        
+[18:27:30] [I] Check for Lint Timing Errors clear.                checker.py:412
+[18:27:30] [V] Running 'Checker.LintErrors' at                      step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/03-check             
+               er-linterrors'…                                                  
+[18:27:30] [I] Check for Lint errors clear.                       checker.py:131
+[18:27:30] [V] Running 'Checker.LintWarnings' at                    step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/04-check             
+               er-lintwarnings'…                                                
+[18:27:30] [W] 421 Lint warnings found.                           checker.py:122
+[18:27:30] [V] Running 'Yosys.JsonHeader' at                        step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/05-yosys             
+               -jsonheader'…                                                    
+[18:27:30] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/05-yosys             
+               -jsonheader/yosys-jsonheader.log'…                               
+[18:27:30] [V] Running 'Yosys.Synthesis' at                         step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/06-yosys             
+               -synthesis'…                                                     
+[18:27:30] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/06-yosys             
+               -synthesis/yosys-synthesis.log'…                                 
+[18:27:56] [V] Parsing synthesis checks…                            pyosys.py:59
+[18:27:56] [V] Parsing synthesis checks…                            pyosys.py:59
+[18:27:56] [V] Running 'Checker.YosysUnmappedCells' at              step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/07-check             
+               er-yosysunmappedcells'…                                          
+[18:27:56] [I] Check for Unmapped Yosys instances clear.          checker.py:131
+[18:27:56] [V] Running 'Checker.YosysSynthChecks' at                step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/08-check             
+               er-yosyssynthchecks'…                                            
+[18:27:56] [I] Check for Yosys check errors clear.                checker.py:131
+[18:27:56] [V] Running 'Checker.NetlistAssignStatements' at         step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/09-check             
+               er-netlistassignstatements'…                                     
+[18:27:57] [V] Running 'OpenROAD.CheckSDCFiles' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/10-openr             
+               oad-checksdcfiles'…                                              
+[18:27:57] [V] Running 'OpenROAD.CheckMacroInstances' at            step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/11-openr             
+               oad-checkmacroinstances'…                                        
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/11-openr             
+               oad-checkmacroinstances/openroad-checkmacroinstances             
+               .log'…                                                           
+[18:27:57] [V] Running 'OpenROAD.STAPrePNR' at                      step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/12-openr             
+               oad-staprepnr'…                                                  
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Starting STA for the nom_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Starting STA for the nom_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/12-openr             
+               oad-staprepnr/nom_tt_025C_5v00/sta.log'…                         
+[18:27:57] [I] Starting STA for the nom_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Skipping corner min_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Skipping corner min_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[18:27:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/12-openr             
+               oad-staprepnr/nom_ff_n40C_5v50/sta.log'…                         
+[18:27:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/12-openr             
+               oad-staprepnr/nom_ss_125C_4v50/sta.log'…                         
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Skipping corner min_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Skipping corner max_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Skipping corner max_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[18:27:57] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:27:57] [I] Skipping corner max_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[18:28:04] [I] Finished STA for the nom_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[18:28:06] [I] Finished STA for the nom_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[18:28:06] [I] Finished STA for the nom_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[18:28:06] [V] Running 'OpenROAD.Floorplan' at                      step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/13-openr             
+               oad-floorplan'…                                                  
+[18:28:06] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:06] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/13-openr             
+               oad-floorplan/openroad-floorplan.log'…                           
+[18:28:07] [W] [IFP-0028] Core area lower left (442.000,         openroad.py:321
+               442.000) snapped to (442.400, 442.960).                          
+[18:28:08] [V] Running 'OpenROAD.DumpRCValues' at                   step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/14-openr             
+               oad-dumprcvalues'…                                               
+[18:28:08] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:08] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/14-openr             
+               oad-dumprcvalues/openroad-dumprcvalues.log'…                     
+[18:28:09] [V] Running 'Odb.CheckMacroAntennaProperties' at         step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/15-odb-c             
+               heckmacroantennaproperties'…                                     
+[18:28:09] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/15-odb-c             
+               heckmacroantennaproperties/odb-checkmacroantennaprop             
+               erties.log'…                                                     
+[18:28:10] [W] Cell 'gf180mcu_fd_ip_sram__sram512x8m8wm1' has (10)     odb.py:71
+               input pin(s) without antenna gate information. They              
+               might not be connected to a gate.                                
+[18:28:10] [V] Running 'Odb.SetPowerConnections' at                 step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/16-odb-s             
+               etpowerconnections'…                                             
+[18:28:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/16-odb-s             
+               etpowerconnections/odb-setpowerconnections.log'…                 
+[18:28:17] [V] Running 'OpenROAD.PadRing' at                        step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/17-openr             
+               oad-padring'…                                                    
+[18:28:17] [I] 'PAD_CFG' not explicitly set, setting it to      openroad.py:1305
+               /nix/store/2x5v27nhwvwii7nbykkiqy260f8zf28k-pyth                 
+               on3-3.13.13-env/lib/python3.13/site-packages/lib                 
+               relane/scripts/openroad/common/pad_cfg.tcl…                      
+[18:28:17] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:17] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/17-openr             
+               oad-padring/openroad-padring.log'…                               
+[18:28:18] [W] [PAD-0033] Could not find a block terminal        openroad.py:321
+               associated with net: "VSS", creating now.                        
+[18:28:18] [W] [PAD-0033] Could not find a block terminal        openroad.py:321
+               associated with net: "VDD", creating now.                        
+[18:28:19] [V] Running 'Odb.ManualMacroPlacement' at                step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/18-odb-m             
+               anualmacroplacement'…                                            
+[18:28:19] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/18-odb-m             
+               anualmacroplacement/odb-manualmacroplacement.log'…               
+[18:28:20] [V] Running 'OpenROAD.CutRows' at                        step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/19-openr             
+               oad-cutrows'…                                                    
+[18:28:20] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:20] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/19-openr             
+               oad-cutrows/openroad-cutrows.log'…                               
+[18:28:22] [V] Running 'OpenROAD.TapEndcapInsertion' at             step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/20-openr             
+               oad-tapendcapinsertion'…                                         
+[18:28:22] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:22] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/20-openr             
+               oad-tapendcapinsertion/openroad-tapendcapinsertion.l             
+               og'…                                                             
+[18:28:24] [V] Running 'Odb.AddPDNObstructions' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/21-odb-a             
+               ddpdnobstructions'…                                              
+[18:28:24] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.AddPDNObstructions'…                                        
+[18:28:24] [V] Running 'OpenROAD.GeneratePDN' at                    step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/22-openr             
+               oad-generatepdn'…                                                
+[18:28:24] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:24] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/22-openr             
+               oad-generatepdn/openroad-generatepdn.log'…                       
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (594.0500, 951.8800) - (594.2100,                      
+               956.8800) on VDD                                                 
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (635.9300, 925.8900) - (639.9300,                      
+               925.9900) on VSS                                                 
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (1610.2100, 951.8800) - (1610.3500,                    
+               956.8800) on VDD                                                 
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (1752.0700, 925.8900) - (1756.0700,                    
+               925.9900) on VSS                                                 
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (594.0500, 1435.1200) - (594.2100,                     
+               1440.1200) on VDD                                                
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (635.9300, 1466.0100) - (639.9300,                     
+               1466.1100) on VSS                                                
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (1610.2100, 1435.1200) - (1610.3500,                   
+               1440.1200) on VDD                                                
+[18:28:25] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (1752.0700, 1466.0100) - (1756.0700,                   
+               1466.1100) on VSS                                                
+[18:28:29] [V] Running 'Odb.RemovePDNObstructions' at               step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/23-odb-r             
+               emovepdnobstructions'…                                           
+[18:28:29] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.RemovePDNObstructions'…                                     
+[18:28:29] [V] Running 'Odb.AddRoutingObstructions' at              step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/24-odb-a             
+               ddroutingobstructions'…                                          
+[18:28:29] [I] 'ROUTING_OBSTRUCTIONS' is not defined. Skipping        odb.py:589
+               'Odb.AddRoutingObstructions'…                                    
+[18:28:29] [V] Running 'OpenROAD.GlobalPlacementSkipIO' at          step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/25-openr             
+               oad-globalplacementskipio'…                                      
+[18:28:29] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:29] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/25-openr             
+               oad-globalplacementskipio/openroad-globalplacementsk             
+               ipio.log'…                                                       
+[18:28:36] [V] Running 'Odb.ApplyDEFTemplate' at                    step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/26-odb-a             
+               pplydeftemplate'…                                                
+[18:28:36] [I] No DEF template provided, skipping                     odb.py:302
+               'Odb.ApplyDEFTemplate'…                                          
+[18:28:36] [V] Running 'OpenROAD.GlobalPlacement' at                step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/27-openr             
+               oad-globalplacement'…                                            
+[18:28:36] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:28:36] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/27-openr             
+               oad-globalplacement/openroad-globalplacement.log'…               
+[18:28:43] [W] [GRT-0281] Net clk has a large fanout of 2599     openroad.py:321
+               terminals.                                                       
+[18:29:01] [V] Running 'Odb.WriteVerilogHeader' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/28-odb-w             
+               riteverilogheader'…                                              
+[18:29:01] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/28-odb-w             
+               riteverilogheader/odb-writeverilogheader.log'…                   
+[18:29:02] [V] Running 'Checker.PowerGridViolations' at             step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/29-check             
+               er-powergridviolations'…                                         
+[18:29:02] [I] Check for power grid violations (as reported by    checker.py:131
+               OpenROAD PSM- you may ignore these if LVS passes)                
+               clear.                                                           
+[18:29:02] [V] Running 'OpenROAD.STAMidPNR' at                      step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/30-openr             
+               oad-stamidpnr'…                                                  
+[18:29:02] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:29:02] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/30-openr             
+               oad-stamidpnr/openroad-stamidpnr.log'…                           
+[18:29:10] [V] Running 'OpenROAD.RepairDesignPostGPL' at            step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/31-openr             
+               oad-repairdesignpostgpl'…                                        
+[18:29:10] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:29:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/31-openr             
+               oad-repairdesignpostgpl/openroad-repairdesignpostgpl             
+               .log'…                                                           
+[18:29:11] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.tt_025C_5v00.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:11] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:11] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:11] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:11] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:12] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.ss_125C_4v50.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:12] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:12] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:12] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:12] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:37] [V] Running 'Odb.ManualGlobalPlacement' at               step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/32-odb-m             
+               anualglobalplacement'…                                           
+[18:29:37] [I] 'MANUAL_GLOBAL_PLACEMENTS' not set. Skipping          odb.py:1032
+               'Odb.ManualGlobalPlacement'…                                     
+[18:29:37] [V] Running 'OpenROAD.DetailedPlacement' at              step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/33-openr             
+               oad-detailedplacement'…                                          
+[18:29:37] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:29:37] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/33-openr             
+               oad-detailedplacement/openroad-detailedplacement.log             
+               '…                                                               
+[18:29:40] [V] Running 'OpenROAD.CTS' at                            step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/34-openr             
+               oad-cts'…                                                        
+[18:29:40] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:29:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/34-openr             
+               oad-cts/openroad-cts.log'…                                       
+[18:29:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.tt_025C_5v00.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ff_n40C_5v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already                    
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_                
+               5v50.lib line 17, library                                        
+               gf180mcu_fd_io__ff_n40C_5v50 already exists.                     
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ff_n40C_5v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50                
+               already exists.                                                  
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.ff_n40C_5v50.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__tt_025C_5v00.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already                    
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_                
+               5v00.lib line 17, library                                        
+               gf180mcu_fd_io__tt_025C_5v00 already exists.                     
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__tt_025C_5v00.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00                
+               already exists.                                                  
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.tt_025C_5v00.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:42] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.ss_125C_4v50.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ff_n40C_5v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already                    
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_                
+               5v50.lib line 17, library                                        
+               gf180mcu_fd_io__ff_n40C_5v50 already exists.                     
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ff_n40C_5v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50                
+               already exists.                                                  
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.ff_n40C_5v50.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:43] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__tt_025C_5v00.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already                    
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_                
+               5v00.lib line 17, library                                        
+               gf180mcu_fd_io__tt_025C_5v00 already exists.                     
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__tt_025C_5v00.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00                
+               already exists.                                                  
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.tt_025C_5v00.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ss_125C_4v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already                    
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_                
+               4v50.lib line 17, library                                        
+               gf180mcu_fd_io__ss_125C_4v50 already exists.                     
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ss_125C_4v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50                
+               already exists.                                                  
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.ss_125C_4v50.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:29:44] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ss_125C_4v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already                    
+               exists.                                                          
+[18:29:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_                
+               4v50.lib line 17, library                                        
+               gf180mcu_fd_io__ss_125C_4v50 already exists.                     
+[18:29:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ss_125C_4v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50                
+               already exists.                                                  
+[18:29:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.ss_125C_4v50.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:29:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:29:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:29:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:29:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:30:35] [V] Running 'OpenROAD.STAMidPNR-1' at                    step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/35-openr             
+               oad-stamidpnr-1'…                                                
+[18:30:35] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:30:35] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/35-openr             
+               oad-stamidpnr-1/openroad-stamidpnr-1.log'…                       
+[18:30:44] [V] Running 'OpenROAD.ResizerTimingPostCTS' at           step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/36-openr             
+               oad-resizertimingpostcts'…                                       
+[18:30:44] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:30:44] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/36-openr             
+               oad-resizertimingpostcts/openroad-resizertimingpostc             
+               ts.log'…                                                         
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.tt_025C_5v00.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/li                
+               b/posit_decoder_32_2.ss_125C_4v50.lib line 1,                    
+               library posit_decoder_32_2 already exists.                       
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[18:30:45] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[18:31:16] [V] Running 'OpenROAD.STAMidPNR-2' at                    step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/37-openr             
+               oad-stamidpnr-2'…                                                
+[18:31:16] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:31:16] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/37-openr             
+               oad-stamidpnr-2/openroad-stamidpnr-2.log'…                       
+[18:31:24] [V] Running 'OpenROAD.GlobalRouting' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/38-openr             
+               oad-globalrouting'…                                              
+[18:31:24] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:31:24] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/38-openr             
+               oad-globalrouting/openroad-globalrouting.log'…                   
+[18:31:32] [V] Running 'OpenROAD.CheckAntennas' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/39-openr             
+               oad-checkantennas'…                                              
+[18:31:32] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:31:32] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/39-openr             
+               oad-checkantennas/openroad-checkantennas.log'…                   
+[18:31:39] [I] Gating variable for step                        sequential.py:362
+               'OpenROAD.RepairDesignPostGRT' set to 'False'-                   
+               the step will be skipped.                                        
+[18:31:39] [I] Skipping step 'Repair Design (Post-Global       sequential.py:370
+               Routing)'…                                                       
+[18:31:39] [V] Running 'Odb.DiodesOnPorts' at                       step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/40-odb-d             
+               iodesonports'…                                                   
+[18:31:39] [I] 'DIODE_ON_PORTS' is set to 'none': skipping            odb.py:820
+               'Odb.DiodesOnPorts'…                                             
+[18:31:39] [I] Gating variable for step                        sequential.py:362
+               'Odb.HeuristicDiodeInsertion' set to 'False'-                    
+               the step will be skipped.                                        
+[18:31:39] [I] Skipping step 'Heuristic Diode Insertion'…      sequential.py:370
+[18:31:39] [V] Running 'OpenROAD.RepairAntennas' at                 step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/41-openr             
+               oad-repairantennas'…                                             
+[18:31:39] [V] Running 'OpenROAD.DiodeInsertion' at                 step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/41-openr             
+               oad-repairantennas/1-openroad-diodeinsertion'…                   
+[18:31:39] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:31:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/41-openr             
+               oad-repairantennas/1-openroad-diodeinsertion/openroa             
+               d-diodeinsertion.log'…                                           
+[18:32:05] [V] Running 'OpenROAD.CheckAntennas' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/41-openr             
+               oad-repairantennas/2-openroad-checkantennas'…                    
+[18:32:05] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:32:05] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/41-openr             
+               oad-repairantennas/2-openroad-checkantennas/openroad             
+               -checkantennas.log'…                                             
+[18:32:11] [I] Gating variable for step                        sequential.py:362
+               'OpenROAD.ResizerTimingPostGRT' set to 'False'-                  
+               the step will be skipped.                                        
+[18:32:11] [I] Skipping step 'Resizer Timing Optimizations     sequential.py:370
+               (Post-Global Routing)'…                                          
+[18:32:11] [V] Running 'OpenROAD.STAMidPNR-3' at                    step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/42-openr             
+               oad-stamidpnr-3'…                                                
+[18:32:11] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:32:11] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/42-openr             
+               oad-stamidpnr-3/openroad-stamidpnr-3.log'…                       
+[18:32:20] [V] Running 'OpenROAD.DetailedRouting' at                step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/43-openr             
+               oad-detailedrouting'…                                            
+[18:32:20] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:32:20] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/43-openr             
+               oad-detailedrouting/openroad-detailedrouting.log'…               
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via1                           
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via1                           
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via2                           
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via2                           
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via3                           
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via3                           
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via4                           
+[18:32:21] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via4                           
+[18:42:31] [V] Running 'Odb.RemoveRoutingObstructions' at           step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/44-odb-r             
+               emoveroutingobstructions'…                                       
+[18:42:31] [I] 'ROUTING_OBSTRUCTIONS' is not defined. Skipping        odb.py:589
+               'Odb.RemoveRoutingObstructions'…                                 
+[18:42:31] [V] Running 'OpenROAD.CheckAntennas-1' at                step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/45-openr             
+               oad-checkantennas-1'…                                            
+[18:42:31] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:42:31] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/45-openr             
+               oad-checkantennas-1/openroad-checkantennas-1.log'…               
+[18:42:36] [V] Running 'Checker.TrDRC' at                           step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/46-check             
+               er-trdrc'…                                                       
+[18:42:36] [I] Check for Routing DRC errors clear.                checker.py:131
+[18:42:36] [V] Running 'Odb.ReportDisconnectedPins' at              step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/47-odb-r             
+               eportdisconnectedpins'…                                          
+[18:42:36] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/47-odb-r             
+               eportdisconnectedpins/odb-reportdisconnectedpins.log             
+               '…                                                               
+[18:42:38] [V] Running 'Checker.DisconnectedPins' at                step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/48-check             
+               er-disconnectedpins'…                                            
+[18:42:38] [I] Check for critical disconnected pins clear.        checker.py:131
+[18:42:38] [V] Running 'Odb.ReportWireLength' at                    step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/49-odb-r             
+               eportwirelength'…                                                
+[18:42:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/49-odb-r             
+               eportwirelength/odb-reportwirelength.log'…                       
+[18:42:39] [V] Running 'Checker.WireLength' at                      step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/50-check             
+               er-wirelength'…                                                  
+[18:42:39] [W] Threshold for Threshold-surpassing long wires is   checker.py:108
+               not set. The checker will be skipped.                            
+[18:42:39] [V] Running 'OpenROAD.FillInsertion' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/51-openr             
+               oad-fillinsertion'…                                              
+[18:42:39] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:42:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/51-openr             
+               oad-fillinsertion/openroad-fillinsertion.log'…                   
+[18:42:43] [V] Running 'Odb.CellFrequencyTables' at                 step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/52-odb-c             
+               ellfrequencytables'…                                             
+[18:42:43] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/52-odb-c             
+               ellfrequencytables/buffer_list.txt'…                             
+[18:42:44] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/52-odb-c             
+               ellfrequencytables/odb-cellfrequencytables.log'…                 
+[18:42:45] [V] Running 'OpenROAD.RCX' at                            step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/53-openr             
+               oad-rcx'…                                                        
+[18:42:45] [I] Running RCX for corners matching nom_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/soc/r                 
+               uns/RUN_2026-11-17_18-27-29/53-openroad-rcx/nom/                 
+               rcx.log)…                                                        
+[18:42:45] [I] Running RCX for corners matching min_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/soc/r                 
+               uns/RUN_2026-11-17_18-27-29/53-openroad-rcx/min/                 
+               rcx.log)…                                                        
+[18:42:45] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:42:45] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:42:45] [I] Running RCX for corners matching max_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/soc/r                 
+               uns/RUN_2026-11-17_18-27-29/53-openroad-rcx/max/                 
+               rcx.log)…                                                        
+[18:42:45] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:42:45] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/53-openr             
+               oad-rcx/nom/rcx.log'…                                            
+[18:42:45] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/53-openr             
+               oad-rcx/min/rcx.log'…                                            
+[18:42:45] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/53-openr             
+               oad-rcx/max/rcx.log'…                                            
+[18:42:52] [I] Finished RCX for corners matching max_*.         openroad.py:2199
+[18:42:54] [I] Finished RCX for corners matching min_*.         openroad.py:2199
+[18:42:54] [I] Finished RCX for corners matching nom_*.         openroad.py:2199
+[18:42:54] [V] Running 'OpenROAD.STAPostPNR' at                     step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr'…                                                 
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [I] Starting STA for the nom_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/nom_tt_025C_5v00/sta.log'…                        
+[18:42:54] [I] Starting STA for the nom_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [I] Starting STA for the nom_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/nom_ss_125C_4v50/sta.log'…                        
+[18:42:54] [I] Starting STA for the min_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/min_tt_025C_5v00/sta.log'…                        
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:42:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/nom_ff_n40C_5v50/sta.log'…                        
+[18:42:54] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[18:43:15] [I] Finished STA for the nom_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[18:43:15] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/nom_ss_125C_4v50/filter_unannotated.l             
+               og'…                                                             
+[18:43:15] [I] Finished STA for the min_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[18:43:15] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/min_tt_025C_5v00/filter_unannotated.l             
+               og'…                                                             
+[18:43:15] [I] Finished STA for the nom_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[18:43:15] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/nom_ff_n40C_5v50/filter_unannotated.l             
+               og'…                                                             
+[18:43:16] [I] Finished STA for the nom_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[18:43:16] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/nom_tt_025C_5v00/filter_unannotated.l             
+               og'…                                                             
+[18:43:17] [I] Starting STA for the min_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[18:43:17] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/min_ss_125C_4v50/sta.log'…                        
+[18:43:18] [I] Starting STA for the min_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[18:43:18] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/min_ff_n40C_5v50/sta.log'…                        
+[18:43:18] [I] Starting STA for the max_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[18:43:18] [I] Starting STA for the max_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[18:43:18] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/max_tt_025C_5v00/sta.log'…                        
+[18:43:18] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/max_ss_125C_4v50/sta.log'…                        
+[18:43:38] [I] Finished STA for the min_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[18:43:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/min_ss_125C_4v50/filter_unannotated.l             
+               og'…                                                             
+[18:43:38] [I] Finished STA for the max_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[18:43:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/max_ss_125C_4v50/filter_unannotated.l             
+               og'…                                                             
+[18:43:39] [I] Finished STA for the max_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[18:43:39] [I] Finished STA for the min_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[18:43:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/min_ff_n40C_5v50/filter_unannotated.l             
+               og'…                                                             
+[18:43:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/max_tt_025C_5v00/filter_unannotated.l             
+               og'…                                                             
+[18:43:40] [I] Starting STA for the max_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[18:43:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/max_ff_n40C_5v50/sta.log'…                        
+[18:43:53] [I] Finished STA for the max_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[18:43:53] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/54-openr             
+               oad-stapostpnr/max_ff_n40C_5v50/filter_unannotated.l             
+               og'…                                                             
+[18:43:55] [V] Running 'OpenROAD.IRDropReport' at                   step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/55-openr             
+               oad-irdropreport'…                                               
+[18:43:55] [W] 'VSRC_LOC_FILES' was not given a value, which    openroad.py:2291
+               may make the results of IR drop analysis                         
+               inaccurate. If you are not integrating a                         
+               top-level chip for manufacture, you may ignore                   
+               this warning, otherwise, see the documentation                   
+               for 'VSRC_LOC_FILES'.                                            
+[18:43:55] [V] OpenROAD will use 4 threads                       openroad.py:520
+[18:43:55] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/55-openr             
+               oad-irdropreport/openroad-irdropreport.log'…                     
+[18:44:37] [V] + analyze_power_grid -net VDD -voltage_file      openroad.py:2303
+               /home/runner/work/dec_PD/dec_PD/librelane/soc/ru                 
+               ns/RUN_2026-11-17_18-27-29/55-openroad-irdroprep                 
+               ort/net-VDD.csv                                                  
+               [INFO PSM-0040] All shapes on net VDD are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VDD                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 3.51e-03 W                                    
+               Supply voltage   : 5.00e+00 V                                    
+               Worstcase voltage: 5.00e+00 V                                    
+               Average voltage  : 5.00e+00 V                                    
+               Average IR drop  : 3.61e-06 V                                    
+               Worstcase IR drop: 1.57e-05 V                                    
+               Percentage drop  : 0.00 %                                        
+               ######################################                           
+               + analyze_power_grid -net VSS -voltage_file                      
+               /home/runner/work/dec_PD/dec_PD/librelane/soc/ru                 
+               ns/RUN_2026-11-17_18-27-29/55-openroad-irdroprep                 
+               ort/net-VSS.csv                                                  
+               [INFO PSM-0040] All shapes on net VSS are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VSS                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 3.51e-03 W                                    
+               Supply voltage   : 0.00e+00 V                                    
+               Worstcase voltage: 2.19e-05 V                                    
+               Average voltage  : 3.66e-06 V                                    
+               Average IR drop  : 3.66e-06 V                                    
+               Worstcase IR drop: 2.19e-05 V                                    
+               Percentage drop  : 0.00 %                                        
+               ######################################                           
+                                                                                
+[18:44:37] [V] Running 'Magic.StreamOut' at                         step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout'…                                                     
+[18:44:37] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout/gf180mcu_fd_ip_sram__sram512x8m8wm1.get_b             
+               box.log'…                                                        
+[18:44:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout/posit_decoder_32_2.get_bbox.log'…                     
+[18:44:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout/dieart_tl.get_bbox.log'…                              
+[18:44:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout/dieart_tr.get_bbox.log'…                              
+[18:44:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout/dieart_bl.get_bbox.log'…                              
+[18:44:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout/dieart_br.get_bbox.log'…                              
+[18:44:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/56-magic             
+               -streamout/magic-streamout.log'…                                 
+[18:45:22] [V] Running 'KLayout.StreamOut' at                       step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/57-klayo             
+               ut-streamout'…                                                   
+[18:45:22] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/57-klayo             
+               ut-streamout/klayout-streamout.log'…                             
+[18:45:25] [V] Running 'KLayout.XOR' at                             step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/58-klayo             
+               ut-xor'…                                                         
+[18:45:25] [I] Running XOR with 4 threads…                        klayout.py:406
+[18:45:25] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/58-klayo             
+               ut-xor/klayout-xor.log'…                                         
+[18:46:19] [V] Running 'Checker.XOR' at                             step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/59-check             
+               er-xor'…                                                         
+[18:46:19] [I] Check for XOR differences clear.                   checker.py:131
+[18:46:19] [V] Running 'KLayout.Antenna' at                         step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/60-klayo             
+               ut-antenna'…                                                     
+[18:46:19] [I] Running KLayout antenna check…                    klayout.py:1358
+[18:46:19] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/60-klayo             
+               ut-antenna/klayout-antenna.log'…                                 
+[18:47:51] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/60-klayo             
+               ut-antenna/xml_drc_report_to_json.log'…                          
+[18:47:51] [V] Running 'Checker.KLayoutAntenna' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/61-check             
+               er-klayoutantenna'…                                              
+[18:47:51] [I] Check for KLayout antenna errors clear.            checker.py:131
+[18:47:51] [V] Running 'KLayout.SealRing' at                        step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/62-klayo             
+               ut-sealring'…                                                    
+[18:47:51] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/62-klayo             
+               ut-sealring/klayout-sealring.log'…                               
+[18:47:53] [V] Running 'KLayout.Render' at                          step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/63-klayo             
+               ut-render'…                                                      
+[18:47:53] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/63-klayo             
+               ut-render/klayout-render.log'…                                   
+[18:47:57] [V] Running 'KLayout.Filler' at                          step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/64-klayo             
+               ut-filler'…                                                      
+[18:47:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/64-klayo             
+               ut-filler/klayout-filler.log'…                                   
+[18:48:59] [V] Running 'KLayout.Density' at                         step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/65-klayo             
+               ut-density'…                                                     
+[18:48:59] [I] Running KLayout density check with 4 threads…     klayout.py:1249
+[18:48:59] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/65-klayo             
+               ut-density/klayout-density.log'…                                 
+[18:51:16] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/65-klayo             
+               ut-density/xml_drc_report_to_json.log'…                          
+[18:51:16] [V] Running 'Checker.KLayoutDensity' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/66-check             
+               er-klayoutdensity'…                                              
+[18:51:16] [I] Check for KLayout density errors clear.            checker.py:131
+[18:51:16] [V] Running 'Magic.DRC' at                               step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/67-magic             
+               -drc'…                                                           
+[18:51:16] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/67-magic             
+               -drc/magic-drc.log'…                                             
+[19:00:19] [V] Running 'KLayout.DRC' at                             step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/68-klayo             
+               ut-drc'…                                                         
+[19:00:19] [I] Running KLayout DRC with 1 threads…                klayout.py:672
+[19:00:19] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/68-klayo             
+               ut-drc/klayout-drc.log'…                                         
+[19:21:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/68-klayo             
+               ut-drc/xml_drc_report_to_json.log'…                              
+[19:21:57] [V] Running 'Checker.MagicDRC' at                        step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/69-check             
+               er-magicdrc'…                                                    
+[19:21:57] [I] Check for Magic DRC errors clear.                  checker.py:131
+[19:21:57] [V] Running 'Checker.KLayoutDRC' at                      step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/70-check             
+               er-klayoutdrc'…                                                  
+[19:21:57] [I] Check for KLayout DRC errors clear.                checker.py:131
+[19:21:57] [V] Running 'Magic.SpiceExtraction' at                   step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/71-magic             
+               -spiceextraction'…                                               
+[19:21:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/71-magic             
+               -spiceextraction/magic-spiceextraction.log'…                     
+[19:22:42] [V] Running 'Checker.IllegalOverlap' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/72-check             
+               er-illegaloverlap'…                                              
+[19:22:42] [I] Check for Magic Illegal Overlap errors clear.      checker.py:131
+[19:22:42] [V] Running 'Netgen.LVS' at                              step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/73-netge             
+               n-lvs'…                                                          
+[19:22:42] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/73-netge             
+               n-lvs/netgen-lvs.log'…                                           
+[19:23:15] [V] Running 'Checker.LVS' at                             step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/74-check             
+               er-lvs'…                                                         
+[19:23:15] [I] Check for LVS errors clear.                        checker.py:131
+[19:23:15] [I] Gating variable for step 'Yosys.EQY' set to     sequential.py:362
+               'False'- the step will be skipped.                               
+[19:23:15] [I] Skipping step 'Equivalence Check'…              sequential.py:370
+[19:23:15] [V] Running 'Checker.SetupViolations' at                 step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/75-check             
+               er-setupviolations'…                                             
+[19:23:15] [V] No setup violations found                          checker.py:628
+[19:23:15] [V] Running 'Checker.HoldViolations' at                  step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/76-check             
+               er-holdviolations'…                                              
+[19:23:15] [V] No hold violations found                           checker.py:628
+[19:23:15] [V] Running 'Checker.MaxSlewViolations' at               step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/77-check             
+               er-maxslewviolations'…                                           
+[19:23:15] [W] Max Slew violations found in the following         checker.py:626
+               corners:                                                         
+               * max_ss_125C_4v50                                               
+               * max_tt_025C_5v00                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[19:23:15] [V] No max slew violations found                       checker.py:628
+[19:23:15] [V] Running 'Checker.MaxCapViolations' at                step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/78-check             
+               er-maxcapviolations'…                                            
+[19:23:15] [V] No max cap violations found                        checker.py:628
+[19:23:15] [V] Running 'Misc.ReportManufacturability' at            step.py:1138
+               'librelane/soc/runs/RUN_2026-11-17_18-27-29/79-misc-             
+               reportmanufacturability'…                                        
+[19:23:15] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/librelane/soc/runs/             
+               RUN_2026-11-17_18-27-29/final'…                                  
+[19:23:15] [I] Flow complete.                                  sequential.py:413
+[19:23:15] [W] The following warnings were generated by the flow:    flow.py:699
+[19:23:15] [W] [Checker.LintWarnings] 421 Lint warnings found.       flow.py:701
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 2 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[19:23:15] [W] [OpenROAD.Floorplan] [IFP-0028] Core area lower left  flow.py:701
+               (442.000, 442.000) snapped to (442.400, 442.960).                
+[19:23:15] [W] [Odb.CheckMacroAntennaProperties] Cell                flow.py:701
+               'gf180mcu_fd_ip_sram__sram512x8m8wm1' has (10) input             
+               pin(s) without antenna gate information. They might              
+               not be connected to a gate.                                      
+[19:23:15] [W] [OpenROAD.PadRing] [PAD-0033] Could not find a block  flow.py:701
+               terminal associated with net: "VSS", creating now.               
+               (and 1 similar warnings)                                         
+[19:23:15] [W] [OpenROAD.GeneratePDN] [PDN-0110] No via inserted     flow.py:701
+               between Metal3 and Metal4 at (594.0500, 951.8800) -              
+               (594.2100, 956.8800) on VDD (and 7 similar warnings)             
+[19:23:15] [W] [OpenROAD.GlobalPlacement] [GRT-0281] Net clk has a   flow.py:701
+               large fanout of 2599 terminals.                                  
+[19:23:15] [W] [OpenROAD.RepairDesignPostGPL] [STA-1140]             flow.py:701
+               /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/po            
+               sit_decoder_32_2.tt_025C_5v00.lib line 1, library                
+               posit_decoder_32_2 already exists. (and 77 similar               
+               warnings)                                                        
+[19:23:15] [W] [OpenROAD.DetailedRouting] [DRT-0349] LEF58_ENCLOSURE flow.py:701
+               with no CUTCLASS is not supported. Skipping for layer            
+               Via1 (and 7 similar warnings)                                    
+[19:23:15] [W] [Checker.WireLength] Threshold for                    flow.py:701
+               Threshold-surpassing long wires is not set. The                  
+               checker will be skipped.                                         
+[19:23:15] [W] [OpenROAD.IRDropReport] 'VSRC_LOC_FILES' was not      flow.py:701
+               given a value, which may make the results of IR drop             
+               analysis inaccurate. If you are not integrating a                
+               top-level chip for manufacture, you may ignore this              
+               warning, otherwise, see the documentation for                    
+               'VSRC_LOC_FILES'.                                                
+[19:23:15] [W] [Checker.MaxSlewViolations] Max Slew violations found flow.py:701
+               in the following corners:                                        
+               * max_ss_125C_4v50                                               
+               * max_tt_025C_5v00                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[19:23:15] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/final_soc'…                     

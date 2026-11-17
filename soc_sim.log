@@ -1,0 +1,32 @@
+[300000] cycle 1 GPIO_OUT = zzzz
+[166300000] cycle 831 GPIO_OUT = 0000
+[192500000] cycle 962 GPIO_OUT = 0001
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 306702000: scope = tb_soc.dut.u_soc.soc.memory.sram3 ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 306702000: scope = tb_soc.dut.u_soc.soc.memory.sram2 ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 306702000: scope = tb_soc.dut.u_soc.soc.memory.sram1 ---------
+-------- MESSAGE: CEN is just reset, memory is operational ---------
+-------- @Time 306702000: scope = tb_soc.dut.u_soc.soc.memory.sram0 ---------
+[41600700000] cycle 208003 GPIO_OUT = 0002
+[41882300000] cycle 209411 GPIO_OUT = 0003
+[56454300000] cycle 282271 GPIO_OUT = a5a5
+[56852900000] UART: 'P'
+[57065100000] UART: 'A'
+[57277300000] UART: 'S'
+[57489500000] UART: 'S'
+SOC_SIM PASS: self-test passed after 282272 cycles
+verif/soc/tb_soc.v:75: $finish called at 57654300000 (1ps)
+[60000] cycle 1 GPIO_OUT = zzzz
+[33260000] cycle 831 GPIO_OUT = 0000
+[38500000] cycle 962 GPIO_OUT = 0001
+[8320140000] cycle 208003 GPIO_OUT = 0002
+[8376460000] cycle 209411 GPIO_OUT = 0003
+[11290860000] cycle 282271 GPIO_OUT = a5a5
+[11370580000] UART: 'P'
+[11413020000] UART: 'A'
+[11455460000] UART: 'S'
+[11497900000] UART: 'S'
+SOC_SIM PASS: self-test passed after 282272 cycles
+verif/soc/tb_soc.v:75: $finish called at 11530860000 (1ps)

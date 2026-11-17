@@ -1,0 +1,126 @@
+421 Lint warnings found.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner nom_tt_025C_5v00. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner nom_tt_025C_5v00. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner nom_ss_125C_4v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner nom_ff_n40C_5v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner min_tt_025C_5v00. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner min_ss_125C_4v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner min_ff_n40C_5v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner max_tt_025C_5v00. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner max_ss_125C_4v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner max_ff_n40C_5v50. The netlist cannot be used for timing on this module.
+[IFP-0028] Core area lower left (442.000, 442.000) snapped to (442.400, 442.960).
+Cell 'gf180mcu_fd_ip_sram__sram512x8m8wm1' has (10) input pin(s) without antenna gate information. They might not be connected to a gate.
+[PAD-0033] Could not find a block terminal associated with net: "VSS", creating now.
+[PAD-0033] Could not find a block terminal associated with net: "VDD", creating now.
+[PDN-0110] No via inserted between Metal3 and Metal4 at (594.0500, 951.8800) - (594.2100, 956.8800) on VDD
+[PDN-0110] No via inserted between Metal3 and Metal4 at (635.9300, 925.8900) - (639.9300, 925.9900) on VSS
+[PDN-0110] No via inserted between Metal3 and Metal4 at (1610.2100, 951.8800) - (1610.3500, 956.8800) on VDD
+[PDN-0110] No via inserted between Metal3 and Metal4 at (1752.0700, 925.8900) - (1756.0700, 925.9900) on VSS
+[PDN-0110] No via inserted between Metal3 and Metal4 at (594.0500, 1435.1200) - (594.2100, 1440.1200) on VDD
+[PDN-0110] No via inserted between Metal3 and Metal4 at (635.9300, 1466.0100) - (639.9300, 1466.1100) on VSS
+[PDN-0110] No via inserted between Metal3 and Metal4 at (1610.2100, 1435.1200) - (1610.3500, 1440.1200) on VDD
+[PDN-0110] No via inserted between Metal3 and Metal4 at (1752.0700, 1466.0100) - (1756.0700, 1466.1100) on VSS
+[GRT-0281] Net clk has a large fanout of 2599 terminals.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.tt_025C_5v00.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.ss_125C_4v50.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.tt_025C_5v00.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_5v50.lib line 17, library gf180mcu_fd_io__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50.lib line 29, library gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.ff_n40C_5v50.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_5v00.lib line 17, library gf180mcu_fd_io__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00.lib line 29, library gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.tt_025C_5v00.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.ss_125C_4v50.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_5v50.lib line 17, library gf180mcu_fd_io__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50.lib line 29, library gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.ff_n40C_5v50.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_5v00.lib line 17, library gf180mcu_fd_io__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00.lib line 29, library gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.tt_025C_5v00.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_4v50.lib line 17, library gf180mcu_fd_io__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50.lib line 29, library gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.ss_125C_4v50.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_4v50.lib line 17, library gf180mcu_fd_io__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50.lib line 29, library gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.ss_125C_4v50.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.tt_025C_5v00.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/posit_macro/lib/posit_decoder_32_2.ss_125C_4v50.lib line 1, library posit_decoder_32_2 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tl.lib line 1, library dieart_tl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_tr.lib line 1, library dieart_tr already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_bl.lib line 1, library dieart_bl already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/dieart_br.lib line 1, library dieart_br already exists.
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+Threshold for Threshold-surpassing long wires is not set. The checker will be skipped.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner nom_tt_025C_5v00. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner nom_ss_125C_4v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner nom_ff_n40C_5v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner min_tt_025C_5v00. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner min_ss_125C_4v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner min_ff_n40C_5v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner max_tt_025C_5v00. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner max_ss_125C_4v50. The netlist cannot be used for timing on this module.
+Netlists found for macro posit_decoder_32_2, but no parasitics extraction found at corner max_ff_n40C_5v50. The netlist cannot be used for timing on this module.
+'VSRC_LOC_FILES' was not given a value, which may make the results of IR drop analysis inaccurate. If you are not integrating a top-level chip for manufacture, you may ignore this warning, otherwise, see the documentation for 'VSRC_LOC_FILES'.
+Max Slew violations found in the following corners:
+* max_ss_125C_4v50
+* max_tt_025C_5v00
+* min_ss_125C_4v50
+* nom_ss_125C_4v50
