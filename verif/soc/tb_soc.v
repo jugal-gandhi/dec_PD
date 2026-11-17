@@ -4,8 +4,11 @@
 `timescale 1ns/1ps
 
 module tb_soc;
+`ifndef CLK_HALF
+`define CLK_HALF 20                        // 25 MHz
+`endif
     reg clk = 1'b0;
-    always #20 clk = ~clk;                 // 25 MHz
+    always #(`CLK_HALF) clk = ~clk;
 
     reg rst_n = 1'b0;
     initial begin

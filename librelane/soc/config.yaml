@@ -33,6 +33,11 @@ PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
 GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
 DESIGN_REPAIR_MAX_SLEW_PCT: 30
 GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 25
+# Repair slew/cap/timing against all three process corners, not only typical
+RSZ_CORNERS: [nom_tt_025C_5v00, nom_ss_125C_4v50, nom_ff_n40C_5v50]
+# External I/O budget: 10 % of the period (the SPI flash link is
+# source-synchronous: the chip drives the flash clock itself)
+IO_DELAY_CONSTRAINT: 10
 
 VDD_NETS:
 - VDD
@@ -57,8 +62,10 @@ PL_MAX_DISPLACEMENT_Y: 200
 GRT_ALLOW_CONGESTION: true
 
 # Fix antenna violations after detailed routing
-DRT_ANTENNA_REPAIR_ITERS: 10
-DRT_ANTENNA_REPAIR_MARGIN: 10 # %
+DRT_ANTENNA_REPAIR_ITERS: 15
+DRT_ANTENNA_REPAIR_MARGIN: 25 # %
+GRT_ANTENNA_REPAIR_ITERS: 6
+GRT_ANTENNA_REPAIR_MARGIN: 20 # %
 
 # PDN
 PDN_CFG: dir::pdn/pdn_cfg.tcl

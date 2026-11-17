@@ -7,6 +7,7 @@
 // CEN is held high during reset (required by the macro) and asserted only on
 // RAM accesses. Supply pins are tied by the flow (PDN_MACRO_CONNECTIONS).
 
+`timescale 1ns/1ps
 `default_nettype none
 
 module soc_sram_2kb #(
@@ -22,21 +23,40 @@ module soc_sram_2kb #(
 );
     wire cen = ~(resetn & en);
 
+    // Signals into the macros. In simulation only, a 1 ns delay stands in for
+    // the hold margin that real wires and buffers provide; the foundry model
+    // samples address and data shortly after the clock edge.
+    wire        cen_i;
+    wire [3:0]  wen_i;
+    wire [8:0]  a_i;
+    wire [31:0] d_i;
+`ifdef SYNTHESIS
+    assign cen_i = cen;
+    assign wen_i = wen;
+    assign a_i   = addr[8:0];
+    assign d_i   = wdata;
+`else
+    assign #1 cen_i = cen;
+    assign #1 wen_i = wen;
+    assign #1 a_i   = addr[8:0];
+    assign #1 d_i   = wdata;
+`endif
+
     gf180mcu_fd_ip_sram__sram512x8m8wm1 sram0 (
-        .CLK (clk), .CEN (cen), .GWEN (~wen[0]), .WEN ({8{~wen[0]}}),
-        .A (addr[8:0]), .D (wdata[7:0]), .Q (rdata[7:0])
+        .CLK (clk), .CEN (cen_i), .GWEN (~wen_i[0]), .WEN ({8{~wen_i[0]}}),
+        .A (a_i), .D (d_i[7:0]), .Q (rdata[7:0])
     );
     gf180mcu_fd_ip_sram__sram512x8m8wm1 sram1 (
-        .CLK (clk), .CEN (cen), .GWEN (~wen[1]), .WEN ({8{~wen[1]}}),
-        .A (addr[8:0]), .D (wdata[15:8]), .Q (rdata[15:8])
+        .CLK (clk), .CEN (cen_i), .GWEN (~wen_i[1]), .WEN ({8{~wen_i[1]}}),
+        .A (a_i), .D (d_i[15:8]), .Q (rdata[15:8])
     );
     gf180mcu_fd_ip_sram__sram512x8m8wm1 sram2 (
-        .CLK (clk), .CEN (cen), .GWEN (~wen[2]), .WEN ({8{~wen[2]}}),
-        .A (addr[8:0]), .D (wdata[23:16]), .Q (rdata[23:16])
+        .CLK (clk), .CEN (cen_i), .GWEN (~wen_i[2]), .WEN ({8{~wen_i[2]}}),
+        .A (a_i), .D (d_i[23:16]), .Q (rdata[23:16])
     );
     gf180mcu_fd_ip_sram__sram512x8m8wm1 sram3 (
-        .CLK (clk), .CEN (cen), .GWEN (~wen[3]), .WEN ({8{~wen[3]}}),
-        .A (addr[8:0]), .D (wdata[31:24]), .Q (rdata[31:24])
+        .CLK (clk), .CEN (cen_i), .GWEN (~wen_i[3]), .WEN ({8{~wen_i[3]}}),
+        .A (a_i), .D (d_i[31:24]), .Q (rdata[31:24])
     );
 endmodule
 
