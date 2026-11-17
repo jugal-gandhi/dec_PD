@@ -12,7 +12,7 @@ iverilog -g2012 -o "$OUT/tb_soc.vvp" -DPICOSOC_MEM=soc_sram_2kb -DFUNCTIONAL \
     -s tb_soc \
     verif/soc/tb_soc.v verif/soc/spiflash.v \
     src/soc/soc_chip_top.v src/soc/soc_top.v src/soc/soc_sram_2kb.v \
-    src/soc/vendor/picosoc.v src/soc/vendor/picorv32.v \
+    src/soc/picosoc_gf180.v src/soc/vendor/picorv32.v \
     src/soc/vendor/spimemio.v src/soc/vendor/simpleuart.v \
     src/posit_decoder_32_2.v \
     ip/dieart/vh/dieart_tl.v ip/dieart/vh/dieart_tr.v ip/dieart/vh/dieart_bl.v ip/dieart/vh/dieart_br.v \

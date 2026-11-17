@@ -13,7 +13,7 @@ VERILOG_FILES:
 - dir::../../src/soc/soc_chip_top.v
 - dir::../../src/soc/soc_top.v
 - dir::../../src/soc/soc_sram_2kb.v
-- dir::../../src/soc/vendor/picosoc.v
+- dir::../../src/soc/picosoc_gf180.v
 - dir::../../src/soc/vendor/picorv32.v
 - dir::../../src/soc/vendor/spimemio.v
 - dir::../../src/soc/vendor/simpleuart.v
@@ -119,7 +119,7 @@ MAGIC_EXT_UNIQUE: notopports
 # Flow render
 KLAYOUT_RENDER_RESOLUTION: 2048
 KLAYOUT_RENDER_OVERSAMPLING: 3
-KLAYOUT_PROPERTIES: dir::gf180mcu_render.lyp
+KLAYOUT_PROPERTIES: dir::../gf180mcu_render.lyp
 
 # DRC
 KLAYOUT_DRC_THREADS: 1

@@ -59,7 +59,7 @@ module soc_top (
     wire [31:0] iomem_wdata;
     reg  [31:0] iomem_rdata;
 
-    picosoc #(
+    picosoc_gf180 #(
         .MEM_WORDS (512)
     ) soc (
         .clk          (clk),
