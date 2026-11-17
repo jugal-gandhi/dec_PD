@@ -1,0 +1,27 @@
+# SkyWater SKY130 core-only hardening of the posit<32,2> decoder (no pad ring).
+meta:
+  version: 3
+  flow: Classic
+
+DESIGN_NAME: posit_decoder_32_2
+VERILOG_FILES:
+- dir::../../src/posit_decoder_32_2.v
+
+# Combinational design: virtual clock, see core.sdc
+PNR_SDC_FILE: dir::core.sdc
+SIGNOFF_SDC_FILE: dir::core.sdc
+FALLBACK_SDC: dir::core.sdc
+CLOCK_PERIOD: 10
+
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 200, 200]
+PL_TARGET_DENSITY_PCT: 55
+
+# Inputs on the west/south edges, outputs on the east/north edges
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+
+# A 200 um die needs a denser power grid than the default pitch
+PDN_VPITCH: 50
+PDN_HPITCH: 50
+PDN_VOFFSET: 10
+PDN_HOFFSET: 10

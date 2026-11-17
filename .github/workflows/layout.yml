@@ -1,0 +1,105 @@
+name: Layout
+
+on:
+  push:
+    branches:
+      - layout
+  workflow_dispatch:
+
+concurrency:
+  group: layout-${{ github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  gf180:
+    name: GF180MCU chip with pad ring
+    runs-on: ubuntu-24.04
+    timeout-minutes: 340
+    steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Equivalence check (VHDL vs Verilog)
+        id: equiv
+        continue-on-error: true
+        run: nix develop --command bash verif/equiv.sh 2>&1 | tee equiv_console.log
+      - name: Fetch GF180MCU PDK
+        run: nix develop --command make clone-pdk
+      - name: Implement the chip
+        id: flow
+        continue-on-error: true
+        run: nix develop --command make chip 2>&1 | tee flow_console_gf180.log
+      - name: Render layer masks
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ -f final/gds/chip_top.gds ]; then
+            nix develop --command python3 scripts/render_masks.py final/gds/chip_top.gds results/gf180/masks --pdk gf180
+          fi
+      - name: Collect results
+        if: always()
+        run: bash scripts/collect_results.sh gf180 "${{ steps.flow.outcome }}" "${{ steps.equiv.outcome }}"
+      - name: Publish results branch
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/publish_results.sh gf180 results-gf180
+
+  sky130:
+    name: SKY130 core-only layout
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Harden the core
+        id: flow
+        continue-on-error: true
+        run: nix develop --command make sky130 2>&1 | tee flow_console_sky130.log
+      - name: Render layer masks
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ -f final_sky130/gds/posit_decoder_32_2.gds ]; then
+            nix develop --command python3 scripts/render_masks.py final_sky130/gds/posit_decoder_32_2.gds results/sky130/masks --pdk sky130
+          fi
+      - name: Collect results
+        if: always()
+        run: bash scripts/collect_results.sh sky130 "${{ steps.flow.outcome }}"
+      - name: Publish results branch
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/publish_results.sh sky130 results-sky130

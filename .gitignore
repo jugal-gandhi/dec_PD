@@ -1,0 +1,9 @@
+librelane/runs/
+librelane/sky130/runs/
+final/
+final_sky130/
+pdk/
+results/
+verif/out/
+__pycache__/
+*.lyrdb
