@@ -1,0 +1,222 @@
+# GF180MCU SoC chip (stage 2 of the hierarchical flow).
+# PicoRV32 RISC-V + 2 KB SRAM (4 foundry macros) + posit decoder hard macro,
+# inside a 40-pad ring. The core content, not the pad count, sets the die size.
+meta:
+  version: 3
+  flow: Chip
+  substituting_steps:
+    KLayout.Render: null
+    +KLayout.SealRing: KLayout.Render
+
+DESIGN_NAME: soc_chip_top
+VERILOG_FILES:
+- dir::../../src/soc/soc_chip_top.v
+- dir::../../src/soc/soc_top.v
+- dir::../../src/soc/soc_sram_2kb.v
+- dir::../../src/soc/vendor/picosoc.v
+- dir::../../src/soc/vendor/picorv32.v
+- dir::../../src/soc/vendor/spimemio.v
+- dir::../../src/soc/vendor/simpleuart.v
+VERILOG_DEFINES:
+- PICOSOC_MEM=soc_sram_2kb
+
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+
+# Clock: 25 MHz from the Schmitt-trigger clock pad
+CLOCK_PORT: clk_PAD
+CLOCK_NET: pad_clk/Y
+CLOCK_PERIOD: 40
+PNR_SDC_FILE: dir::chip.sdc
+SIGNOFF_SDC_FILE: dir::chip.sdc
+FALLBACK_SDC: dir::chip.sdc
+PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
+GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
+DESIGN_REPAIR_MAX_SLEW_PCT: 30
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 25
+
+VDD_NETS:
+- VDD
+GND_NETS:
+- VSS
+
+IGNORE_DISCONNECTED_MODULES:
+- gf180mcu_fd_io__bi_24t
+- dieart_tl
+- dieart_tr
+- dieart_bl
+- dieart_br
+
+# Floorplan: 2392 um die, 10 pads per side on a 155 um pitch, 1508 um core.
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 2392, 2392]
+CORE_AREA: [442, 442, 1950, 1950]
+
+# Placement
+PL_TARGET_DENSITY_PCT: 55
+PL_MAX_DISPLACEMENT_Y: 200
+GRT_ALLOW_CONGESTION: true
+
+# Fix antenna violations after detailed routing
+DRT_ANTENNA_REPAIR_ITERS: 10
+DRT_ANTENNA_REPAIR_MARGIN: 10 # %
+
+# PDN
+PDN_CFG: dir::pdn/pdn_cfg.tcl
+PDN_ENABLE_PINS: False
+PDN_VWIDTH: 5
+PDN_HWIDTH: 5
+PDN_VSPACING: 1
+PDN_HSPACING: 1
+PDN_VPITCH: 75
+PDN_HPITCH: 75
+PDN_CORE_RING: True
+PDN_CORE_RING_VWIDTH: 25
+PDN_CORE_RING_HWIDTH: 25
+PDN_CORE_RING_CONNECT_TO_PADS: True
+PDN_CORE_VERTICAL_LAYER: Metal4
+PDN_CORE_HORIZONTAL_LAYER: Metal3
+PDN_CORE_RING_CONNECT_TO_PAD_LAYERS: [Metal2]
+
+# Report magic DRC but do not stop on it (KLayout DRC is the sign-off deck)
+ERROR_ON_MAGIC_DRC: False
+
+# Prevent false-positive DRC errors inside the foundry I/O cells
+MAGIC_GDS_FLATGLOB:
+- "*_CDNS_*"
+- "*$$*"
+- "ypass_gate*"
+- "dcap_103*"
+- "din_*"
+- "mux821_*"
+- "rdummy_*"
+- "pmoscap_*"
+- "xdec_*"
+- "ypredec*"
+- "xpredec*"
+- "prexdec_*"
+- "xdec8_*"
+- "xdec16_*"
+- "xdec32_*"
+- "sa_*"
+- "M1_N*"
+- "M1_P*"
+- "M2_M1*"
+- "M3_M2*"
+- "nmos_5p0*"
+- "nmos_1p2*"
+- "pmos_5p0*"
+- "pmos_1p2*"
+- "via1_*"
+- "G_ring_*"
+
+# Metal2 cannot meet minimum density next to active metal
+KLAYOUT_FILLER_OPTIONS:
+  Metal2_ignore_active: true
+
+# Several supply pads per power domain
+MAGIC_EXT_UNIQUE: notopports
+
+# Flow render
+KLAYOUT_RENDER_RESOLUTION: 2048
+KLAYOUT_RENDER_OVERSAMPLING: 3
+KLAYOUT_PROPERTIES: dir::gf180mcu_render.lyp
+
+# DRC
+KLAYOUT_DRC_THREADS: 1
+KLAYOUT_DRC_OPTIONS:
+  decks: "all,-antenna,-density,-cup"
+  variant: ref::$PDK
+  workers: max
+KLAYOUT_DENSITY_OPTIONS:
+  decks: "density"
+  variant: ref::$PDK
+  workers: max
+KLAYOUT_ANTENNA_OPTIONS:
+  decks: "antenna"
+  variant: ref::$PDK
+  workers: max
+
+
+MACROS:
+  gf180mcu_fd_ip_sram__sram512x8m8wm1:
+    gds:
+      - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/gds/gf180mcu_fd_ip_sram__sram512x8m8wm1.gds
+    lef:
+      - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lef/gf180mcu_fd_ip_sram__sram512x8m8wm1.lef
+    vh:
+      - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/verilog/gf180mcu_fd_ip_sram__sram512x8m8wm1__blackbox_pp.v
+    lib:
+      "*_tt_025C_5v00":
+        - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00.lib
+      "*_ff_n40C_5v50":
+        - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50.lib
+      "*_ss_125C_4v50":
+        - pdk_dir::libs.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50.lib
+    instances:
+      # One SRAM per core corner, pins facing the centre
+      u_soc.soc.memory.sram0:
+        location: [472, 472]
+        orientation: FS
+      u_soc.soc.memory.sram1:
+        location: [1488.14, 472]
+        orientation: S
+      u_soc.soc.memory.sram2:
+        location: [472, 1435.12]
+        orientation: N
+      u_soc.soc.memory.sram3:
+        location: [1488.14, 1435.12]
+        orientation: FN
+
+  posit_decoder_32_2:
+    gds: [dir::../../ip/posit_macro/gds/posit_decoder_32_2.gds]
+    lef: [dir::../../ip/posit_macro/lef/posit_decoder_32_2.lef]
+    vh: [dir::../../ip/posit_macro/vh/posit_decoder_32_2.v]
+    nl: [dir::../../ip/posit_macro/nl/posit_decoder_32_2.nl.v]
+    lib:
+      "*_tt_025C_5v00": [dir::../../ip/posit_macro/lib/posit_decoder_32_2.tt_025C_5v00.lib]
+      "*_ff_n40C_5v50": [dir::../../ip/posit_macro/lib/posit_decoder_32_2.ff_n40C_5v50.lib]
+      "*_ss_125C_4v50": [dir::../../ip/posit_macro/lib/posit_decoder_32_2.ss_125C_4v50.lib]
+    instances:
+      u_soc.u_posit:
+        location: [1096, 1096]
+        orientation: N
+
+  dieart_tl:
+    gds: [dir::../../ip/dieart/gds/dieart_tl.gds]
+    lef: [dir::../../ip/dieart/lef/dieart_tl.lef]
+    vh: [dir::../../ip/dieart/vh/dieart_tl.v]
+    lib:
+      "*": [dir::../../ip/dieart/lib/dieart_tl.lib]
+    instances:
+      art_tl: {location: [26, 2222.75], orientation: N}
+  dieart_tr:
+    gds: [dir::../../ip/dieart/gds/dieart_tr.gds]
+    lef: [dir::../../ip/dieart/lef/dieart_tr.lef]
+    vh: [dir::../../ip/dieart/vh/dieart_tr.v]
+    lib:
+      "*": [dir::../../ip/dieart/lib/dieart_tr.lib]
+    instances:
+      art_tr: {location: [2222.75, 2222.75], orientation: N}
+  dieart_bl:
+    gds: [dir::../../ip/dieart/gds/dieart_bl.gds]
+    lef: [dir::../../ip/dieart/lef/dieart_bl.lef]
+    vh: [dir::../../ip/dieart/vh/dieart_bl.v]
+    lib:
+      "*": [dir::../../ip/dieart/lib/dieart_bl.lib]
+    instances:
+      art_bl: {location: [26, 26], orientation: N}
+  dieart_br:
+    gds: [dir::../../ip/dieart/gds/dieart_br.gds]
+    lef: [dir::../../ip/dieart/lef/dieart_br.lef]
+    vh: [dir::../../ip/dieart/vh/dieart_br.v]
+    lib:
+      "*": [dir::../../ip/dieart/lib/dieart_br.lib]
+    instances:
+      art_br: {location: [2222.75, 26], orientation: N}
+
+PDN_MACRO_CONNECTIONS:
+- "u_soc.soc.memory.sram0 VDD VSS VDD VSS"
+- "u_soc.soc.memory.sram1 VDD VSS VDD VSS"
+- "u_soc.soc.memory.sram2 VDD VSS VDD VSS"
+- "u_soc.soc.memory.sram3 VDD VSS VDD VSS"
+- "u_soc.u_posit VDD VSS VDD VSS"

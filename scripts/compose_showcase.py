@@ -71,10 +71,10 @@ CLASSIC_GF180 = [
     ("via2",    "#e5e7eb", 0.85, 0.00, "solid"),
     ("m3",      "#22d3ee", 0.45, 0.95, "fwd"),
     ("via3",    "#e5e7eb", 0.85, 0.00, "solid"),
-    ("m4",      "#4f6bff", 0.85, 1.00, "back"),
+    ("m4",      "#4f6bff", 0.60, 1.00, "back"),
     ("via4",    "#e5e7eb", 0.85, 0.00, "solid"),
-    ("m5",      "#ff7a1a", 0.90, 1.00, "cross"),
-    ("mtop",    "#facc15", 0.40, 0.95, "cross"),
+    ("m5",      "#d9412b", 0.22, 0.85, "cross"),
+    ("mtop",    "#d9412b", 0.15, 0.70, "cross"),
     ("pad",     "#facc15", 0.75, 1.00, "cross"),
 ]
 CLASSIC_SKY130 = [
@@ -95,6 +95,9 @@ CLASSIC_SKY130 = [
     ("via4",  "#e5e7eb", 0.85, 0.00, "solid"),
     ("m5",    "#ff7a1a", 0.90, 1.00, "cross"),
 ]
+
+
+OCCLUDE = 0.55
 
 
 def pattern(kind, h, w, pitch):
@@ -131,6 +134,9 @@ def compose_classic(view_dir, layers_present, style, pitch=None):
             er = er.filter(ImageFilter.MinFilter(3))
         edge = np.clip(m - np.asarray(er, dtype=np.float32)[..., None] / 255.0, 0, 1)
         c = hex_rgb(color)
+        # Partly occlude what lies below, so stacked layers stay saturated
+        occ = 0.0 if kind == "solid" or fa == 0 else min(OCCLUDE, fa)
+        canvas = canvas * (1 - m * occ)
         a = np.clip(m * fa * pattern(kind, h, w, pitch) + edge * la, 0, 1)
         canvas = canvas * (1 - a) + c * a
     return np.clip(canvas, 0, 1)

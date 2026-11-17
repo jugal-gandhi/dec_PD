@@ -23,10 +23,10 @@ BOUNDARY_LAYERS = [(0, 0), (152, 5)]
 LEF_LAYERS = ["Metal1", "Metal2", "Metal3", "Metal4", "Metal5"]
 
 BADGES = {
-    "dieart_tl": [("POSIT", 46), ("DECODER", 31), ("N32 ES2", 27)],
+    "dieart_tl": [("RISC-V", 38), ("+ POSIT", 32), ("SOC", 30)],
     "dieart_tr": [("VLSI", 46), ("DESIGN LAB", 24), ("CSIR-CEERI", 24)],
     "dieart_bl": [("GF180", 46), ("MCU", 46)],
-    "dieart_br": [("2026", 58), ("88 PADS", 28)],
+    "dieart_br": [("2026", 58), ("RV32IMC", 28)],
 }
 SUPERSAMPLE = 4
 TRACKING_PX = 1.5

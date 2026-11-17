@@ -51,6 +51,23 @@ sky130: sky130-pdk ## SKY130 core-only hardening (LibreLane Classic flow)
 	librelane --condensed librelane/sky130/config.yaml --pdk sky130A --pdk-root $(PDK_ROOT) --manual-pdk --save-views-to $(CURDIR)/final_sky130
 .PHONY: sky130
 
+macro: clone-pdk ## Stage 1: harden the posit decoder as a GF180 macro
+	librelane --condensed librelane/posit_macro/config.yaml $(GF_OPTS) --save-views-to $(CURDIR)/build/posit_macro
+	bash scripts/export_macro.sh build/posit_macro
+.PHONY: macro
+
+firmware: ## Build the SoC self-test firmware (needs riscv64-unknown-elf-gcc)
+	bash firmware/build.sh
+.PHONY: firmware
+
+soc-sim: clone-pdk ## Chip-level RTL simulation of the SoC (pads, SRAM models, flash)
+	bash verif/soc/run_sim.sh
+.PHONY: soc-sim
+
+soc: clone-pdk ## Stage 2: RISC-V SoC chip with SRAM and posit macros (Chip flow)
+	librelane --condensed librelane/soc/pads.yaml librelane/soc/config.yaml $(GF_OPTS) --save-views-to $(CURDIR)/final_soc
+.PHONY: soc
+
 chip-gui: ## Open the last GF180 run in KLayout
 	librelane $(GF_CONFIGS) $(GF_OPTS) --last-run --flow OpenInKLayout
 .PHONY: chip-gui

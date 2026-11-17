@@ -9,6 +9,7 @@ EQUIV_OUTCOME=${3:-skipped}
 case "$NAME" in
   gf180)  RUNS=librelane/runs;        FINAL=final;        TOP=chip_top ;;
   sky130) RUNS=librelane/sky130/runs; FINAL=final_sky130; TOP=posit_decoder_32_2 ;;
+  soc)    RUNS=librelane/soc/runs;    FINAL=final_soc;    TOP=soc_chip_top ;;
   *) echo "unknown target $NAME"; exit 1 ;;
 esac
 
@@ -31,6 +32,20 @@ EOF
 # Console logs from the workflow steps
 cp -f flow_console_"$NAME".log "$R/" 2>/dev/null || true
 cp -f equiv_console.log "$R/" 2>/dev/null || true
+if [ "$NAME" = soc ]; then
+  cp -f firmware_build.log soc_sim_console.log flow_console_macro.log "$R/" 2>/dev/null || true
+  cp -f verif/soc/out/sim.log "$R/soc_sim.log" 2>/dev/null || true
+  cp -f firmware/firmware.hex "$R/" 2>/dev/null || true
+  MRUN=$(ls -1d librelane/posit_macro/runs/*/ 2>/dev/null | tail -n 1)
+  if [ -n "$MRUN" ]; then
+    mkdir -p "$R/macro"
+    find "$MRUN" -maxdepth 2 -name 'metrics.json' -exec cp -f {} "$R/macro/metrics.json" \; 2>/dev/null
+    cp -f "$MRUN"/flow.log "$MRUN"/error.log "$R/macro/" 2>/dev/null || true
+    find "$MRUN" -type f \( -name '*.rpt' -o -name '*.log' -o -name '*.json' \) -size -10M -print0 \
+      | tar czf "$R/macro/run_reports.tar.gz" --null -T - 2>/dev/null || true
+  fi
+  [ -f build/posit_macro/metrics.json ] && cp -f build/posit_macro/metrics.json "$R/macro/metrics.json"
+fi
 if [ -d verif/out ]; then
   mkdir -p "$R/equiv"
   cp -f verif/out/*.txt verif/out/*.log verif/out/*.v "$R/equiv/" 2>/dev/null || true

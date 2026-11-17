@@ -7,3 +7,11 @@ results/
 verif/out/
 __pycache__/
 *.lyrdb
+build/
+verif/soc/out/
+firmware/*.elf
+firmware/*.hex
+firmware/vectors.h
+final_soc/
+librelane/soc/runs/
+librelane/posit_macro/runs/

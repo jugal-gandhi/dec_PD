@@ -18,8 +18,75 @@ defaults:
     shell: bash
 
 jobs:
+  soc:
+    name: GF180MCU RISC-V SoC (hierarchical)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+      - uses: actions/checkout@v4
+      - name: Install RISC-V GCC
+        run: sudo apt-get update -q && sudo apt-get install -y -q gcc-riscv64-unknown-elf
+      - name: Build firmware
+        id: fw
+        continue-on-error: true
+        run: bash firmware/build.sh 2>&1 | tee firmware_build.log
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Equivalence check (VHDL vs Verilog)
+        id: equiv
+        continue-on-error: true
+        run: nix develop --command bash verif/equiv.sh 2>&1 | tee equiv_console.log
+      - name: Fetch GF180MCU PDK
+        run: nix develop --command make clone-pdk
+      - name: Chip-level SoC simulation
+        id: sim
+        continue-on-error: true
+        run: nix develop --command make soc-sim 2>&1 | tail -n 400 | tee soc_sim_console.log
+      - name: "Stage 1: harden posit decoder macro"
+        id: macro
+        continue-on-error: true
+        run: nix develop --command make macro 2>&1 | tee flow_console_macro.log
+      - name: "Stage 2: implement the SoC chip"
+        id: flow
+        if: steps.macro.outcome == 'success'
+        continue-on-error: true
+        run: nix develop --command make soc 2>&1 | tee flow_console_soc.log
+      - name: Render layer masks
+        if: always()
+        continue-on-error: true
+        run: |
+          GDS=$(ls final_soc/gds/soc_chip_top.gds 2>/dev/null || ls -1 librelane/soc/runs/*/*-klayout-filler/soc_chip_top.gds 2>/dev/null | tail -n 1)
+          if [ -n "$GDS" ]; then
+            nix develop --command python3 scripts/render_masks.py "$GDS" results/soc/masks --pdk gf180
+          fi
+      - name: Collect results
+        if: always()
+        run: |
+          bash scripts/collect_results.sh soc "${{ steps.flow.outcome }}" "${{ steps.equiv.outcome }}"
+          echo '{"firmware": "${{ steps.fw.outcome }}", "soc_sim": "${{ steps.sim.outcome }}", "macro": "${{ steps.macro.outcome }}"}' > results/soc/stages.json
+      - name: Publish results branch
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/publish_results.sh soc results-soc
+
   gf180:
-    name: GF180MCU chip with pad ring
+    name: GF180MCU decoder chip (v1, pad-limited)
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     timeout-minutes: 340
     steps:
@@ -69,6 +136,7 @@ jobs:
 
   sky130:
     name: SKY130 core-only layout
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     steps:
