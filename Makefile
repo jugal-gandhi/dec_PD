@@ -25,8 +25,16 @@ equiv: ## Prove the Verilog translation equivalent to Decoder_32_2.vhd
 	bash verif/equiv.sh
 .PHONY: equiv
 
+# ciel enable with retries (the PDK mirrors occasionally return HTTP 503)
+define ciel_enable
+	ok=0; for i in 1 2 3 4 5; do \
+	  if ciel enable $(1) --pdk-root $(PDK_ROOT) --pdk $(2) $(3); then ok=1; break; fi; \
+	  echo "ciel attempt $$i failed, retrying"; sleep 60; \
+	done; test $$ok = 1
+endef
+
 $(PDK_ROOT)/ciel/gf180mcu/versions/$(GF_PDK_COMMIT)/$(GF_PDK):
-	ciel enable $(GF_PDK_COMMIT) --pdk-root $(PDK_ROOT) --pdk $(GF_PDK) --include-libraries all
+	$(call ciel_enable,$(GF_PDK_COMMIT),$(GF_PDK),--include-libraries all)
 
 clone-pdk: $(PDK_ROOT)/ciel/gf180mcu/versions/$(GF_PDK_COMMIT)/$(GF_PDK) ## Fetch the GF180MCU PDK
 .PHONY: clone-pdk
@@ -35,8 +43,12 @@ chip: clone-pdk ## GF180MCU chip with pad ring (LibreLane Chip flow)
 	librelane --condensed $(GF_CONFIGS) $(GF_OPTS) --save-views-to $(CURDIR)/final
 .PHONY: chip
 
-sky130: ## SKY130 core-only hardening (LibreLane Classic flow)
-	librelane --condensed librelane/sky130/config.yaml --pdk sky130A --save-views-to $(CURDIR)/final_sky130
+sky130-pdk: ## Fetch the SKY130 PDK
+	$(call ciel_enable,$(GF_PDK_COMMIT),sky130A,)
+.PHONY: sky130-pdk
+
+sky130: sky130-pdk ## SKY130 core-only hardening (LibreLane Classic flow)
+	librelane --condensed librelane/sky130/config.yaml --pdk sky130A --pdk-root $(PDK_ROOT) --manual-pdk --save-views-to $(CURDIR)/final_sky130
 .PHONY: sky130
 
 chip-gui: ## Open the last GF180 run in KLayout

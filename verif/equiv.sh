@@ -12,10 +12,11 @@ plugin -i ghdl
 ghdl Decoder_32_2.vhd -e Decoder_32_2
 write_verilog -noattr $OUT/gold_ghdl.v
 " > /dev/null
+python3 verif/make_wrap.py "$OUT/gold_ghdl.v" "$OUT/gold_wrap.v"
 
 # 2. Formal proof: SAT miter over all 2^32 inputs.
 yosys -l "$OUT/formal.log" -p "
-read_verilog $OUT/gold_ghdl.v verif/gold_wrap.v
+read_verilog $OUT/gold_ghdl.v $OUT/gold_wrap.v
 read_verilog src/posit_decoder_32_2.v
 hierarchy
 proc
@@ -27,6 +28,6 @@ sat -verify -prove-asserts -show-ports miter
 " > /dev/null && echo "FORMAL_EQUIV PASS: SAT proof over all 2^32 inputs" | tee "$OUT/formal_result.txt"
 
 # 3. Simulation cross-check.
-iverilog -g2005 -o "$OUT/tb_equiv.vvp" verif/tb_equiv.v verif/gold_wrap.v "$OUT/gold_ghdl.v" src/posit_decoder_32_2.v
+iverilog -g2005 -o "$OUT/tb_equiv.vvp" verif/tb_equiv.v "$OUT/gold_wrap.v" "$OUT/gold_ghdl.v" src/posit_decoder_32_2.v
 vvp "$OUT/tb_equiv.vvp" | tee "$OUT/sim_result.txt"
 grep -q "SIM_EQUIV PASS" "$OUT/sim_result.txt"

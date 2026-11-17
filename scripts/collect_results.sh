@@ -33,7 +33,7 @@ cp -f flow_console_"$NAME".log "$R/" 2>/dev/null || true
 cp -f equiv_console.log "$R/" 2>/dev/null || true
 if [ -d verif/out ]; then
   mkdir -p "$R/equiv"
-  cp -f verif/out/*.txt verif/out/*.log "$R/equiv/" 2>/dev/null || true
+  cp -f verif/out/*.txt verif/out/*.log verif/out/*.v "$R/equiv/" 2>/dev/null || true
 fi
 
 if [ -n "${RUN:-}" ]; then
