@@ -20,7 +20,7 @@ PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 PNR_SDC_FILE: dir::chip_top.sdc
 SIGNOFF_SDC_FILE: dir::chip_top.sdc
 FALLBACK_SDC: dir::chip_top.sdc
-CLOCK_PERIOD: 40
+CLOCK_PERIOD: 50
 
 # Power / ground nets
 VDD_NETS:
@@ -36,17 +36,19 @@ IGNORE_DISCONNECTED_MODULES:
 - dieart_bl
 - dieart_br
 
-# Floorplan: 2987 um square die, 22 pads per side on a 100 um pitch
+# Floorplan: 2987 um square die, 22 pads per side on a 100 um pitch.
+# The die is pad-limited, so a compact 600 um core sits in the centre and the
+# pad routes and power straps cross the open area between ring and core.
 FP_SIZING: absolute
 DIE_AREA: [0, 0, 2987, 2987]
-CORE_AREA: [442, 442, 2545, 2545]
+CORE_AREA: [1193.5, 1193.5, 1793.5, 1793.5]
 
 # Repair slew with extra margin so the slow corners also stay within limits
 DESIGN_REPAIR_MAX_SLEW_PCT: 40
 GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 35
 
 # Placement
-PL_TARGET_DENSITY_PCT: 55
+PL_TARGET_DENSITY_PCT: 18
 PL_MAX_DISPLACEMENT_Y: 200
 GRT_ALLOW_CONGESTION: true
 
