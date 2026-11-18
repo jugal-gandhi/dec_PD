@@ -54,7 +54,7 @@ def scan(path, sizes):
         if "__" not in n or not n.startswith("gf180mcu_fd_sc"):
             continue
         b = prb.get(n, anyb[n])
-        sizes[n] = [round((b[2] - b[0]) * unit, 3), round((b[3] - b[1]) * unit, 3)]
+        sizes.setdefault(n.split("$")[0], [round((b[2] - b[0]) * unit, 3), round((b[3] - b[1]) * unit, 3)])
 
 
 def main():

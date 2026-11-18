@@ -25,23 +25,25 @@ FONT_R = "/usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf"
 PALETTE = [
     ("cpu_core", "RV32IMC CPU CORE", [
         ("Register file", "#3d7bff"),
-        ("ALU adder", "#ff3df2"),
+        ("ALU logic", "#ff2bd6"),
+        ("ALU adder", "#ff7ae6"),
         ("Barrel shifter", "#b04dff"),
-        ("ALU comparator", "#ff7ad9"),
-        ("ALU logic", "#d17bff"),
+        ("ALU comparator", "#ff9ad9"),
         ("Multiplier", "#00d9ff"),
         ("Divider", "#00ffa6"),
         ("Instruction decoder", "#7dff3d"),
         ("PC / fetch", "#ffe23d"),
         ("Bus interface", "#ff9a3d"),
+        ("Operand / writeback", "#2ec5ff"),
         ("Perf counters", "#8fa8ff"),
         ("Interrupt unit", "#ff5b5b"),
-        ("Control FSM", "#5f6bff"),
+        ("Control FSM", "#8d6e63"),
     ]),
     ("dsp_mac", "DSP ARRAY · 4 × MAC", [
         ("Multiplier array", "#ff6a00"),
         ("Accumulator", "#ffc400"),
-        ("Pipeline regs", "#c45a2b"),
+        ("Operand regs", "#ff9e80"),
+        ("Control / read mux", "#c45a2b"),
     ]),
     ("simd_alu", "SIMD ALU", [
         ("Lane 0", "#00e676"),
@@ -49,9 +51,9 @@ PALETTE = [
         ("Lane 2", "#9cff57"),
         ("Lane 3", "#00bfa5"),
         ("SAD adder tree", "#d4ff00"),
-        ("Popcount", "#5ce1e6"),
-        ("Leading-zero count", "#7fffd4"),
-        ("SIMD registers", "#2e9e6b"),
+        ("Popcount / CLZ", "#5ce1e6"),
+        ("Operand regs", "#a5d6a7"),
+        ("Result select", "#2e9e6b"),
     ]),
     ("spimemio", "SPI FLASH CONTROLLER", [
         ("SPI shift engine", "#ff2e93"),
@@ -78,6 +80,7 @@ PALETTE = [
     ]),
 ]
 SRAM_COL = "#4fc3f7"
+CLOCK_COL = "#ffffff"
 
 MACRO_TEXT = {
     "cpu_core": ("RV32IMC CPU CORE", "PicoRV32 · hard macro"),
@@ -108,7 +111,8 @@ def main():
     ap.add_argument("--rings", action="store_true", help="label pad ring and core ring")
     ap.add_argument("--core", nargs=4, type=float, default=None)
     ap.add_argument("--sub-min-px", type=float, default=900, help="label sub-blocks of macros at least this wide")
-    ap.add_argument("--posit-label", choices=["above", "below", "mid"], default="below")
+    ap.add_argument("--posit-label", choices=["above", "below", "mid", "above-right"], default="above-right")
+    ap.add_argument("--sub-all", action="store_true", help="box every sub-block, not only the headline ones")
     args = ap.parse_args()
 
     bm = json.load(open(args.map))
@@ -128,12 +132,14 @@ def main():
             lid[(g, lab)] = len(colours)
             colours.append(hex2rgb(col))
             labels.append((g, lab))
+    clock_id = len(colours)
+    colours.append(hex2rgb(CLOCK_COL))
     colours = np.stack(colours)
 
     # Label raster
     ras = np.zeros((H, W), np.int16)
     for x0, y0, x1, y1, g, lab in bm["rects"]:
-        k = lid.get((g, lab))
+        k = clock_id if lab == "Clock tree" else lid.get((g, lab))
         if not k:
             continue
         a, b = px(x0, y1)
@@ -226,6 +232,13 @@ def add_legend(img, bm, W, H):
             d.text((W + pw - int(70 * s) - d.textlength(t, font=fi), y), t, font=fi, fill=(150, 155, 165))
             y += int(52 * s)
         y += int(34 * s)
+    nclk = sum(n for (g, lab), n in counts.items() if lab == "Clock tree")
+    if nclk:
+        d.rectangle([x, y + int(6 * s), x + sw, y + int(6 * s) + sw], fill=CLOCK_COL)
+        d.text((x + sw + int(24 * s), y), "Clock tree buffers", font=fi, fill=(225, 228, 235))
+        t = f"{nclk:,}"
+        d.text((W + pw - int(70 * s) - d.textlength(t, font=fi), y), t, font=fi, fill=(150, 155, 165))
+        y += int(52 * s)
     d.rectangle([x, y + int(6 * s), x + sw, y + int(6 * s) + sw], fill=SRAM_COL)
     d.text((x + sw + int(24 * s), y), "Foundry SRAM 512×8 (8 banks)", font=fi, fill=(225, 228, 235))
     y += int(70 * s)
@@ -234,11 +247,13 @@ def add_legend(img, bm, W, H):
 
 
 BOX_MERGE = {  # labelled view: sub-blocks drawn as one box
-    "ALU adder": "ALU · adder · shifter · compare",
-    "Barrel shifter": "ALU · adder · shifter · compare",
-    "ALU comparator": "ALU · adder · shifter · compare",
-    "ALU logic": "ALU · adder · shifter · compare",
+    "ALU adder": "ALU",
+    "Barrel shifter": "ALU",
+    "ALU comparator": "ALU",
+    "ALU logic": "ALU",
 }
+# Die-level view: only the headline sub-blocks get a box
+SUB_KEY = {"Register file", "Multiplier", "Divider", "ALU", "Instruction decoder"}
 
 
 def sub_regions(bm, inst_box, group, nb=22):
@@ -310,6 +325,9 @@ def draw_labels(img, bm, px, W, args):
         th = sum(f.getbbox("Ag")[3] + int(4 * s) for _, f in lines)
         pad = max(4, int(10 * s * size))
         cx = (x0 + x1) / 2
+        if where == "above-right":
+            cx = max(cx, x0 + tw / 2 + pad)
+            where = "above"
         if where == "top":
             ty = y0 + width + pad
         elif where == "above":
@@ -342,12 +360,14 @@ def draw_labels(img, bm, px, W, args):
             n = inst.split("u_dsp")[-1]
             t = t.format(n=n)
         if cell == "posit_decoder_32_2":
-            box(r, t, "MY WORK · hard macro", width=max(5, int(11 * s)), size=1.0, where=args.posit_label,
-                fill_alpha=215)
+            box(r, t, "MY WORK · hard macro", width=max(5, int(11 * s)), size=0.95, where=args.posit_label,
+                fill_alpha=225)
             continue
         if args.sub and (r[2] - r[0]) >= args.sub_min_px:
             regs = sub_regions(bm, (x0, y0, x1, y1), cell)
             for lab, (a, b, c, e, n) in sorted(regs.items(), key=lambda kv: -kv[1][4]):
+                if not args.sub_all and lab not in SUB_KEY:
+                    continue
                 if (c - a) < (x1 - x0) * 0.12 or (e - b) < (y1 - y0) * 0.12:
                     continue
                 box(rect(a, b, c, e), lab.upper(), f"{n:,} cells", width=max(2, int(3 * s)), size=0.62)
