@@ -1,0 +1,9 @@
+{
+  "target": "soc3",
+  "commit": "5c738dd4f0b41a3ccdd996ef1d025f526bd82388",
+  "run_id": "44306599698",
+  "flow_outcome": "success",
+  "equiv_outcome": "skipped",
+  "run_dir": "librelane/soc3/runs/RUN_2026-11-18_12-53-35/",
+  "date_utc": "2026-11-18T14:08:41Z"
+}

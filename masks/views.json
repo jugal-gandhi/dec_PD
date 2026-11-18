@@ -1,0 +1,266 @@
+{
+  "die_um": [
+    0.0,
+    0.0,
+    3602.0,
+    3602.0
+  ],
+  "logic_bbox_um": [
+    443.09000000000003,
+    442.53000000000003,
+    3158.83,
+    3159.9500000000003
+  ],
+  "logic_instances": 2797,
+  "views": {
+    "die": {
+      "box_um": [
+        -36.02,
+        -36.02,
+        3638.02,
+        3638.02
+      ],
+      "width": 6144,
+      "height": 6144,
+      "layers": [
+        "comp",
+        "poly",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "pad",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "core": {
+      "box_um": [
+        238.44350000000009,
+        238.72350000000006,
+        3363.4764999999998,
+        3363.7565
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "corner": {
+      "box_um": [
+        0.0,
+        0.0,
+        900.0,
+        900.0
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "pad",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "cells": {
+      "box_um": [
+        1770.96,
+        1771.24,
+        1830.96,
+        1831.24
+      ],
+      "width": 2048,
+      "height": 2048,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "cpu_posit": {
+      "box_um": [
+        1173.1,
+        2017.8,
+        2428.9,
+        3273.5
+      ],
+      "width": 4096,
+      "height": 4096,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "hub": {
+      "box_um": [
+        1286.8,
+        1231.9,
+        2311.1,
+        2256.2
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "dsp_simd": {
+      "box_um": [
+        1170.3,
+        268.7,
+        2431.7,
+        1530.0
+      ],
+      "width": 4096,
+      "height": 4096,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    },
+    "posit": {
+      "box_um": [
+        2158.9,
+        2570.6,
+        2418.9,
+        2830.6
+      ],
+      "width": 3072,
+      "height": 3072,
+      "layers": [
+        "nwell",
+        "comp",
+        "poly",
+        "contact",
+        "m1",
+        "via1",
+        "m2",
+        "via2",
+        "m3",
+        "via3",
+        "m4",
+        "via4",
+        "m5",
+        "comp_fill",
+        "poly_fill",
+        "m1_fill",
+        "m2_fill",
+        "m3_fill",
+        "m4_fill",
+        "m5_fill"
+      ]
+    }
+  }
+}

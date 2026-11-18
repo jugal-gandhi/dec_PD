@@ -1,0 +1,3 @@
+52 vectors -> ../vectors.h
+   text	   data	    bss	    dec	    hex	filename
+   2000	      0	      0	   2000	    7d0	firmware.elf

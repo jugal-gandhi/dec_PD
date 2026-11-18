@@ -1,0 +1,2236 @@
+warning: unknown setting 'build-provenance-tags'
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+python3 scripts/plan_floorplan3.py
+cpu_core       930.72 x   948.64 um
+posit          200.00 x   200.00 um
+dsp_mac        364.44 x   382.36 um
+simd_alu       312.50 x   330.42 um
+spimemio       286.63 x   304.56 um
+simpleuart     278.54 x   296.46 um
+die 3602 um, core 2718.0 um (needed 2712.2)
+CPU ALU: 64 cells, median at (146, 529) of 931 x 949 um
+CPU orientation FN; ALU 146 um from the posit-side edge
+wrote /home/runner/work/dec_PD/dec_PD/librelane/soc3/floorplan.yaml: 17 macro instances
+librelane --condensed librelane/soc3/pads.yaml librelane/soc3/config.yaml librelane/soc3/floorplan.yaml --pdk gf180mcuD --pdk-root /home/runner/work/dec_PD/dec_PD/pdk --manual-pdk --scl gf180mcu_fd_sc_mcu7t5v0 --pad gf180mcu_fd_io --save-views-to /home/runner/work/dec_PD/dec_PD/final_soc3
+[12:53:35] [I] Loading the design configuration file has generated config.py:742
+               the following warnings:                                          
+[12:53:35] [W] The configuration variable                          config.py:746
+               'KLAYOUT_ANTENNA_OPTIONS' is deprecated. Please                  
+               check the docs for the usage on the replacement                  
+               variable 'KLAYOUT_ANTENNA_DEFINES'.                              
+[12:53:35] [W] The configuration variable 'KLAYOUT_FILLER_OPTIONS' config.py:746
+               is deprecated. Please check the docs for the usage               
+               on the replacement variable                                      
+               'KLAYOUT_FILLER_DEFINES'.                                        
+[12:53:35] [W] The configuration variable                          config.py:746
+               'KLAYOUT_DENSITY_OPTIONS' is deprecated. Please                  
+               check the docs for the usage on the replacement                  
+               variable 'KLAYOUT_DENSITY_DEFINES'.                              
+[12:53:35] [W] The configuration variable 'KLAYOUT_DRC_OPTIONS' is config.py:746
+               deprecated. Please check the docs for the usage on               
+               the replacement variable 'KLAYOUT_DRC_DEFINES'.                  
+[12:53:35] [I] Starting a new run of the 'Chip'' flow with the tag   flow.py:654
+               'RUN_2026-11-18_12-53-35'.                                       
+[12:53:35] [I] Starting…                                       sequential.py:339
+[12:53:35] [V] Running 'Verilator.Lint' at                          step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/01-veri             
+               lator-lint'…                                                     
+[12:53:36] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/01-veri             
+               lator-lint/verilator-lint.log'…                                  
+[12:53:36] [V] Running 'Checker.LintTimingConstructs' at            step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/02-chec             
+               ker-linttimingconstructs'…                                       
+[12:53:36] [I] Check for Lint Timing Errors clear.                checker.py:412
+[12:53:36] [V] Running 'Checker.LintErrors' at                      step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/03-chec             
+               ker-linterrors'…                                                 
+[12:53:36] [I] Check for Lint errors clear.                       checker.py:131
+[12:53:36] [V] Running 'Checker.LintWarnings' at                    step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/04-chec             
+               ker-lintwarnings'…                                               
+[12:53:36] [W] 341 Lint warnings found.                           checker.py:122
+[12:53:36] [V] Running 'Yosys.JsonHeader' at                        step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/05-yosy             
+               s-jsonheader'…                                                   
+[12:53:36] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/05-yosy             
+               s-jsonheader/yosys-jsonheader.log'…                              
+[12:53:36] [V] Running 'Yosys.Synthesis' at                         step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/06-yosy             
+               s-synthesis'…                                                    
+[12:53:36] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/06-yosy             
+               s-synthesis/yosys-synthesis.log'…                                
+[12:53:39] [V] Parsing synthesis checks…                            pyosys.py:59
+[12:53:39] [V] Parsing synthesis checks…                            pyosys.py:59
+[12:53:39] [V] Running 'Checker.YosysUnmappedCells' at              step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/07-chec             
+               ker-yosysunmappedcells'…                                         
+[12:53:39] [I] Check for Unmapped Yosys instances clear.          checker.py:131
+[12:53:39] [V] Running 'Checker.YosysSynthChecks' at                step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/08-chec             
+               ker-yosyssynthchecks'…                                           
+[12:53:39] [I] Check for Yosys check errors clear.                checker.py:131
+[12:53:39] [V] Running 'Checker.NetlistAssignStatements' at         step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/09-chec             
+               ker-netlistassignstatements'…                                    
+[12:53:39] [V] Running 'OpenROAD.CheckSDCFiles' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/10-open             
+               road-checksdcfiles'…                                             
+[12:53:39] [V] Running 'OpenROAD.CheckMacroInstances' at            step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/11-open             
+               road-checkmacroinstances'…                                       
+[12:53:39] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:39] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:39] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:39] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:39] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:39] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/11-open             
+               road-checkmacroinstances/openroad-checkmacroinstance             
+               s.log'…                                                          
+[12:53:40] [V] Running 'OpenROAD.STAPrePNR' at                      step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/12-open             
+               road-staprepnr'…                                                 
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Starting STA for the nom_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Starting STA for the nom_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/12-open             
+               road-staprepnr/nom_tt_025C_5v00/sta.log'…                        
+[12:53:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/12-open             
+               road-staprepnr/nom_ss_125C_4v50/sta.log'…                        
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Starting STA for the nom_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/12-open             
+               road-staprepnr/nom_ff_n40C_5v50/sta.log'…                        
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Skipping corner min_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Skipping corner min_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Skipping corner min_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Skipping corner max_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Skipping corner max_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[12:53:40] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[12:53:40] [I] Skipping corner max_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[12:53:41] [I] Finished STA for the nom_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[12:53:41] [I] Finished STA for the nom_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[12:53:41] [I] Finished STA for the nom_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[12:53:41] [V] Running 'OpenROAD.Floorplan' at                      step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/13-open             
+               road-floorplan'…                                                 
+[12:53:41] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:53:41] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/13-open             
+               road-floorplan/openroad-floorplan.log'…                          
+[12:53:42] [W] [IFP-0028] Core area lower left (442.000,         openroad.py:321
+               442.000) snapped to (442.400, 442.960).                          
+[12:53:42] [V] Running 'OpenROAD.DumpRCValues' at                   step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/14-open             
+               road-dumprcvalues'…                                              
+[12:53:42] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:53:42] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/14-open             
+               road-dumprcvalues/openroad-dumprcvalues.log'…                    
+[12:53:43] [V] Running 'Odb.CheckMacroAntennaProperties' at         step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/15-odb-             
+               checkmacroantennaproperties'…                                    
+[12:53:43] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/15-odb-             
+               checkmacroantennaproperties/odb-checkmacroantennapro             
+               perties.log'…                                                    
+[12:53:43] [W] Cell 'gf180mcu_fd_ip_sram__sram512x8m8wm1' has (10)     odb.py:71
+               input pin(s) without antenna gate information. They              
+               might not be connected to a gate.                                
+[12:53:43] [W] Cell 'dsp_mac' has (16) input pin(s) without antenna    odb.py:71
+               gate information. They might not be connected to a               
+               gate.                                                            
+[12:53:43] [W] Cell 'spimemio' has (14) input pin(s) without antenna   odb.py:71
+               gate information. They might not be connected to a               
+               gate.                                                            
+[12:53:43] [W] Cell 'simpleuart' has (24) input pin(s) without antenna odb.py:71
+               gate information. They might not be connected to a               
+               gate.                                                            
+[12:53:44] [V] Running 'Odb.SetPowerConnections' at                 step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/16-odb-             
+               setpowerconnections'…                                            
+[12:53:44] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/16-odb-             
+               setpowerconnections/odb-setpowerconnections.log'…                
+[12:53:45] [V] Running 'OpenROAD.PadRing' at                        step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/17-open             
+               road-padring'…                                                   
+[12:53:45] [I] 'PAD_CFG' not explicitly set, setting it to      openroad.py:1305
+               /nix/store/2x5v27nhwvwii7nbykkiqy260f8zf28k-pyth                 
+               on3-3.13.13-env/lib/python3.13/site-packages/lib                 
+               relane/scripts/openroad/common/pad_cfg.tcl…                      
+[12:53:45] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:53:45] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/17-open             
+               road-padring/openroad-padring.log'…                              
+[12:53:45] [W] [PAD-0033] Could not find a block terminal        openroad.py:321
+               associated with net: "VSS", creating now.                        
+[12:53:45] [W] [PAD-0033] Could not find a block terminal        openroad.py:321
+               associated with net: "VDD", creating now.                        
+[12:53:46] [V] Running 'Odb.ManualMacroPlacement' at                step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/18-odb-             
+               manualmacroplacement'…                                           
+[12:53:46] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/18-odb-             
+               manualmacroplacement/odb-manualmacroplacement.log'…              
+[12:53:46] [V] Running 'OpenROAD.CutRows' at                        step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/19-open             
+               road-cutrows'…                                                   
+[12:53:46] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:53:46] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/19-open             
+               road-cutrows/openroad-cutrows.log'…                              
+[12:53:47] [V] Running 'OpenROAD.TapEndcapInsertion' at             step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/20-open             
+               road-tapendcapinsertion'…                                        
+[12:53:47] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:53:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/20-open             
+               road-tapendcapinsertion/openroad-tapendcapinsertion.             
+               log'…                                                            
+[12:53:49] [V] Running 'Odb.AddPDNObstructions' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/21-odb-             
+               addpdnobstructions'…                                             
+[12:53:49] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.AddPDNObstructions'…                                        
+[12:53:49] [V] Running 'OpenROAD.GeneratePDN' at                    step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/22-open             
+               road-generatepdn'…                                               
+[12:53:49] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:53:49] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/22-open             
+               road-generatepdn/openroad-generatepdn.log'…                      
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1226.0000, 2186.8800) - (1228.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1301.0000, 2186.8800) - (1303.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1376.0000, 2186.8800) - (1378.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1451.0000, 2186.8800) - (1453.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1526.0000, 2186.8800) - (1528.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1601.0000, 2186.8800) - (1603.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1676.0000, 2186.8800) - (1678.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1751.0000, 2186.8800) - (1753.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1826.0000, 2186.8800) - (1828.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1901.0000, 2186.8800) - (1903.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (1976.0000, 2186.8800) - (1978.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (2051.0000, 2186.8800) - (2053.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal4 and     openroad.py:321
+               Metal5 at (2126.0000, 2186.8800) - (2128.0000,                   
+               2187.1100) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (604.0500, 726.0000) - (604.2100,                      
+               731.0000) on VDD                                                 
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (645.9300, 756.8900) - (649.9300,                      
+               756.9900) on VSS                                                 
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (604.0500, 1281.0000) - (604.2100,                     
+               1286.0000) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (645.9300, 1311.8900) - (649.9300,                     
+               1311.9900) on VSS                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (604.0500, 1836.0000) - (604.2100,                     
+               1841.0000) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (645.9300, 1866.8900) - (649.9300,                     
+               1866.9900) on VSS                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (604.0500, 2391.0000) - (604.2100,                     
+               2396.0000) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (645.9300, 2421.8900) - (649.9300,                     
+               2421.9900) on VSS                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2810.0500, 726.0000) - (2810.2100,                    
+               731.0000) on VDD                                                 
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2851.9300, 756.8900) - (2855.9300,                    
+               756.9900) on VSS                                                 
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2810.0500, 1281.0000) - (2810.2100,                   
+               1286.0000) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2851.9300, 1311.8900) - (2855.9300,                   
+               1311.9900) on VSS                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2810.0500, 1836.0000) - (2810.2100,                   
+               1841.0000) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2851.9300, 1866.8900) - (2855.9300,                   
+               1866.9900) on VSS                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2810.0500, 2391.0000) - (2810.2100,                   
+               2396.0000) on VDD                                                
+[12:53:52] [W] [PDN-0110] No via inserted between Metal3 and     openroad.py:321
+               Metal4 at (2851.9300, 2421.8900) - (2855.9300,                   
+               2421.9900) on VSS                                                
+[12:54:02] [V] Running 'Odb.RemovePDNObstructions' at               step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/23-odb-             
+               removepdnobstructions'…                                          
+[12:54:02] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.RemovePDNObstructions'…                                     
+[12:54:02] [V] Running 'Odb.AddRoutingObstructions' at              step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/24-odb-             
+               addroutingobstructions'…                                         
+[12:54:02] [I] 'ROUTING_OBSTRUCTIONS' is not defined. Skipping        odb.py:589
+               'Odb.AddRoutingObstructions'…                                    
+[12:54:02] [V] Running 'OpenROAD.GlobalPlacementSkipIO' at          step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/25-open             
+               road-globalplacementskipio'…                                     
+[12:54:02] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:54:02] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/25-open             
+               road-globalplacementskipio/openroad-globalplacements             
+               kipio.log'…                                                      
+[12:54:13] [V] Running 'Odb.ApplyDEFTemplate' at                    step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/26-odb-             
+               applydeftemplate'…                                               
+[12:54:13] [I] No DEF template provided, skipping                     odb.py:302
+               'Odb.ApplyDEFTemplate'…                                          
+[12:54:13] [V] Running 'OpenROAD.GlobalPlacement' at                step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/27-open             
+               road-globalplacement'…                                           
+[12:54:13] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:54:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/27-open             
+               road-globalplacement/openroad-globalplacement.log'…              
+[12:55:12] [V] Running 'Odb.WriteVerilogHeader' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/28-odb-             
+               writeverilogheader'…                                             
+[12:55:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/28-odb-             
+               writeverilogheader/odb-writeverilogheader.log'…                  
+[12:55:13] [V] Running 'Checker.PowerGridViolations' at             step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/29-chec             
+               ker-powergridviolations'…                                        
+[12:55:13] [I] Check for power grid violations (as reported by    checker.py:131
+               OpenROAD PSM- you may ignore these if LVS passes)                
+               clear.                                                           
+[12:55:13] [V] Running 'OpenROAD.STAMidPNR' at                      step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/30-open             
+               road-stamidpnr'…                                                 
+[12:55:13] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/30-open             
+               road-stamidpnr/openroad-stamidpnr.log'…                          
+[12:55:14] [V] Running 'OpenROAD.RepairDesignPostGPL' at            step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/31-open             
+               road-repairdesignpostgpl'…                                       
+[12:55:14] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:14] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/31-open             
+               road-repairdesignpostgpl/openroad-repairdesignpostgp             
+               l.log'…                                                          
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.tt_025C_5v00.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.tt_025C_5v0                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.tt_025C_5v00.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.tt_025C_5v00.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.tt_025C_5v00.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.tt_025C_5v00.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:15] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.ss_125C_4v50.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.ss_125C_4v5                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.ss_125C_4v50.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.ss_125C_4v50.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.ss_125C_4v50.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.ss_125C_4v50.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:16] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:20] [V] Running 'Odb.ManualGlobalPlacement' at               step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/32-odb-             
+               manualglobalplacement'…                                          
+[12:55:20] [I] 'MANUAL_GLOBAL_PLACEMENTS' not set. Skipping          odb.py:1032
+               'Odb.ManualGlobalPlacement'…                                     
+[12:55:20] [V] Running 'OpenROAD.DetailedPlacement' at              step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/33-open             
+               road-detailedplacement'…                                         
+[12:55:20] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:20] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/33-open             
+               road-detailedplacement/openroad-detailedplacement.lo             
+               g'…                                                              
+[12:55:23] [V] Running 'OpenROAD.CTS' at                            step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/34-open             
+               road-cts'…                                                       
+[12:55:23] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:23] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/34-open             
+               road-cts/openroad-cts.log'…                                      
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.tt_025C_5v00.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.tt_025C_5v0                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.tt_025C_5v00.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.tt_025C_5v00.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.tt_025C_5v00.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.tt_025C_5v00.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ff_n40C_5v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already                    
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_                
+               5v50.lib line 17, library                                        
+               gf180mcu_fd_io__ff_n40C_5v50 already exists.                     
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ff_n40C_5v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50                
+               already exists.                                                  
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.ff_n40C_5v50.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.ff_n40C_5v5                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.ff_n40C_5v50.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.ff_n40C_5v50.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.ff_n40C_5v50.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.ff_n40C_5v50.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:24] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__tt_025C_5v00.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already                    
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_                
+               5v00.lib line 17, library                                        
+               gf180mcu_fd_io__tt_025C_5v00 already exists.                     
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__tt_025C_5v00.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00                
+               already exists.                                                  
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.tt_025C_5v00.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.tt_025C_5v0                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.tt_025C_5v00.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.tt_025C_5v00.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.tt_025C_5v00.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.tt_025C_5v00.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.ss_125C_4v50.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.ss_125C_4v5                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.ss_125C_4v50.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.ss_125C_4v50.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.ss_125C_4v50.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.ss_125C_4v50.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:25] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ff_n40C_5v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already                    
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_                
+               5v50.lib line 17, library                                        
+               gf180mcu_fd_io__ff_n40C_5v50 already exists.                     
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ff_n40C_5v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ff_n40C_5v50                
+               already exists.                                                  
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.ff_n40C_5v50.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.ff_n40C_5v5                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.ff_n40C_5v50.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.ff_n40C_5v50.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.ff_n40C_5v50.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.ff_n40C_5v50.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__tt_025C_5v00.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already                    
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_                
+               5v00.lib line 17, library                                        
+               gf180mcu_fd_io__tt_025C_5v00 already exists.                     
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__tt_025C_5v00.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__tt_025C_5v00                
+               already exists.                                                  
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.tt_025C_5v00.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.tt_025C_5v0                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.tt_025C_5v00.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.tt_025C_5v00.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.tt_025C_5v00.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.tt_025C_5v00.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ss_125C_4v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already                    
+               exists.                                                          
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_                
+               4v50.lib line 17, library                                        
+               gf180mcu_fd_io__ss_125C_4v50 already exists.                     
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ss_125C_4v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50                
+               already exists.                                                  
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.ss_125C_4v50.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:26] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.ss_125C_4v5                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.ss_125C_4v50.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.ss_125C_4v50.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.ss_125C_4v50.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.ss_125C_4v50.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ss_125C_4v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already                    
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_                
+               4v50.lib line 17, library                                        
+               gf180mcu_fd_io__ss_125C_4v50 already exists.                     
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_ip_sram/lib/gf180mcu_fd_ip_sram                
+               __sram512x8m8wm1__ss_125C_4v50.lib line 29,                      
+               library                                                          
+               gf180mcu_fd_ip_sram__sram512x8m8wm1__ss_125C_4v50                
+               already exists.                                                  
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.ss_125C_4v50.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.ss_125C_4v5                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.ss_125C_4v50.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.ss_125C_4v50.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.ss_125C_4v50.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.ss_125C_4v50.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:27] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:34] [W] [RSZ-0065] max wire length less than 275247u      openroad.py:321
+               increases wire delays.                                           
+[12:55:38] [V] Running 'OpenROAD.STAMidPNR-1' at                    step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/35-open             
+               road-stamidpnr-1'…                                               
+[12:55:38] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/35-open             
+               road-stamidpnr-1/openroad-stamidpnr-1.log'…                      
+[12:55:40] [V] Running 'OpenROAD.ResizerTimingPostCTS' at           step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/36-open             
+               road-resizertimingpostcts'…                                      
+[12:55:40] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/36-open             
+               road-resizertimingpostcts/openroad-resizertimingpost             
+               cts.log'…                                                        
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.tt_025C_5v00.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.tt_025C_5v0                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.tt_025C_5v00.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.tt_025C_5v00.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.tt_025C_5v00.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.tt_025C_5v00.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_                
+               core/lib/cpu_core.ss_125C_4v50.lib line 1,                       
+               library cpu_core already exists.                                 
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/posi                
+               t_decoder_32_2/lib/posit_decoder_32_2.ss_125C_4v5                
+               0.lib line 1, library posit_decoder_32_2 already                 
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/dsp_                
+               mac/lib/dsp_mac.ss_125C_4v50.lib line 1, library                 
+               dsp_mac already exists.                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simd                
+               _alu/lib/simd_alu.ss_125C_4v50.lib line 1,                       
+               library simd_alu already exists.                                 
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/spim                
+               emio/lib/spimemio.ss_125C_4v50.lib line 1,                       
+               library spimemio already exists.                                 
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/simp                
+               leuart/lib/simpleuart.ss_125C_4v50.lib line 1,                   
+               library simpleuart already exists.                               
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tl.lib line 1, library dieart_tl already                     
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_tr.lib line 1, library dieart_tr already                     
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_bl.lib line 1, library dieart_bl already                     
+               exists.                                                          
+[12:55:41] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/ip/dieart/lib/die                
+               art_br.lib line 1, library dieart_br already                     
+               exists.                                                          
+[12:55:45] [V] Running 'OpenROAD.STAMidPNR-2' at                    step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/37-open             
+               road-stamidpnr-2'…                                               
+[12:55:45] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:45] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/37-open             
+               road-stamidpnr-2/openroad-stamidpnr-2.log'…                      
+[12:55:47] [V] Running 'OpenROAD.GlobalRouting' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/38-open             
+               road-globalrouting'…                                             
+[12:55:47] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/38-open             
+               road-globalrouting/openroad-globalrouting.log'…                  
+[12:55:52] [V] Running 'OpenROAD.CheckAntennas' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/39-open             
+               road-checkantennas'…                                             
+[12:55:52] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:52] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/39-open             
+               road-checkantennas/openroad-checkantennas.log'…                  
+[12:55:53] [I] Gating variable for step                        sequential.py:362
+               'OpenROAD.RepairDesignPostGRT' set to 'False'-                   
+               the step will be skipped.                                        
+[12:55:53] [I] Skipping step 'Repair Design (Post-Global       sequential.py:370
+               Routing)'…                                                       
+[12:55:53] [V] Running 'Odb.DiodesOnPorts' at                       step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/40-odb-             
+               diodesonports'…                                                  
+[12:55:53] [I] 'DIODE_ON_PORTS' is set to 'none': skipping            odb.py:820
+               'Odb.DiodesOnPorts'…                                             
+[12:55:53] [I] Gating variable for step                        sequential.py:362
+               'Odb.HeuristicDiodeInsertion' set to 'False'-                    
+               the step will be skipped.                                        
+[12:55:53] [I] Skipping step 'Heuristic Diode Insertion'…      sequential.py:370
+[12:55:53] [V] Running 'OpenROAD.RepairAntennas' at                 step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/41-open             
+               road-repairantennas'…                                            
+[12:55:53] [V] Running 'OpenROAD.DiodeInsertion' at                 step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/41-open             
+               road-repairantennas/1-openroad-diodeinsertion'…                  
+[12:55:53] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:55:53] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/41-open             
+               road-repairantennas/1-openroad-diodeinsertion/openro             
+               ad-diodeinsertion.log'…                                          
+[12:55:56] [W] [GRT-0243] Unable to repair antennas on net with  openroad.py:321
+               diodes.                                                          
+[12:55:59] [W] [GRT-0243] Unable to repair antennas on net with  openroad.py:321
+               diodes.                                                          
+[12:56:03] [V] Running 'OpenROAD.CheckAntennas' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/41-open             
+               road-repairantennas/2-openroad-checkantennas'…                   
+[12:56:03] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:56:03] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/41-open             
+               road-repairantennas/2-openroad-checkantennas/openroa             
+               d-checkantennas.log'…                                            
+[12:56:04] [I] Gating variable for step                        sequential.py:362
+               'OpenROAD.ResizerTimingPostGRT' set to 'False'-                  
+               the step will be skipped.                                        
+[12:56:04] [I] Skipping step 'Resizer Timing Optimizations     sequential.py:370
+               (Post-Global Routing)'…                                          
+[12:56:04] [V] Running 'OpenROAD.STAMidPNR-3' at                    step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/42-open             
+               road-stamidpnr-3'…                                               
+[12:56:04] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:56:04] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/42-open             
+               road-stamidpnr-3/openroad-stamidpnr-3.log'…                      
+[12:56:07] [V] Running 'OpenROAD.DetailedRouting' at                step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/43-open             
+               road-detailedrouting'…                                           
+[12:56:07] [V] OpenROAD will use 4 threads                       openroad.py:520
+[12:56:07] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/43-open             
+               road-detailedrouting/openroad-detailedrouting.log'…              
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via1                           
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via1                           
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via2                           
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via2                           
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via3                           
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via3                           
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via4                           
+[12:56:07] [W] [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is    openroad.py:321
+               not supported. Skipping for layer Via4                           
+[12:58:04] [W] [GRT-0243] Unable to repair antennas on net with  openroad.py:321
+               diodes.                                                          
+[13:01:04] [V] Running 'Odb.RemoveRoutingObstructions' at           step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/44-odb-             
+               removeroutingobstructions'…                                      
+[13:01:04] [I] 'ROUTING_OBSTRUCTIONS' is not defined. Skipping        odb.py:589
+               'Odb.RemoveRoutingObstructions'…                                 
+[13:01:04] [V] Running 'OpenROAD.CheckAntennas-1' at                step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/45-open             
+               road-checkantennas-1'…                                           
+[13:01:04] [V] OpenROAD will use 4 threads                       openroad.py:520
+[13:01:04] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/45-open             
+               road-checkantennas-1/openroad-checkantennas-1.log'…              
+[13:01:05] [V] Running 'Checker.TrDRC' at                           step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/46-chec             
+               ker-trdrc'…                                                      
+[13:01:05] [I] Check for Routing DRC errors clear.                checker.py:131
+[13:01:05] [V] Running 'Odb.ReportDisconnectedPins' at              step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/47-odb-             
+               reportdisconnectedpins'…                                         
+[13:01:05] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/47-odb-             
+               reportdisconnectedpins/odb-reportdisconnectedpins.lo             
+               g'…                                                              
+[13:01:06] [V] Running 'Checker.DisconnectedPins' at                step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/48-chec             
+               ker-disconnectedpins'…                                           
+[13:01:06] [I] Check for critical disconnected pins clear.        checker.py:131
+[13:01:06] [V] Running 'Odb.ReportWireLength' at                    step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/49-odb-             
+               reportwirelength'…                                               
+[13:01:06] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/49-odb-             
+               reportwirelength/odb-reportwirelength.log'…                      
+[13:01:07] [V] Running 'Checker.WireLength' at                      step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/50-chec             
+               ker-wirelength'…                                                 
+[13:01:07] [W] Threshold for Threshold-surpassing long wires is   checker.py:108
+               not set. The checker will be skipped.                            
+[13:01:07] [V] Running 'OpenROAD.FillInsertion' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/51-open             
+               road-fillinsertion'…                                             
+[13:01:07] [V] OpenROAD will use 4 threads                       openroad.py:520
+[13:01:07] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/51-open             
+               road-fillinsertion/openroad-fillinsertion.log'…                  
+[13:01:11] [V] Running 'Odb.CellFrequencyTables' at                 step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/52-odb-             
+               cellfrequencytables'…                                            
+[13:01:11] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/52-odb-             
+               cellfrequencytables/buffer_list.txt'…                            
+[13:01:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/52-odb-             
+               cellfrequencytables/odb-cellfrequencytables.log'…                
+[13:01:13] [V] Running 'OpenROAD.RCX' at                            step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/53-open             
+               road-rcx'…                                                       
+[13:01:13] [I] Running RCX for corners matching nom_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/soc3/                 
+               runs/RUN_2026-11-18_12-53-35/53-openroad-rcx/nom                 
+               /rcx.log)…                                                       
+[13:01:13] [I] Running RCX for corners matching min_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/soc3/                 
+               runs/RUN_2026-11-18_12-53-35/53-openroad-rcx/min                 
+               /rcx.log)…                                                       
+[13:01:13] [V] OpenROAD will use 4 threads                       openroad.py:520
+[13:01:13] [I] Running RCX for corners matching max_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/soc3/                 
+               runs/RUN_2026-11-18_12-53-35/53-openroad-rcx/max                 
+               /rcx.log)…                                                       
+[13:01:13] [V] OpenROAD will use 4 threads                       openroad.py:520
+[13:01:13] [V] OpenROAD will use 4 threads                       openroad.py:520
+[13:01:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/53-open             
+               road-rcx/nom/rcx.log'…                                           
+[13:01:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/53-open             
+               road-rcx/min/rcx.log'…                                           
+[13:01:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/53-open             
+               road-rcx/max/rcx.log'…                                           
+[13:01:17] [I] Finished RCX for corners matching nom_*.         openroad.py:2199
+[13:01:18] [I] Finished RCX for corners matching max_*.         openroad.py:2199
+[13:01:18] [I] Finished RCX for corners matching min_*.         openroad.py:2199
+[13:01:18] [V] Running 'OpenROAD.STAPostPNR' at                     step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr'…                                                
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [I] Starting STA for the nom_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [I] Starting STA for the nom_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/nom_tt_025C_5v00/sta.log'…                       
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/nom_ss_125C_4v50/sta.log'…                       
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [I] Starting STA for the nom_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [I] Starting STA for the min_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/nom_ff_n40C_5v50/sta.log'…                       
+[13:01:18] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/min_tt_025C_5v00/sta.log'…                       
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro cpu_core, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro posit_decoder_32_2, but   toolbox.py:268
+               no parasitics extraction found at corner                         
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro dsp_mac, but no           toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simd_alu, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro spimemio, but no          toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:18] [W] Netlists found for macro simpleuart, but no        toolbox.py:268
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module.                                           
+[13:01:23] [I] Finished STA for the nom_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[13:01:23] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/nom_ss_125C_4v50/filter_unannotated.             
+               log'…                                                            
+[13:01:23] [I] Finished STA for the nom_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[13:01:23] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/nom_tt_025C_5v00/filter_unannotated.             
+               log'…                                                            
+[13:01:23] [I] Finished STA for the nom_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[13:01:23] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/nom_ff_n40C_5v50/filter_unannotated.             
+               log'…                                                            
+[13:01:23] [I] Finished STA for the min_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[13:01:23] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/min_tt_025C_5v00/filter_unannotated.             
+               log'…                                                            
+[13:01:25] [I] Starting STA for the min_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[13:01:25] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/min_ss_125C_4v50/sta.log'…                       
+[13:01:25] [I] Starting STA for the min_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[13:01:25] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/min_ff_n40C_5v50/sta.log'…                       
+[13:01:25] [I] Starting STA for the max_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[13:01:25] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/max_tt_025C_5v00/sta.log'…                       
+[13:01:25] [I] Starting STA for the max_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[13:01:25] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/max_ss_125C_4v50/sta.log'…                       
+[13:01:29] [I] Finished STA for the min_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[13:01:30] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/min_ss_125C_4v50/filter_unannotated.             
+               log'…                                                            
+[13:01:30] [I] Finished STA for the max_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[13:01:30] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/max_tt_025C_5v00/filter_unannotated.             
+               log'…                                                            
+[13:01:30] [I] Finished STA for the min_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[13:01:30] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/min_ff_n40C_5v50/filter_unannotated.             
+               log'…                                                            
+[13:01:30] [I] Finished STA for the max_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[13:01:30] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/max_ss_125C_4v50/filter_unannotated.             
+               log'…                                                            
+[13:01:31] [I] Starting STA for the max_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[13:01:31] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/max_ff_n40C_5v50/sta.log'…                       
+[13:01:34] [I] Finished STA for the max_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[13:01:34] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/54-open             
+               road-stapostpnr/max_ff_n40C_5v50/filter_unannotated.             
+               log'…                                                            
+[13:01:35] [V] Running 'OpenROAD.IRDropReport' at                   step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/55-open             
+               road-irdropreport'…                                              
+[13:01:35] [W] 'VSRC_LOC_FILES' was not given a value, which    openroad.py:2291
+               may make the results of IR drop analysis                         
+               inaccurate. If you are not integrating a                         
+               top-level chip for manufacture, you may ignore                   
+               this warning, otherwise, see the documentation                   
+               for 'VSRC_LOC_FILES'.                                            
+[13:01:35] [V] OpenROAD will use 4 threads                       openroad.py:520
+[13:01:35] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/55-open             
+               road-irdropreport/openroad-irdropreport.log'…                    
+[13:03:34] [V] + analyze_power_grid -net VDD -voltage_file      openroad.py:2303
+               /home/runner/work/dec_PD/dec_PD/librelane/soc3/r                 
+               uns/RUN_2026-11-18_12-53-35/55-openroad-irdropre                 
+               port/net-VDD.csv                                                 
+               [INFO PSM-0040] All shapes on net VDD are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VDD                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 5.26e-04 W                                    
+               Supply voltage   : 5.00e+00 V                                    
+               Worstcase voltage: 5.00e+00 V                                    
+               Average voltage  : 5.00e+00 V                                    
+               Average IR drop  : 2.80e-07 V                                    
+               Worstcase IR drop: 1.15e-05 V                                    
+               Percentage drop  : 0.00 %                                        
+               ######################################                           
+               + analyze_power_grid -net VSS -voltage_file                      
+               /home/runner/work/dec_PD/dec_PD/librelane/soc3/r                 
+               uns/RUN_2026-11-18_12-53-35/55-openroad-irdropre                 
+               port/net-VSS.csv                                                 
+               [INFO PSM-0040] All shapes on net VSS are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VSS                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 5.26e-04 W                                    
+               Supply voltage   : 0.00e+00 V                                    
+               Worstcase voltage: 1.16e-05 V                                    
+               Average voltage  : 2.77e-07 V                                    
+               Average IR drop  : 2.77e-07 V                                    
+               Worstcase IR drop: 1.16e-05 V                                    
+               Percentage drop  : 0.00 %                                        
+               ######################################                           
+                                                                                
+[13:03:34] [V] Running 'Magic.StreamOut' at                         step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout'…                                                    
+[13:03:34] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/gf180mcu_fd_ip_sram__sram512x8m8wm1.get_             
+               bbox.log'…                                                       
+[13:03:35] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/cpu_core.get_bbox.log'…                              
+[13:03:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/posit_decoder_32_2.get_bbox.log'…                    
+[13:03:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/dsp_mac.get_bbox.log'…                               
+[13:03:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/simd_alu.get_bbox.log'…                              
+[13:03:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/spimemio.get_bbox.log'…                              
+[13:03:39] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/simpleuart.get_bbox.log'…                            
+[13:03:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/dieart_tl.get_bbox.log'…                             
+[13:03:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/dieart_tr.get_bbox.log'…                             
+[13:03:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/dieart_bl.get_bbox.log'…                             
+[13:03:41] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/dieart_br.get_bbox.log'…                             
+[13:03:41] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/56-magi             
+               c-streamout/magic-streamout.log'…                                
+[13:04:36] [V] Running 'KLayout.StreamOut' at                       step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/57-klay             
+               out-streamout'…                                                  
+[13:04:36] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/57-klay             
+               out-streamout/klayout-streamout.log'…                            
+[13:04:38] [V] Running 'KLayout.XOR' at                             step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/58-klay             
+               out-xor'…                                                        
+[13:04:38] [I] Running XOR with 4 threads…                        klayout.py:406
+[13:04:38] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/58-klay             
+               out-xor/klayout-xor.log'…                                        
+[13:05:50] [V] Running 'Checker.XOR' at                             step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/59-chec             
+               ker-xor'…                                                        
+[13:05:50] [I] Check for XOR differences clear.                   checker.py:131
+[13:05:50] [V] Running 'KLayout.Antenna' at                         step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/60-klay             
+               out-antenna'…                                                    
+[13:05:50] [I] Running KLayout antenna check…                    klayout.py:1358
+[13:05:50] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/60-klay             
+               out-antenna/klayout-antenna.log'…                                
+[13:08:02] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/60-klay             
+               out-antenna/xml_drc_report_to_json.log'…                         
+[13:08:02] [V] Running 'Checker.KLayoutAntenna' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/61-chec             
+               ker-klayoutantenna'…                                             
+[13:08:02] [I] Check for KLayout antenna errors clear.            checker.py:131
+[13:08:02] [V] Running 'KLayout.SealRing' at                        step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/62-klay             
+               out-sealring'…                                                   
+[13:08:02] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/62-klay             
+               out-sealring/klayout-sealring.log'…                              
+[13:08:04] [V] Running 'KLayout.Render' at                          step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/63-klay             
+               out-render'…                                                     
+[13:08:04] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/63-klay             
+               out-render/klayout-render.log'…                                  
+[13:08:07] [V] Running 'KLayout.Filler' at                          step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/64-klay             
+               out-filler'…                                                     
+[13:08:07] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/64-klay             
+               out-filler/klayout-filler.log'…                                  
+[13:10:05] [V] Running 'KLayout.Density' at                         step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/65-klay             
+               out-density'…                                                    
+[13:10:05] [I] Running KLayout density check with 4 threads…     klayout.py:1249
+[13:10:05] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/65-klay             
+               out-density/klayout-density.log'…                                
+[13:13:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/65-klay             
+               out-density/xml_drc_report_to_json.log'…                         
+[13:13:55] [V] Running 'Checker.KLayoutDensity' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/66-chec             
+               ker-klayoutdensity'…                                             
+[13:13:55] [I] Check for KLayout density errors clear.            checker.py:131
+[13:13:55] [V] Running 'Magic.DRC' at                               step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/67-magi             
+               c-drc'…                                                          
+[13:13:55] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/67-magi             
+               c-drc/magic-drc.log'…                                            
+[13:32:28] [V] Running 'KLayout.DRC' at                             step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/68-klay             
+               out-drc'…                                                        
+[13:32:28] [I] Running KLayout DRC with 1 threads…                klayout.py:672
+[13:32:28] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/68-klay             
+               out-drc/klayout-drc.log'…                                        
+[14:03:06] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/68-klay             
+               out-drc/xml_drc_report_to_json.log'…                             
+[14:03:06] [V] Running 'Checker.MagicDRC' at                        step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/69-chec             
+               ker-magicdrc'…                                                   
+[14:03:06] [I] Check for Magic DRC errors clear.                  checker.py:131
+[14:03:06] [V] Running 'Checker.KLayoutDRC' at                      step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/70-chec             
+               ker-klayoutdrc'…                                                 
+[14:03:06] [I] Check for KLayout DRC errors clear.                checker.py:131
+[14:03:06] [V] Running 'Magic.SpiceExtraction' at                   step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/71-magi             
+               c-spiceextraction'…                                              
+[14:03:06] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/71-magi             
+               c-spiceextraction/magic-spiceextraction.log'…                    
+[14:03:59] [V] Running 'Checker.IllegalOverlap' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/72-chec             
+               ker-illegaloverlap'…                                             
+[14:03:59] [I] Check for Magic Illegal Overlap errors clear.      checker.py:131
+[14:03:59] [V] Running 'Netgen.LVS' at                              step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/73-netg             
+               en-lvs'…                                                         
+[14:03:59] [I] Logging subprocess to                                step.py:1336
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/73-netg             
+               en-lvs/netgen-lvs.log'…                                          
+[14:04:11] [V] Running 'Checker.LVS' at                             step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/74-chec             
+               ker-lvs'…                                                        
+[14:04:11] [I] Check for LVS errors clear.                        checker.py:131
+[14:04:12] [I] Gating variable for step 'Yosys.EQY' set to     sequential.py:362
+               'False'- the step will be skipped.                               
+[14:04:12] [I] Skipping step 'Equivalence Check'…              sequential.py:370
+[14:04:12] [V] Running 'Checker.SetupViolations' at                 step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/75-chec             
+               ker-setupviolations'…                                            
+[14:04:12] [V] No setup violations found                          checker.py:628
+[14:04:12] [V] Running 'Checker.HoldViolations' at                  step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/76-chec             
+               ker-holdviolations'…                                             
+[14:04:12] [V] No hold violations found                           checker.py:628
+[14:04:12] [V] Running 'Checker.MaxSlewViolations' at               step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/77-chec             
+               ker-maxslewviolations'…                                          
+[14:04:12] [W] Max Slew violations found in the following         checker.py:626
+               corners:                                                         
+               * max_ff_n40C_5v50                                               
+               * max_ss_125C_4v50                                               
+               * max_tt_025C_5v00                                               
+               * min_ff_n40C_5v50                                               
+               * min_ss_125C_4v50                                               
+               * min_tt_025C_5v00                                               
+               * nom_ff_n40C_5v50                                               
+               * nom_ss_125C_4v50                                               
+               * nom_tt_025C_5v00                                               
+[14:04:12] [V] No max slew violations found                       checker.py:628
+[14:04:12] [V] Running 'Checker.MaxCapViolations' at                step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/78-chec             
+               ker-maxcapviolations'…                                           
+[14:04:12] [W] Max Cap violations found in the following corners: checker.py:626
+               * max_ss_125C_4v50                                               
+               * max_tt_025C_5v00                                               
+[14:04:12] [V] No max cap violations found                        checker.py:628
+[14:04:12] [V] Running 'Misc.ReportManufacturability' at            step.py:1138
+               'librelane/soc3/runs/RUN_2026-11-18_12-53-35/79-misc             
+               -reportmanufacturability'…                                       
+[14:04:12] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/librelane/soc3/runs             
+               /RUN_2026-11-18_12-53-35/final'…                                 
+[14:04:12] [I] Flow complete.                                  sequential.py:413
+[14:04:12] [W] The following warnings were generated by the flow:    flow.py:699
+[14:04:12] [W] [Checker.LintWarnings] 341 Lint warnings found.       flow.py:701
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner nom_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 2 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 2 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner nom_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 2 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner nom_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 2 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner nom_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 2 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               nom_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 2 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner nom_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner nom_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner nom_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner nom_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               nom_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner nom_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner nom_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner nom_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner nom_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               nom_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner min_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner min_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner min_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner min_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               min_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner min_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner min_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner min_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner min_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               min_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner min_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner min_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner min_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner min_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               min_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner max_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner max_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner max_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner max_tt_025C_5v00. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               max_tt_025C_5v00. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner max_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner max_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner max_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner max_ss_125C_4v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               max_ss_125C_4v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro cpu_core, but no parasitics  flow.py:701
+               extraction found at corner max_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro posit_decoder_32_2, but no   flow.py:701
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] Netlists found for macro dsp_mac, but no parasitics   flow.py:701
+               extraction found at corner max_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simd_alu, but no parasitics  flow.py:701
+               extraction found at corner max_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro spimemio, but no parasitics  flow.py:701
+               extraction found at corner max_ff_n40C_5v50. The                 
+               netlist cannot be used for timing on this module.                
+               (and 1 similar warnings)                                         
+[14:04:12] [W] Netlists found for macro simpleuart, but no           flow.py:701
+               parasitics extraction found at corner                            
+               max_ff_n40C_5v50. The netlist cannot be used for                 
+               timing on this module. (and 1 similar warnings)                  
+[14:04:12] [W] [OpenROAD.Floorplan] [IFP-0028] Core area lower left  flow.py:701
+               (442.000, 442.000) snapped to (442.400, 442.960).                
+[14:04:12] [W] [Odb.CheckMacroAntennaProperties] Cell                flow.py:701
+               'gf180mcu_fd_ip_sram__sram512x8m8wm1' has (10) input             
+               pin(s) without antenna gate information. They might              
+               not be connected to a gate. (and 3 similar warnings)             
+[14:04:12] [W] [OpenROAD.PadRing] [PAD-0033] Could not find a block  flow.py:701
+               terminal associated with net: "VSS", creating now.               
+               (and 1 similar warnings)                                         
+[14:04:12] [W] [OpenROAD.GeneratePDN] [PDN-0110] No via inserted     flow.py:701
+               between Metal4 and Metal5 at (1226.0000, 2186.8800) -            
+               (1228.0000, 2187.1100) on VDD (and 28 similar                    
+               warnings)                                                        
+[14:04:12] [W] [OpenROAD.RepairDesignPostGPL] [STA-1140]             flow.py:701
+               /home/runner/work/dec_PD/dec_PD/ip/v3/macros/cpu_core            
+               /lib/cpu_core.tt_025C_5v00.lib line 1, library                   
+               cpu_core already exists. (and 137 similar warnings)              
+[14:04:12] [W] [OpenROAD.CTS] [RSZ-0065] max wire length less than   flow.py:701
+               275247u increases wire delays.                                   
+[14:04:12] [W] [OpenROAD.DiodeInsertion] [GRT-0243] Unable to repair flow.py:701
+               antennas on net with diodes. (and 2 similar warnings)            
+[14:04:12] [W] [OpenROAD.DetailedRouting] [DRT-0349] LEF58_ENCLOSURE flow.py:701
+               with no CUTCLASS is not supported. Skipping for layer            
+               Via1 (and 7 similar warnings)                                    
+[14:04:12] [W] [Checker.WireLength] Threshold for                    flow.py:701
+               Threshold-surpassing long wires is not set. The                  
+               checker will be skipped.                                         
+[14:04:12] [W] [OpenROAD.IRDropReport] 'VSRC_LOC_FILES' was not      flow.py:701
+               given a value, which may make the results of IR drop             
+               analysis inaccurate. If you are not integrating a                
+               top-level chip for manufacture, you may ignore this              
+               warning, otherwise, see the documentation for                    
+               'VSRC_LOC_FILES'.                                                
+[14:04:12] [W] [Checker.MaxSlewViolations] Max Slew violations found flow.py:701
+               in the following corners:                                        
+               * max_ff_n40C_5v50                                               
+               * max_ss_125C_4v50                                               
+               * max_tt_025C_5v00                                               
+               * min_ff_n40C_5v50                                               
+               * min_ss_125C_4v50                                               
+               * min_tt_025C_5v00                                               
+               * nom_ff_n40C_5v50                                               
+               * nom_ss_125C_4v50                                               
+               * nom_tt_025C_5v00                                               
+[14:04:12] [W] [Checker.MaxCapViolations] Max Cap violations found   flow.py:701
+               in the following corners:                                        
+               * max_ss_125C_4v50                                               
+               * max_tt_025C_5v00                                               
+[14:04:12] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/final_soc3'…                    
