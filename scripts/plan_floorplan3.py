@@ -7,7 +7,7 @@ PDN_MACRO_CONNECTIONS). Arrangement:
   left column   : main RAM, 4 SRAM macros
   right column  : scratchpad RAM, 4 SRAM macros
   centre, top   : CPU core, posit decoder beside it (off-centre)
-  centre, middle: DSP0, DSP1, SIMD ALU
+  centre, middle: DSP array (2x2 MAC slices), SIMD ALU beside it
   centre, bottom: SPI flash controller, UART
 The die is the smallest size whose 10-pad sides satisfy LibreLane's pad
 placer grid rules (scripts mirror its Tcl arithmetic).
@@ -55,9 +55,10 @@ def main():
 
     row_a_w = cpu[0] + G + pos[0]
     row_b_w = 2 * dsp[0] + simd[0] + 2 * G
+    row_b_h = max(2 * dsp[1] + G, simd[1])
     row_c_w = spi[0] + uart[0] + G
     mid_w = max(row_a_w, row_b_w, row_c_w) + 2 * G
-    mid_h = cpu[1] + max(dsp[1], simd[1]) + max(spi[1], uart[1]) + 4 * G + 160  # room for glue logic
+    mid_h = cpu[1] + row_b_h + max(spi[1], uart[1]) + 4 * G + 160  # room for glue logic
     col_h = 4 * SRAM_H + 3 * G
     core_w = 2 * M + 2 * SRAM_W + 2 * CG + mid_w
     core_h = max(col_h, mid_h) + 2 * M
@@ -89,11 +90,11 @@ def main():
     place["u_soc.u_spi"] = ("spimemio", xl + mw * 0.27 - spi[0] / 2, y_c, "N")
     place["u_soc.u_uart"] = ("simpleuart", xl + mw * 0.73 - uart[0] / 2, y_c, "N")
 
-    row_b_h = max(dsp[1], simd[1])
     y_b = ((y_top - cpu[1]) + (y_c + max(spi[1], uart[1]))) / 2 - row_b_h / 2
-    place["u_soc.u_dsp0"] = ("dsp_mac", xl + mw / 6 - dsp[0] / 2, y_b, "N")
-    place["u_soc.u_dsp1"] = ("dsp_mac", xl + mw / 2 - dsp[0] / 2, y_b, "N")
-    place["u_soc.u_simd"] = ("simd_alu", xl + 5 * mw / 6 - simd[0] / 2, y_b, "N")
+    xb = xl + (mw - row_b_w) / 2
+    for k, (cx, cy) in enumerate(((0, 1), (1, 1), (0, 0), (1, 0))):   # DSP0 DSP1 / DSP2 DSP3
+        place[f"u_soc.u_dsp{k}"] = ("dsp_mac", xb + cx * (dsp[0] + G), y_b + cy * (dsp[1] + G), "N")
+    place["u_soc.u_simd"] = ("simd_alu", xb + 2 * (dsp[0] + G), y_b + row_b_h / 2 - simd[1] / 2, "N")
 
     sizes = {"sram": (SRAM_W, SRAM_H), "cpu_core": cpu, "posit_decoder_32_2": pos, "dsp_mac": dsp,
              "simd_alu": simd, "spimemio": spi, "simpleuart": uart}

@@ -1,5 +1,5 @@
 // Self-test firmware for the v3 multi-block SoC.
-// Checks: main RAM, scratchpad RAM, RV32M, posit decoder, DSP0/DSP1 MAC
+// Checks: main RAM, scratchpad RAM, RV32M, posit decoder, DSP0-DSP3 MAC
 // units and the SIMD ALU. GPIO_OUT = 0xA5A5 on pass, 0xE000 | errors on fail.
 #include <stdint.h>
 #include "../vectors.h"
@@ -84,18 +84,23 @@ int main(void)
     }
     GPIO_OUT = 0x0003;
 
-    int32_t dxy = 0, dxx = 0;                                             // DSP0, DSP1
-    for (int i = 0; i < 8; i++) { dxy += vx[i] * vy[i]; dxx += vx[i] * vx[i]; }
-    DSP(0, 2) = 0;
-    DSP(1, 2) = 0;
+    int32_t dxy = 0, dxx = 0, dyy = 0;                                    // DSP array
+    for (int i = 0; i < 8; i++) { dxy += vx[i] * vy[i]; dxx += vx[i] * vx[i]; dyy += vy[i] * vy[i]; }
+    for (int n = 0; n < 4; n++) DSP(n, 2) = 0;
     for (int i = 0; i < 8; i++) {
         DSP(0, 0) = (uint32_t)(int32_t)vx[i];
         DSP(0, 1) = (uint32_t)(int32_t)vy[i];
         DSP(1, 0) = (uint32_t)(int32_t)vx[i];
         DSP(1, 1) = (uint32_t)(int32_t)vx[i];
+        DSP(2, 0) = (uint32_t)(int32_t)vy[i];
+        DSP(2, 1) = (uint32_t)(int32_t)vy[i];
+        DSP(3, 0) = (uint32_t)(int32_t)vy[i];
+        DSP(3, 1) = (uint32_t)(int32_t)vx[i];
     }
     if ((int32_t)DSP(0, 2) != dxy || DSP(0, 4) != 8) err++;
     if ((int32_t)DSP(1, 2) != dxx || DSP(1, 4) != 8) err++;
+    if ((int32_t)DSP(2, 2) != dyy || DSP(2, 4) != 8) err++;
+    if ((int32_t)DSP(3, 2) != dxy || DSP(3, 4) != 8) err++;
     if (DSP(0, 3) != (dxy < 0 ? 0xFFFFFFFFu : 0u)) err++;
     DSP(1, 0) = (uint32_t)(int32_t)-1234;
     DSP(1, 5) = 5678;

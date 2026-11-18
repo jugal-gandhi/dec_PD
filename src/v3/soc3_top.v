@@ -1,7 +1,7 @@
 // soc3_top: multi-block RISC-V SoC (v3).
 //
 // Hard macros: cpu_core (PicoRV32), spimemio (SPI flash XIP), simpleuart,
-// posit_decoder_32_2, dsp_mac x2, simd_alu, and 8 foundry SRAMs (4 KB).
+// posit_decoder_32_2, dsp_mac x4, simd_alu, and 8 foundry SRAMs (4 KB).
 // Bus glue follows PicoSoC (Claire Xenia Wolf, ISC license).
 //
 // Memory map
@@ -13,6 +13,8 @@
 //   0x0300_0010 / 14 / 18      POSIT_IN / POSIT_FLD / POSIT_MANT
 //   0x0400_0000 + 4*n          DSP0 register n   (see dsp_mac.v)
 //   0x0400_0100 + 4*n          DSP1 register n
+//   0x0400_0200 + 4*n          DSP2 register n
+//   0x0400_0300 + 4*n          DSP3 register n
 //   0x0500_0000 + 4*n          SIMD ALU register n (see simd_alu.v)
 `default_nettype none
 
@@ -142,24 +144,49 @@ module soc3_top (
     wire        io_sel = mem_valid && !io_ready && io_hit;
     wire        io_wr  = io_sel && (mem_wstrb != 4'b0);
 
-    wire        dsp0_hit = (mem_addr[31:24] == 8'h04) && !mem_addr[8];
-    wire        dsp1_hit = (mem_addr[31:24] == 8'h04) &&  mem_addr[8];
+    wire        dsp_sel  = (mem_addr[31:24] == 8'h04);
+    wire [3:0]  dsp_hit  = {4{dsp_sel}} & (4'b0001 << mem_addr[9:8]);
     wire        simd_hit = (mem_addr[31:24] == 8'h05);
-    wire [31:0] dsp0_rdata, dsp1_rdata, simd_rdata;
+    wire [31:0] dsp_rdata0, dsp_rdata1, dsp_rdata2, dsp_rdata3;
+    reg  [31:0] dsp_rdata;
+    always @(*) begin
+        case (mem_addr[9:8])
+            2'd0: dsp_rdata = dsp_rdata0;
+            2'd1: dsp_rdata = dsp_rdata1;
+            2'd2: dsp_rdata = dsp_rdata2;
+            default: dsp_rdata = dsp_rdata3;
+        endcase
+    end
+    wire [31:0] simd_rdata;
 
+    // DSP array: four 16x16 MAC slices, one hard macro each
     dsp_mac u_dsp0 (
 `ifdef USE_POWER_PINS
         .VDD (VDD), .VSS (VSS),
 `endif
-        .clk (clk), .resetn (rst_n), .wr (io_wr && dsp0_hit),
-        .addr (mem_addr[5:2]), .wdata (mem_wdata), .rdata (dsp0_rdata)
+        .clk (clk), .resetn (rst_n), .wr (io_wr && dsp_hit[0]),
+        .addr (mem_addr[5:2]), .wdata (mem_wdata), .rdata (dsp_rdata0)
     );
     dsp_mac u_dsp1 (
 `ifdef USE_POWER_PINS
         .VDD (VDD), .VSS (VSS),
 `endif
-        .clk (clk), .resetn (rst_n), .wr (io_wr && dsp1_hit),
-        .addr (mem_addr[5:2]), .wdata (mem_wdata), .rdata (dsp1_rdata)
+        .clk (clk), .resetn (rst_n), .wr (io_wr && dsp_hit[1]),
+        .addr (mem_addr[5:2]), .wdata (mem_wdata), .rdata (dsp_rdata1)
+    );
+    dsp_mac u_dsp2 (
+`ifdef USE_POWER_PINS
+        .VDD (VDD), .VSS (VSS),
+`endif
+        .clk (clk), .resetn (rst_n), .wr (io_wr && dsp_hit[2]),
+        .addr (mem_addr[5:2]), .wdata (mem_wdata), .rdata (dsp_rdata2)
+    );
+    dsp_mac u_dsp3 (
+`ifdef USE_POWER_PINS
+        .VDD (VDD), .VSS (VSS),
+`endif
+        .clk (clk), .resetn (rst_n), .wr (io_wr && dsp_hit[3]),
+        .addr (mem_addr[5:2]), .wdata (mem_wdata), .rdata (dsp_rdata3)
     );
     simd_alu u_simd (
 `ifdef USE_POWER_PINS
@@ -210,9 +237,8 @@ module soc3_top (
                         8'h18: io_rdata <= {4'h0, p_mant};
                         default: io_rdata <= 32'h0;
                     endcase
-                end else if (dsp0_hit) io_rdata <= dsp0_rdata;
-                else if (dsp1_hit)     io_rdata <= dsp1_rdata;
-                else                   io_rdata <= simd_rdata;
+                end else if (dsp_sel) io_rdata <= dsp_rdata;
+                else                  io_rdata <= simd_rdata;
             end
         end
     end
