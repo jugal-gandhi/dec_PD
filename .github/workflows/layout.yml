@@ -56,6 +56,10 @@ jobs:
           name: macro3-${{ matrix.macro }}
           path: ip/v3/macros/${{ matrix.macro }}
           retention-days: 7
+      - name: Render macro layer masks
+        if: steps.flow.outcome == 'success'
+        continue-on-error: true
+        run: nix develop --command python3 scripts/render_masks.py ip/v3/macros/${{ matrix.macro }}/gds/${{ matrix.macro }}.gds results/m3_${{ matrix.macro }}/masks --pdk gf180
       - name: Collect and publish macro reports
         if: always()
         env:

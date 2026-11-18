@@ -6,9 +6,12 @@ writes librelane/soc3/floorplan.yaml (DIE_AREA, CORE_AREA, MACROS,
 PDN_MACRO_CONNECTIONS). Arrangement:
   left column   : main RAM, 4 SRAM macros
   right column  : scratchpad RAM, 4 SRAM macros
-  centre, top   : CPU core, posit decoder beside it (off-centre)
-  centre, middle: DSP array (2x2 MAC slices), SIMD ALU beside it
-  centre, bottom: SPI flash controller, UART
+  centre, top   : CPU core; posit decoder on its right edge, level with
+                  the CPU's ALU (the CPU is mirrored if its ALU sits on the
+                  left half), so the two blocks are neighbours
+  centre, middle: SPI flash controller and UART, the communication hub
+                  between the SRAM banks, the CPU and the DSP array
+  centre, bottom: DSP array (2x2 MAC slices), SIMD ALU beside it
 The die is the smallest size whose 10-pad sides satisfy LibreLane's pad
 placer grid rules (scripts mirror its Tcl arithmetic).
 """
@@ -28,6 +31,37 @@ def lef_size(name):
     path = os.path.join(ROOT, "ip", "v3", "macros", name, "lef", f"{name}.lef")
     m = re.search(r"SIZE\s+([\d.]+)\s+BY\s+([\d.]+)", open(path).read())
     return float(m.group(1)), float(m.group(2))
+
+
+def alu_centroid(w, h):
+    """Centre of the ALU cells inside the hardened CPU macro (macro coords).
+
+    ALU cells are those driving PicoRV32's named alu_* nets; their positions
+    come from the macro DEF. Returns None if the views are missing.
+    """
+    d = os.path.join(ROOT, "ip", "v3", "macros", "cpu_core")
+    nl, df = os.path.join(d, "nl", "cpu_core.nl.v"), os.path.join(d, "def", "cpu_core.def")
+    if not (os.path.exists(nl) and os.path.exists(df)):
+        return None
+    alu = set()
+    for m in re.finditer(r"^\s*gf180mcu_fd_sc\S+\s+(\S+)\s*\((.*?)\);", open(nl).read(), re.S | re.M):
+        for pin, net in re.findall(r"\.(Z|ZN|Q|Y)\s*\(\s*(.*?)\s*\)", m.group(2)):
+            if re.search(r"cpu\.alu_", net):
+                alu.add(m.group(1).lstrip("\\").replace("\\", ""))
+    txt = open(df).read()
+    units = int(re.search(r"UNITS DISTANCE MICRONS (\d+)", txt).group(1))
+    xs, ys = [], []
+    for m in re.finditer(r"-\s+(\S+)\s+\S+[^;]*?\+\s+PLACED\s+\(\s*(-?\d+)\s+(-?\d+)\s*\)", txt):
+        if m.group(1).replace("\\", "") in alu:
+            xs.append(int(m.group(2)) / units)
+            ys.append(int(m.group(3)) / units)
+    if len(xs) < 20:
+        return None
+    xs.sort()
+    ys.sort()
+    cx, cy = xs[len(xs) // 2], ys[len(ys) // 2]
+    print(f"CPU ALU: {len(xs)} cells, median at ({cx:.0f}, {cy:.0f}) of {w:.0f} x {h:.0f} um")
+    return cx, cy
 
 
 def tcl_round(x):
@@ -54,7 +88,8 @@ def main():
                  ("spimemio", spi), ("simpleuart", uart)):
         print(f"{n:12s} {s[0]:8.2f} x {s[1]:8.2f} um")
 
-    row_a_w = cpu[0] + G + pos[0]
+    GP = 45.0                       # CPU-to-posit spacing: direct neighbours
+    row_a_w = cpu[0] + GP + pos[0]
     row_b_w = 2 * dsp[0] + simd[0] + 2 * G
     row_b_h = max(2 * dsp[1] + G, simd[1])
     row_c_w = spi[0] + uart[0] + G
@@ -84,18 +119,31 @@ def main():
     mw = xr - xl
     y_top = c1 - M
     x0 = xl + (mw - row_a_w) / 2
-    place["u_soc.u_cpu"] = ("cpu_core", x0, y_top - cpu[1], "N")
-    place["u_soc.u_posit"] = ("posit_decoder_32_2", x0 + cpu[0] + G, y_top - cpu[1] / 2 - pos[1] / 2, "N")
+    alu = alu_centroid(*cpu)
+    cpu_orient = "N"
+    alu_y = y_top - cpu[1] / 2
+    if alu:
+        ax, ay = alu
+        if ax < cpu[0] / 2:         # ALU on the left half: mirror so it faces the posit decoder
+            cpu_orient = "FN"
+            ax = cpu[0] - ax
+        alu_y = y_top - cpu[1] + ay
+        print(f"CPU orientation {cpu_orient}; ALU {cpu[0] - ax:.0f} um from the posit-side edge")
+    place["u_soc.u_cpu"] = ("cpu_core", x0, y_top - cpu[1], cpu_orient)
+    py = min(max(alu_y - pos[1] / 2, y_top - cpu[1]), y_top - pos[1])
+    place["u_soc.u_posit"] = ("posit_decoder_32_2", x0 + cpu[0] + GP, py, "N")
 
-    y_c = c0 + M
-    place["u_soc.u_spi"] = ("spimemio", xl + mw * 0.27 - spi[0] / 2, y_c, "N")
-    place["u_soc.u_uart"] = ("simpleuart", xl + mw * 0.73 - uart[0] / 2, y_c, "N")
-
-    y_b = ((y_top - cpu[1]) + (y_c + max(spi[1], uart[1]))) / 2 - row_b_h / 2
+    # Bottom row: DSP array (2x2) and the SIMD ALU
+    y_b = c0 + M
     xb = xl + (mw - row_b_w) / 2
     for k, (cx, cy) in enumerate(((0, 1), (1, 1), (0, 0), (1, 0))):   # DSP0 DSP1 / DSP2 DSP3
         place[f"u_soc.u_dsp{k}"] = ("dsp_mac", xb + cx * (dsp[0] + G), y_b + cy * (dsp[1] + G), "N")
     place["u_soc.u_simd"] = ("simd_alu", xb + 2 * (dsp[0] + G), y_b + row_b_h / 2 - simd[1] / 2, "N")
+    # Middle row: SPI and UART, centred between the CPU and the DSP array
+    hub_h = max(spi[1], uart[1])
+    y_c = ((y_top - cpu[1]) + (y_b + row_b_h)) / 2 - hub_h / 2
+    place["u_soc.u_spi"] = ("spimemio", xl + mw * 0.30 - spi[0] / 2, y_c + (hub_h - spi[1]) / 2, "N")
+    place["u_soc.u_uart"] = ("simpleuart", xl + mw * 0.70 - uart[0] / 2, y_c + (hub_h - uart[1]) / 2, "N")
 
     sizes = {"sram": (SRAM_W, SRAM_H), "cpu_core": cpu, "posit_decoder_32_2": pos, "dsp_mac": dsp,
              "simd_alu": simd, "spimemio": spi, "simpleuart": uart}
@@ -156,6 +204,7 @@ def main():
         cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
         return [round(cx - side / 2, 1), round(cy - side / 2, 1), round(cx + side / 2, 1), round(cy + side / 2, 1)]
     views = {"cpu_posit": union(["u_cpu", "u_posit"]) + [4096],
+             "hub": union(["u_spi", "u_uart"], pad=60) + [3072],
              "dsp_simd": union(["u_dsp0", "u_dsp1", "u_dsp2", "u_dsp3", "u_simd"]) + [4096],
              "posit": union(["u_posit"], pad=30) + [3072]}
     json.dump(views, open(os.path.join(ROOT, "librelane", "soc3", "render_views.json"), "w"), indent=1)
