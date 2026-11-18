@@ -1,4 +1,4 @@
-# Clocked SoC: 20 MHz from the clk pad (Schmitt-trigger input).
+# Clocked SoC: 16.7 MHz from the clk pad (Schmitt-trigger input).
 current_design $::env(DESIGN_NAME)
 set_units -time ns
 
@@ -7,9 +7,9 @@ set clocks [get_clocks clk]
 
 set io_delay [expr $::env(CLOCK_PERIOD) * $::env(IO_DELAY_CONSTRAINT) / 100]
 
-set bidir [get_ports {flash_io_PAD[*] gpio_PAD[*]}]
+set bidir [get_ports {gpio_PAD[*]}]
 set ins   [get_ports {rst_n_PAD ser_rx_PAD irq5_PAD irq6_PAD}]
-set outs  [get_ports {ser_tx_PAD flash_csb_PAD flash_clk_PAD}]
+set outs  [get_ports {ser_tx_PAD}]
 
 set_input_delay -min 0 -clock $clocks $bidir
 set_input_delay -max $io_delay -clock $clocks $bidir
@@ -17,6 +17,18 @@ set_output_delay $io_delay -clock $clocks $bidir
 set_input_delay -min 0 -clock $clocks $ins
 set_input_delay -max $io_delay -clock $clocks $ins
 set_output_delay $io_delay -clock $clocks $outs
+
+# SPI flash: source-synchronous. The chip drives the flash clock from the
+# SPI controller itself, so the flash sees that controller's clock edge,
+# not the clock pad. External delays therefore refer to the clock as it
+# arrives at the controller (its clock tree latency cancels).
+set spi_ref   [get_pins u_soc.u_spi/clk]
+set flash_io  [get_ports {flash_io_PAD[*]}]
+set flash_out [get_ports {flash_csb_PAD flash_clk_PAD}]
+set_input_delay -min 0 -clock $clocks -reference_pin $spi_ref $flash_io
+set_input_delay -max $io_delay -clock $clocks -reference_pin $spi_ref $flash_io
+set_output_delay $io_delay -clock $clocks -reference_pin $spi_ref $flash_io
+set_output_delay $io_delay -clock $clocks -reference_pin $spi_ref $flash_out
 
 # The interrupt lines are asynchronous, level-sensitive inputs: no timing
 # relation to clk exists, so they carry no setup or hold requirement.
