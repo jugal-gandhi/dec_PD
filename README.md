@@ -1,13 +1,39 @@
 # dec_PD — Posit⟨32,2⟩ decoder: from VHDL to silicon layout on open PDKs
 
 This repository takes `Decoder_32_2.vhd` (a posit⟨32,2⟩ decoder) through a
-complete open-source RTL-to-GDSII flow. It produces three layouts.
+complete open-source RTL-to-GDSII flow. It produces four layouts.
 
 | Design | PDK / flow | Description |
 |---|---|---|
-| **v2 — RISC-V SoC** (main) | GF180MCU, LibreLane Chip flow, hierarchical | PicoRV32 RV32IMC, 2 KB SRAM from four foundry SRAM macros, posit decoder as a hard macro on the CPU bus, 40-pad ring, 2.392 mm die |
+| **v3 — multi-block SoC** (main) | GF180MCU, LibreLane Chip flow, hierarchical | PicoRV32 RV32IMC, 4 × DSP MAC, SIMD ALU, SPI flash, UART, posit decoder beside the CPU's ALU, 8 foundry SRAMs (4 KB), 40-pad ring, 3.602 mm die |
+| v2 — RISC-V SoC | GF180MCU, LibreLane Chip flow, hierarchical | PicoRV32 RV32IMC, 2 KB SRAM from four foundry SRAM macros, posit decoder as a hard macro on the CPU bus, 40-pad ring, 2.392 mm die |
 | v1 — decoder chip | GF180MCU, LibreLane Chip flow | Decoder with 70 direct I/O pads in an 88-pad ring, 2.987 mm die (pad-limited) |
 | Core macro | SKY130A, LibreLane Classic flow | Decoder hardened as a 110 µm × 110 µm macro |
+
+## v3 — multi-block SoC
+
+![v3 layout, labelled by block](showcase/v3/v3_03_labelled_blocks.jpg)
+
+Six blocks are hardened as separate macros (Metal1–Metal4) and placed by
+`scripts/plan_floorplan3.py`. The planner finds the ALU cells inside the
+placed CPU macro and puts the posit decoder against that edge. SPI and UART
+sit in the middle row between the CPU, the SRAM banks and the DSP array.
+
+**Sign-off (GF180MCU, LibreLane):** KLayout DRC 0 · Magic DRC 0 · LVS 0 ·
+antenna 0 · setup and hold met at all nine corners at 16.7 MHz (worst setup
+slack +3.63 ns, worst hold slack +0.16 ns). Remaining warnings: 282
+max-slew violations, mostly at the slow-slow corner on long top-level nets.
+Firmware self-test (RAM, scratchpad, RV32M, posit vectors, four DSP slices,
+SIMD ops) passes in chip-level simulation.
+
+Images: [main layout](showcase/v3/v3_01_main_layout.jpg) ·
+[colour by block](showcase/v3/v3_02_colour_by_block.jpg) ·
+[CPU ALU + posit decoder](showcase/v3/v3_04_closeup_cpu_alu_and_posit_decoder.jpg) ·
+[posit decoder](showcase/v3/v3_05_closeup_posit_decoder.jpg) ·
+[DSP array + SIMD](showcase/v3/v3_06_closeup_dsp_array_simd.jpg) ·
+[SPI/UART hub](showcase/v3/v3_07_closeup_spi_uart_hub.jpg) ·
+[hard macros at one scale](showcase/v3/v3_08_hard_macros_same_scale.jpg).
+GDS, DEF, netlist and reports: branch `results-soc3`.
 
 ## v2 — RISC-V SoC with posit accelerator
 

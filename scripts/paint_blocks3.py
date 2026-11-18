@@ -115,7 +115,8 @@ def main():
     ap.add_argument("--rings", action="store_true", help="label pad ring and core ring")
     ap.add_argument("--core", nargs=4, type=float, default=None)
     ap.add_argument("--sub-min-px", type=float, default=900, help="label sub-blocks of macros at least this wide")
-    ap.add_argument("--posit-label", choices=["above", "below", "mid", "above-right"], default="above-right")
+    ap.add_argument("--posit-label", choices=["above", "below", "mid", "above-right", "top"], default="above-right")
+    ap.add_argument("--label-scale", type=float, default=1.0)
     ap.add_argument("--sub-all", action="store_true", help="box every sub-block, not only the headline ones")
     args = ap.parse_args()
 
@@ -161,7 +162,10 @@ def main():
         if "sram" in cell:
             a, b = px(x0, y1)
             c, d = px(x1, y0)
-            sram_mask[max(0, int(b)):min(H, int(d)), max(0, int(a)):min(W, int(c))] = True
+            j0, j1 = max(0, int(b)), min(H, int(d))
+            i0, i1 = max(0, int(a)), min(W, int(c))
+            if j1 > j0 and i1 > i0:
+                sram_mask[j0:j1, i0:i1] = True
     sc = hex2rgb(SRAM_COL)
     out[sram_mask] = img[sram_mask] * 0.55 + sc * (0.18 + 0.55 * gray[sram_mask])
     m = ras > 0
@@ -310,7 +314,7 @@ def sub_regions(bm, inst_box, group, nb=22):
 def draw_labels(img, bm, px, W, args):
     over = Image.new("RGBA", img.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(over)
-    s = W / 4096
+    s = W / 4096 * args.label_scale
 
     def rect(x0, y0, x1, y1):
         a, b = px(x0, y1)
@@ -332,6 +336,7 @@ def draw_labels(img, bm, px, W, args):
         if where == "above-right":
             cx = max(cx, x0 + tw / 2 + pad)
             where = "above"
+        cx = min(max(cx, tw / 2 + pad + 4), img.size[0] - tw / 2 - pad - 4)   # keep labels on the image
         if where == "top":
             ty = y0 + width + pad
         elif where == "above":
@@ -364,6 +369,10 @@ def draw_labels(img, bm, px, W, args):
             n = inst.split("u_dsp")[-1]
             t = t.format(n=n)
         if cell == "posit_decoder_32_2":
+            if args.sub_all and (r[2] - r[0]) >= args.sub_min_px:
+                for lab, (a, b, c, e, n) in sub_regions(bm, (x0, y0, x1, y1), cell, nb=8).items():
+                    if (c - a) > (x1 - x0) * 0.2 and (e - b) > (y1 - y0) * 0.15:
+                        box(rect(a, b, c, e), lab.upper(), f"{n:,} cells", width=max(2, int(3 * s)), size=0.62)
             box(r, t, "MY WORK · hard macro", width=max(5, int(11 * s)), size=0.95, where=args.posit_label,
                 fill_alpha=225)
             continue
