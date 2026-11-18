@@ -50,10 +50,10 @@ IGNORE_DISCONNECTED_MODULES:
 - dieart_bl
 - dieart_br
 
-# Clock tree: one leaf per hard macro (no macro clustering), buffered
-# long wires and a slew limit, so macro clock pins see a sharp edge
-CTS_MACRO_CLUSTERING_SIZE: 1
-CTS_MACRO_CLUSTERING_MAX_DIAMETER: 50
+# Clock tree: hard macros share a clock leaf only when close together
+# (the default let one leaf span 1.9 mm), plus buffered long wires and a
+# slew limit, so macro clock pins see a sharp edge
+CTS_MACRO_CLUSTERING_MAX_DIAMETER: 400
 CTS_CLK_MAX_WIRE_LENGTH: 300
 CTS_DISTANCE_BETWEEN_BUFFERS: 300
 CTS_MAX_SLEW: 1.0
