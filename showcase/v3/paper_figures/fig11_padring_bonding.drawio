@@ -1,0 +1,891 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="posit_rv_v3_padring" name="Pad ring + QFN-40">
+    <mxGraphModel dx="1600" dy="1800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1500" math="0" shadow="0" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="L_package" value="Package" parent="0" />
+        <mxCell id="L_die_and_pad_ring" value="Die and pad ring" parent="0" />
+        <mxCell id="L_macros" value="Macros" parent="0" />
+        <mxCell id="L_bond_wires" value="Bond wires" parent="0" />
+        <mxCell id="L_annotations" value="Annotations" parent="0" />
+        <mxCell id="L_legend_and_title" value="Legend and title" parent="0" />
+        <mxCell id="pkg_body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7f6f3;strokeColor=#8c8b86;strokeWidth=2.30;fontFamily=Times New Roman;fontColor=#0b0b0b;absoluteArcSize=1;arcSize=36;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="262.50" width="900.00" height="900.00" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg_epad" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e9e8e4;strokeColor=#c9c8c3;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="292.50" y="405.00" width="615.00" height="615.00" as="geometry" />
+        </mxCell>
+        <mxCell id="pin1_mark" value="" style="ellipse=;fillColor=#0b0b0b;strokeColor=none;" vertex="1" parent="L_package">
+          <mxGeometry x="181.50" y="294.00" width="21.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v1" value="exposed pad 4.1 mm → VSS" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.0;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="300.00" y="985.80" width="240.00" height="29.40" as="geometry" />
+        </mxCell>
+        <mxCell id="die" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fbfbfa;strokeColor=#0b0b0b;strokeWidth=2.53;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="329.85" y="442.35" width="540.30" height="540.30" as="geometry" />
+        </mxCell>
+        <mxCell id="cornLL" value="cornLL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9fc1ea;strokeColor=#5f86b8;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="925.50" width="53.25" height="53.25" as="geometry" />
+        </mxCell>
+        <mxCell id="cornLR" value="cornLR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9fc1ea;strokeColor=#5f86b8;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.00" y="925.50" width="53.25" height="53.25" as="geometry" />
+        </mxCell>
+        <mxCell id="cornTL" value="cornTL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9fc1ea;strokeColor=#5f86b8;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="446.25" width="53.25" height="53.25" as="geometry" />
+        </mxCell>
+        <mxCell id="cornTR" value="cornTR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9fc1ea;strokeColor=#5f86b8;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.00" y="446.25" width="53.25" height="53.25" as="geometry" />
+        </mxCell>
+        <mxCell id="core_ring" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#e34948;strokeWidth=3.68;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="392.85" y="505.35" width="414.30" height="414.30" as="geometry" />
+        </mxCell>
+        <mxCell id="core_boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0b0b0b;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;dashed=1;dashPattern=4 2;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="396.15" y="508.65" width="407.70" height="407.70" as="geometry" />
+        </mxCell>
+        <mxCell id="m_cpu" value="RV32IMC CPU core&lt;br&gt;(PicoRV32)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1e1f3;strokeColor=#2a78d6;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=15.2;fontStyle=1;spacingTop=60;" vertex="1" parent="L_macros">
+          <mxGeometry x="511.80" y="514.63" width="139.61" height="142.30" as="geometry" />
+        </mxCell>
+        <mxCell id="m_posit" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#71b970;strokeColor=#008300;strokeWidth=3.22;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="658.20" y="562.58" width="30.00" height="30.00" as="geometry" />
+        </mxCell>
+        <mxCell id="m_spi" value="SPI flash&lt;br&gt;ctrl" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8e9c8;strokeColor=#eda100;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="531.90" y="698.17" width="42.99" height="45.68" as="geometry" />
+        </mxCell>
+        <mxCell id="m_uart" value="UART" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7e1e9;strokeColor=#e87ba4;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="625.73" y="698.78" width="41.78" height="44.47" as="geometry" />
+        </mxCell>
+        <mxCell id="m_dsp0" value="DSP0&lt;br&gt;MAC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8ded2;strokeColor=#eb6834;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="511.43" y="785.12" width="54.67" height="57.35" as="geometry" />
+        </mxCell>
+        <mxCell id="m_dsp1" value="DSP1&lt;br&gt;MAC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8ded2;strokeColor=#eb6834;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="576.60" y="785.12" width="54.67" height="57.35" as="geometry" />
+        </mxCell>
+        <mxCell id="m_dsp2" value="DSP2&lt;br&gt;MAC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8ded2;strokeColor=#eb6834;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="511.43" y="853.00" width="54.67" height="57.35" as="geometry" />
+        </mxCell>
+        <mxCell id="m_dsp3" value="DSP3&lt;br&gt;MAC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8ded2;strokeColor=#eb6834;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="576.60" y="853.00" width="54.67" height="57.35" as="geometry" />
+        </mxCell>
+        <mxCell id="m_simd" value="SIMD&lt;br&gt;ALU" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ceece0;strokeColor=#1baf7a;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=12.9;" vertex="1" parent="L_macros">
+          <mxGeometry x="641.70" y="822.99" width="46.88" height="49.56" as="geometry" />
+        </mxCell>
+        <mxCell id="m_alu" value="ALU" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2a78d6;strokeWidth=2.07;fontFamily=Times New Roman;fontColor=#2a78d6;dashed=1;dashPattern=2 1;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12.0;spacing=0;" vertex="1" parent="L_macros">
+          <mxGeometry x="609.15" y="559.05" width="31.50" height="17.55" as="geometry" />
+        </mxCell>
+        <mxCell id="m_main_sram0" value="SRAM&lt;br&gt;512×8&lt;br&gt;#0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="402.15" y="801.02" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="m_main_sram1" value="SRAM&lt;br&gt;512×8&lt;br&gt;#1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="402.15" y="717.77" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="m_main_sram2" value="SRAM&lt;br&gt;512×8&lt;br&gt;#2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="402.15" y="634.52" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="m_main_sram3" value="SRAM&lt;br&gt;512×8&lt;br&gt;#3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="402.15" y="551.27" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="v2" value="Main RAM 2 KB  (4 x 512 x 8)" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.0;fontColor=#6250d6;fontStyle=0;rotation=-90;spacing=0;" vertex="1" parent="L_annotations">
+          <mxGeometry x="353.70" y="703.65" width="240.00" height="18.00" as="geometry" />
+        </mxCell>
+        <mxCell id="m_scratch_sram0" value="SRAM&lt;br&gt;512×8&lt;br&gt;#0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="733.05" y="801.02" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="m_scratch_sram1" value="SRAM&lt;br&gt;512×8&lt;br&gt;#1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="733.05" y="717.77" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="m_scratch_sram2" value="SRAM&lt;br&gt;512×8&lt;br&gt;#2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="733.05" y="634.52" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="m_scratch_sram3" value="SRAM&lt;br&gt;512×8&lt;br&gt;#3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dfdcf4;strokeColor=#6250d6;strokeWidth=1.84;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;" vertex="1" parent="L_macros">
+          <mxGeometry x="733.05" y="551.27" width="64.78" height="72.73" as="geometry" />
+        </mxCell>
+        <mxCell id="v3" value="Scratch 2 KB  (4 x 512 x 8)" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.0;fontColor=#6250d6;fontStyle=0;rotation=-90;spacing=0;" vertex="1" parent="L_annotations">
+          <mxGeometry x="606.30" y="703.65" width="240.00" height="18.00" as="geometry" />
+        </mxCell>
+        <mxCell id="posit_label" value="Posit⟨32,2⟩ decoder&lt;br&gt;(this work)" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.9;fontColor=#008300;fontStyle=1;rotation=0;spacing=0;" vertex="1" parent="L_annotations">
+          <mxGeometry x="535.35" y="657.90" width="157.50" height="40.50" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#008300;strokeWidth=1.84;endFill=1;startFill=1;exitX=0.6000;exitY=1.0000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.9150;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_annotations" source="m_posit" target="posit_label">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="676.20" y="592.57" as="sourcePoint" />
+            <mxPoint x="679.35" y="657.90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_01_gpio06" value="GPIO6" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="518.25" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_01" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="356.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v5" value="1" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=1;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="364.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_01_gpio06" target="pin_01">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="533.62" as="sourcePoint" />
+            <mxPoint x="210.00" y="375.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_02_dvdd1" value="VDD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7dfde;strokeColor=#e34948;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="558.00" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#e34948;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="386.25" y="573.38" as="sourcePoint" />
+            <mxPoint x="392.85" y="573.38" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_02" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="431.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v8" value="2" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="439.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#e34948;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_02_dvdd1" target="pin_02">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="573.38" as="sourcePoint" />
+            <mxPoint x="210.00" y="450.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_03_gpio05" value="GPIO5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="597.75" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_03" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="506.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v10" value="3" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="514.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_03_gpio05" target="pin_03">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="613.12" as="sourcePoint" />
+            <mxPoint x="210.00" y="525.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_04_gpio04" value="GPIO4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="637.50" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_04" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="581.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v12" value="4" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="589.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_04_gpio04" target="pin_04">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="652.88" as="sourcePoint" />
+            <mxPoint x="210.00" y="600.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_05_dvss0" value="VSS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1d0cf;strokeColor=#3a3936;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="677.25" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="386.25" y="692.62" as="sourcePoint" />
+            <mxPoint x="392.85" y="692.62" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_05" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="656.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v15" value="5" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="664.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_05_dvss0" target="pin_05">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="692.62" as="sourcePoint" />
+            <mxPoint x="210.00" y="675.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_06_gpio03" value="GPIO3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="717.00" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_06" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="731.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v17" value="6" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="739.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_06_gpio03" target="pin_06">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="732.38" as="sourcePoint" />
+            <mxPoint x="210.00" y="750.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_07_gpio02" value="GPIO2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="756.75" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_07" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="806.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v19" value="7" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="814.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_07_gpio02" target="pin_07">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="772.12" as="sourcePoint" />
+            <mxPoint x="210.00" y="825.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_08_dvdd0" value="VDD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7dfde;strokeColor=#e34948;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="796.50" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#e34948;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="386.25" y="811.88" as="sourcePoint" />
+            <mxPoint x="392.85" y="811.88" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_08" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="881.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v22" value="8" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="889.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#e34948;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_08_dvdd0" target="pin_08">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="811.88" as="sourcePoint" />
+            <mxPoint x="210.00" y="900.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_09_gpio01" value="GPIO1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="836.25" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_09" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="956.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v24" value="9" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="964.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_09_gpio01" target="pin_09">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="851.62" as="sourcePoint" />
+            <mxPoint x="210.00" y="975.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_10_gpio00" value="GPIO0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="333.75" y="876.00" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="150.00" y="1031.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v26" value="10" style="text=;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="84.00" y="1039.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e27" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.0857;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_10_gpio00" target="pin_10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="338.25" y="891.38" as="sourcePoint" />
+            <mxPoint x="210.00" y="1050.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_11_clk" value="CLK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8e3da;strokeColor=#eb6834;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="405.75" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="243.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v28" value="11" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="240.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e29" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#eb6834;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_11_clk" target="pin_11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="421.12" y="974.25" as="sourcePoint" />
+            <mxPoint x="262.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_12_flash_csb" value="CSB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="445.50" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="318.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v30" value="12" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="315.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e31" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_12_flash_csb" target="pin_12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460.88" y="974.25" as="sourcePoint" />
+            <mxPoint x="337.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_13_dvss4" value="VSS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1d0cf;strokeColor=#3a3936;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="485.25" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="e32" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500.63" y="926.25" as="sourcePoint" />
+            <mxPoint x="500.63" y="919.65" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_13" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="393.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v33" value="13" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="390.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_13_dvss4" target="pin_13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500.63" y="974.25" as="sourcePoint" />
+            <mxPoint x="412.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_14_flash_clk" value="SCK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="525.00" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_14" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="468.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v35" value="14" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="465.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e36" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_14_flash_clk" target="pin_14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540.38" y="974.25" as="sourcePoint" />
+            <mxPoint x="487.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_15_flash_io0" value="IO0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="564.75" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_15" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="543.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v37" value="15" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="540.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e38" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_15_flash_io0" target="pin_15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.12" y="974.25" as="sourcePoint" />
+            <mxPoint x="562.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_16_dvdd5" value="VDD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7dfde;strokeColor=#e34948;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="604.50" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="e39" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#e34948;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="619.88" y="926.25" as="sourcePoint" />
+            <mxPoint x="619.88" y="919.65" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_16" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="618.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v40" value="16" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="615.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e41" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#e34948;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_16_dvdd5" target="pin_16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="619.88" y="974.25" as="sourcePoint" />
+            <mxPoint x="637.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_17_flash_io1" value="IO1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="644.25" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_17" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="693.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v42" value="17" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="690.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e43" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_17_flash_io1" target="pin_17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="659.62" y="974.25" as="sourcePoint" />
+            <mxPoint x="712.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_18_flash_io2" value="IO2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="684.00" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_18" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="768.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v44" value="18" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="765.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e45" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_18_flash_io2" target="pin_18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="699.38" y="974.25" as="sourcePoint" />
+            <mxPoint x="787.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_19_dvss5" value="VSS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1d0cf;strokeColor=#3a3936;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="723.75" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="e46" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="739.12" y="926.25" as="sourcePoint" />
+            <mxPoint x="739.12" y="919.65" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_19" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="843.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v47" value="19" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="840.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e48" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_19_dvss5" target="pin_19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="739.12" y="974.25" as="sourcePoint" />
+            <mxPoint x="862.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_20_flash_io3" value="IO3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="763.50" y="926.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_20" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="918.75" y="1102.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v49" value="20" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="915.00" y="1176.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e50" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.9143;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=0.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_20_flash_io3" target="pin_20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="778.88" y="974.25" as="sourcePoint" />
+            <mxPoint x="937.50" y="1102.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_21_gpio14" value="GPIO14" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="876.00" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_21" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="1031.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v51" value="21" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="1039.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e52" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_21_gpio14" target="pin_21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="891.38" as="sourcePoint" />
+            <mxPoint x="990.00" y="1050.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_22_gpio15" value="GPIO15" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="836.25" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_22" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="956.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v53" value="22" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="964.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e54" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_22_gpio15" target="pin_22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="851.62" as="sourcePoint" />
+            <mxPoint x="990.00" y="975.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_23_dvdd3" value="VDD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7dfde;strokeColor=#e34948;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="796.50" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="e55" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#e34948;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="813.75" y="811.88" as="sourcePoint" />
+            <mxPoint x="807.15" y="811.88" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_23" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="881.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v56" value="23" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="889.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e57" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#e34948;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_23_dvdd3" target="pin_23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="811.88" as="sourcePoint" />
+            <mxPoint x="990.00" y="900.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_24_irq5" value="IRQ5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d7efe6;strokeColor=#1baf7a;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="756.75" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_24" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="806.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v58" value="24" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="814.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e59" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#1baf7a;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_24_irq5" target="pin_24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="772.12" as="sourcePoint" />
+            <mxPoint x="990.00" y="825.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_25_irq6" value="IRQ6" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d7efe6;strokeColor=#1baf7a;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="717.00" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_25" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="731.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v60" value="25" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="739.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e61" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#1baf7a;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_25_irq6" target="pin_25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="732.38" as="sourcePoint" />
+            <mxPoint x="990.00" y="750.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_26_dvss3" value="VSS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1d0cf;strokeColor=#3a3936;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="677.25" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="e62" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="813.75" y="692.62" as="sourcePoint" />
+            <mxPoint x="807.15" y="692.62" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_26" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="656.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v63" value="26" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="664.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e64" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_26_dvss3" target="pin_26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="692.62" as="sourcePoint" />
+            <mxPoint x="990.00" y="675.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_27_ser_rx" value="RX" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d7efe6;strokeColor=#1baf7a;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="637.50" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_27" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="581.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v65" value="27" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="589.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e66" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#1baf7a;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_27_ser_rx" target="pin_27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="652.88" as="sourcePoint" />
+            <mxPoint x="990.00" y="600.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_28_ser_tx" value="TX" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="597.75" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_28" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="506.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v67" value="28" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="514.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e68" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_28_ser_tx" target="pin_28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="613.12" as="sourcePoint" />
+            <mxPoint x="990.00" y="525.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_29_dvdd4" value="VDD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7dfde;strokeColor=#e34948;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="558.00" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="e69" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#e34948;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="813.75" y="573.38" as="sourcePoint" />
+            <mxPoint x="807.15" y="573.38" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_29" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="431.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v70" value="29" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="439.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e71" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#e34948;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_29_dvdd4" target="pin_29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="573.38" as="sourcePoint" />
+            <mxPoint x="990.00" y="450.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_30_rst_n" value="RSTn" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d7efe6;strokeColor=#1baf7a;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=1;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="813.75" y="518.25" width="52.50" height="30.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_30" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="990.00" y="356.25" width="60.00" height="37.50" as="geometry" />
+        </mxCell>
+        <mxCell id="v72" value="30" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="1071.00" y="364.50" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e73" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#1baf7a;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.9143;exitY=0.5000;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0000;entryY=0.5000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_30_rst_n" target="pin_30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="861.75" y="533.62" as="sourcePoint" />
+            <mxPoint x="990.00" y="375.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_31_gpio13" value="GPIO13" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="763.50" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_31" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="918.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v74" value="31" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="915.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e75" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_31_gpio13" target="pin_31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="778.88" y="450.75" as="sourcePoint" />
+            <mxPoint x="937.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_32_dvss2" value="VSS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1d0cf;strokeColor=#3a3936;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="723.75" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="e76" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="739.12" y="498.75" as="sourcePoint" />
+            <mxPoint x="739.12" y="505.35" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_32" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="843.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v77" value="32" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="840.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e78" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_32_dvss2" target="pin_32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="739.12" y="450.75" as="sourcePoint" />
+            <mxPoint x="862.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_33_gpio12" value="GPIO12" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="684.00" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_33" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="768.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v79" value="33" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="765.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e80" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_33_gpio12" target="pin_33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="699.38" y="450.75" as="sourcePoint" />
+            <mxPoint x="787.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_34_gpio11" value="GPIO11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="644.25" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_34" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="693.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v81" value="34" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="690.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e82" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_34_gpio11" target="pin_34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="659.62" y="450.75" as="sourcePoint" />
+            <mxPoint x="712.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_35_dvdd2" value="VDD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7dfde;strokeColor=#e34948;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="604.50" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="e83" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#e34948;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="619.88" y="498.75" as="sourcePoint" />
+            <mxPoint x="619.88" y="505.35" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_35" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="618.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v84" value="35" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="615.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e85" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#e34948;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_35_dvdd2" target="pin_35">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="619.88" y="450.75" as="sourcePoint" />
+            <mxPoint x="637.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_36_gpio10" value="GPIO10" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="564.75" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_36" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="543.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v86" value="36" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="540.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e87" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_36_gpio10" target="pin_36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.12" y="450.75" as="sourcePoint" />
+            <mxPoint x="562.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_37_gpio09" value="GPIO9" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="525.00" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_37" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="468.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v88" value="37" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="465.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e89" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_37_gpio09" target="pin_37">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540.38" y="450.75" as="sourcePoint" />
+            <mxPoint x="487.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_38_dvss1" value="VSS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1d0cf;strokeColor=#3a3936;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=11.5;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="485.25" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="e90" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_die_and_pad_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500.63" y="498.75" as="sourcePoint" />
+            <mxPoint x="500.63" y="505.35" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pin_38" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="393.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v91" value="38" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="390.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e92" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#3a3936;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_38_dvss1" target="pin_38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500.63" y="450.75" as="sourcePoint" />
+            <mxPoint x="412.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_39_gpio08" value="GPIO8" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="445.50" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_39" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="318.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v93" value="39" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="315.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e94" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_39_gpio08" target="pin_39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460.88" y="450.75" as="sourcePoint" />
+            <mxPoint x="337.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pad_40_gpio07" value="GPIO7" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae6f4;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;fontSize=10.3;horizontal=0;spacing=0;" vertex="1" parent="L_die_and_pad_ring">
+          <mxGeometry x="405.75" y="446.25" width="30.75" height="52.50" as="geometry" />
+        </mxCell>
+        <mxCell id="pin_40" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d8d7d2;strokeColor=#8c8b86;strokeWidth=1.38;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_package">
+          <mxGeometry x="243.75" y="262.50" width="37.50" height="60.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v95" value="40" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_package">
+          <mxGeometry x="240.00" y="228.00" width="45.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e96" value="" style="endArrow=none;startArrow=oval;html=1;rounded=0;strokeColor=#2a78d6;strokeWidth=1.26;endFill=1;startFill=1;startSize=4;exitX=0.5000;exitY=0.0857;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5000;entryY=1.0000;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="L_bond_wires" source="pad_40_gpio07" target="pin_40">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="421.12" y="450.75" as="sourcePoint" />
+            <mxPoint x="262.50" y="322.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v97" value="GPIO[0:6]" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.5;fontColor=#52514e;fontStyle=0;rotation=-90;spacing=0;" vertex="1" parent="L_annotations">
+          <mxGeometry x="-100.50" y="700.50" width="360.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v98" value="GPIO[14:15] · IRQ · UART · reset" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.5;fontColor=#52514e;fontStyle=0;rotation=-90;spacing=0;" vertex="1" parent="L_annotations">
+          <mxGeometry x="940.50" y="700.50" width="360.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v99" value="clock · SPI flash (QSPI)" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.5;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_annotations">
+          <mxGeometry x="420.00" y="1224.00" width="360.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v100" value="GPIO[7:13]" style="text=;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.5;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_annotations">
+          <mxGeometry x="420.00" y="177.00" width="360.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e101" value="" style="endArrow=block;startArrow=none;html=1;rounded=0;strokeColor=#0b0b0b;strokeWidth=2.53;endFill=1;startFill=1;" edge="1" parent="L_annotations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="57.00" y="382.50" as="sourcePoint" />
+            <mxPoint x="57.00" y="1042.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e102" value="" style="endArrow=block;startArrow=none;html=1;rounded=0;strokeColor=#0b0b0b;strokeWidth=2.53;endFill=1;startFill=1;" edge="1" parent="L_annotations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270.00" y="1255.50" as="sourcePoint" />
+            <mxPoint x="930.00" y="1255.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e103" value="" style="endArrow=block;startArrow=none;html=1;rounded=0;strokeColor=#0b0b0b;strokeWidth=2.53;endFill=1;startFill=1;" edge="1" parent="L_annotations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1143.00" y="1042.50" as="sourcePoint" />
+            <mxPoint x="1143.00" y="382.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e104" value="" style="endArrow=block;startArrow=none;html=1;rounded=0;strokeColor=#0b0b0b;strokeWidth=2.53;endFill=1;startFill=1;" edge="1" parent="L_annotations">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="930.00" y="169.50" as="sourcePoint" />
+            <mxPoint x="270.00" y="169.50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v105" value="POSIT-RV v3 SoC: pad ring, floorplan and QFN-40 bonding (top view)" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=21.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="15.00" y="22.50" width="1140.00" height="30.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v106" value="GF180MCU · die 3.602 × 3.602 mm · 40 pads (28 signal, 6 VDD, 6 VSS) · QFN-40, 6 × 6 mm, 0.5 mm pitch" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=15.2;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="15.00" y="60.00" width="1140.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v107" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bfd6f3;strokeColor=#2a78d6;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="67.50" y="1309.50" width="30.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v108" value="Bidirectional I/O (bi_24t)" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="109.50" y="1308.00" width="315.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v109" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bbe7d7;strokeColor=#1baf7a;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="435.00" y="1309.50" width="30.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v110" value="Input (in_c)" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="477.00" y="1308.00" width="315.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v111" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9d2c2;strokeColor=#eb6834;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="802.50" y="1309.50" width="30.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v112" value="Clock input, Schmitt (in_s)" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="844.50" y="1308.00" width="315.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v113" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7c8c8;strokeColor=#e34948;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="67.50" y="1345.50" width="30.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v114" value="VDD 5.0 V (dvdd)" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="109.50" y="1344.00" width="315.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v115" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#c4c4c3;strokeColor=#3a3936;strokeWidth=1.61;fontFamily=Times New Roman;fontColor=#0b0b0b;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="435.00" y="1345.50" width="30.00" height="21.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v116" value="VSS (dvss)" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="477.00" y="1344.00" width="315.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e117" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#e34948;strokeWidth=3.68;endFill=1;startFill=1;" edge="1" parent="L_legend_and_title">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="67.50" y="1392.00" as="sourcePoint" />
+            <mxPoint x="97.50" y="1392.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v118" value="Core power ring, 25 µm, Metal3/Metal4" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="109.50" y="1380.00" width="322.50" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e119" value="" style="endArrow=none;startArrow=none;html=1;rounded=0;strokeColor=#0b0b0b;strokeWidth=1.61;endFill=1;startFill=1;dashed=1;dashPattern=4 2;" edge="1" parent="L_legend_and_title">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="435.00" y="1392.00" as="sourcePoint" />
+            <mxPoint x="465.00" y="1392.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v120" value="Core boundary (2.718 mm)" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="477.00" y="1380.00" width="315.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="e121" value="" style="endArrow=block;startArrow=none;html=1;rounded=0;strokeColor=#0b0b0b;strokeWidth=2.53;endFill=1;startFill=1;" edge="1" parent="L_legend_and_title">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="802.50" y="1392.00" as="sourcePoint" />
+            <mxPoint x="832.50" y="1392.00" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v122" value="Pin numbering direction" style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=13.8;fontColor=#0b0b0b;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="844.50" y="1380.00" width="270.00" height="24.00" as="geometry" />
+        </mxCell>
+        <mxCell id="v123" value="To scale: package, exposed pad, die, pad pitch (265 µm), core ring and macros. Pad cells are drawn 2.7× wider than their true 75 µm.&lt;br&gt;Bond wires: 0.86–1.36 mm. Each die pad bonds to the QFN pin with the same number." style="text=;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=12.9;fontColor=#52514e;fontStyle=0;rotation=0;spacing=0;" vertex="1" parent="L_legend_and_title">
+          <mxGeometry x="67.50" y="1432.50" width="1110.00" height="45.00" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
