@@ -158,7 +158,8 @@ jobs:
         run: |
           GDS=$(ls final_soc3/gds/soc3_chip_top.gds 2>/dev/null || ls -1 librelane/soc3/runs/*/*-klayout-filler/soc3_chip_top.gds 2>/dev/null | tail -n 1)
           if [ -n "$GDS" ]; then
-            nix develop --command python3 scripts/render_masks.py "$GDS" results/soc3/masks --pdk gf180
+            nix develop --command python3 scripts/render_masks.py "$GDS" results/soc3/masks --pdk gf180 \
+              --die-px 6144 --extra-views librelane/soc3/render_views.json
           fi
       - name: Collect results
         if: always()

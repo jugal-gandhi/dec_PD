@@ -50,7 +50,7 @@ fi
 if [ "$NAME" = soc3 ]; then
   cp -f firmware_build.log soc_sim_console.log "$R/" 2>/dev/null || true
   cp -f verif/v3/out/sim.log "$R/soc_sim.log" 2>/dev/null || true
-  cp -f firmware/v3/firmware.hex librelane/soc3/floorplan.yaml "$R/" 2>/dev/null || true
+  cp -f firmware/v3/firmware.hex librelane/soc3/floorplan.yaml librelane/soc3/render_views.json "$R/" 2>/dev/null || true
   # Hardened macro views for block-level colouring and the summary card
   for d in ip/v3/macros/*/; do
     m=$(basename "$d")

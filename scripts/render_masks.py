@@ -57,6 +57,9 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--pdk", choices=["gf180", "sky130"], required=True)
     ap.add_argument("--oversampling", type=int, default=2)
+    ap.add_argument("--die-px", type=int, default=4096)
+    ap.add_argument("--extra-views", default=None,
+                    help="JSON {name: [x0, y0, x1, y1, px]} of extra close-up views (all layers)")
     args = ap.parse_args()
 
     os.makedirs(args.out, exist_ok=True)
@@ -77,7 +80,7 @@ def main():
         c = logic.center() if not logic.empty() else die.center()
         core_size = max(logic.width(), logic.height(), 300.0) * 1.15
         views = {
-            "die": (die.enlarged(pya.DVector(die.width() * 0.01, die.height() * 0.01)), 4096,
+            "die": (die.enlarged(pya.DVector(die.width() * 0.01, die.height() * 0.01)), args.die_px,
                     ["comp", "poly", "m1", "m2", "m3", "m4", "m5", "pad", "mtop",
                      "comp_fill", "poly_fill", "m1_fill", "m2_fill", "m3_fill", "m4_fill", "m5_fill"]),
             "core": (square_around(c, core_size), 3072, list(GF180)),
@@ -92,6 +95,10 @@ def main():
             "die": (die.enlarged(pya.DVector(die.width() * 0.02, die.height() * 0.02)), 4096, list(SKY130)),
             "cells": (square_around(c, 25.0), 2048, list(SKY130)),
         }
+
+    if args.extra_views:
+        for vname, (x0, y0, x1, y1, px) in json.load(open(args.extra_views)).items():
+            views[vname] = (pya.DBox(x0, y0, x1, y1), int(px), list(layers))
 
     meta = {"die_um": [die.left, die.bottom, die.right, die.top],
             "logic_bbox_um": [logic.left, logic.bottom, logic.right, logic.top] if not logic.empty() else None,

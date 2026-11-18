@@ -12,6 +12,7 @@ PDN_MACRO_CONNECTIONS). Arrangement:
 The die is the smallest size whose 10-pad sides satisfy LibreLane's pad
 placer grid rules (scripts mirror its Tcl arithmetic).
 """
+import json
 import math
 import os
 import re
@@ -144,6 +145,21 @@ def main():
                 "    instances:", f"      art_{tag}:", f"        location: [{x}, {y}]", "        orientation: N"]
     out += ["", "PDN_MACRO_CONNECTIONS:"]
     out += [f"- \"{i} VDD VSS VDD VSS\"" for i in place]
+    # Close-up render views around the block groups
+    def union(names, pad=40.0):
+        bs = [b for n, b in boxes if any(n.endswith(k) for k in names)]
+        x0 = min(b[0] for b in bs) - pad
+        y0 = min(b[1] for b in bs) - pad
+        x1 = max(b[0] + b[2] for b in bs) + pad
+        y1 = max(b[1] + b[3] for b in bs) + pad
+        side = max(x1 - x0, y1 - y0)
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        return [round(cx - side / 2, 1), round(cy - side / 2, 1), round(cx + side / 2, 1), round(cy + side / 2, 1)]
+    views = {"cpu_posit": union(["u_cpu", "u_posit"]) + [4096],
+             "dsp_simd": union(["u_dsp0", "u_dsp1", "u_dsp2", "u_dsp3", "u_simd"]) + [4096],
+             "posit": union(["u_posit"], pad=30) + [3072]}
+    json.dump(views, open(os.path.join(ROOT, "librelane", "soc3", "render_views.json"), "w"), indent=1)
+
     path = os.path.join(ROOT, "librelane", "soc3", "floorplan.yaml")
     open(path, "w").write("\n".join(out) + "\n")
     print(f"wrote {path}: {len(place)} macro instances")
