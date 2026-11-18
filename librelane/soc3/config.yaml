@@ -1,0 +1,135 @@
+# GF180MCU multi-block SoC chip (v3, stage 2 of the hierarchical flow).
+# Hard macros: PicoRV32 CPU, 2 DSP MACs, SIMD ALU, posit decoder, UART,
+# SPI flash controller and 8 foundry SRAMs (4 KB). DIE_AREA, CORE_AREA,
+# MACROS and PDN_MACRO_CONNECTIONS come from floorplan.yaml, written by
+# scripts/plan_floorplan3.py from the hardened macro sizes.
+meta:
+  version: 3
+  flow: Chip
+  substituting_steps:
+    KLayout.Render: null
+    +KLayout.SealRing: KLayout.Render
+
+DESIGN_NAME: soc3_chip_top
+VERILOG_FILES:
+- dir::../../src/v3/soc3_chip_top.v
+- dir::../../src/v3/soc3_top.v
+- dir::../../src/soc/soc_sram_2kb.v
+
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+
+# Clock: 25 MHz from the Schmitt-trigger clock pad
+CLOCK_PORT: clk_PAD
+CLOCK_NET: pad_clk/Y
+CLOCK_PERIOD: 40
+PNR_SDC_FILE: dir::chip.sdc
+SIGNOFF_SDC_FILE: dir::chip.sdc
+FALLBACK_SDC: dir::chip.sdc
+PL_RESIZER_HOLD_SLACK_MARGIN: 0.35
+GRT_RESIZER_HOLD_SLACK_MARGIN: 0.3
+DESIGN_REPAIR_MAX_SLEW_PCT: 30
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 25
+# Repair slew/cap/timing against all three process corners, not only typical
+RSZ_CORNERS: [nom_tt_025C_5v00, nom_ss_125C_4v50, nom_ff_n40C_5v50]
+# External I/O budget: 10 % of the period (the SPI flash link is
+# source-synchronous: the chip drives the flash clock itself)
+IO_DELAY_CONSTRAINT: 10
+
+VDD_NETS:
+- VDD
+GND_NETS:
+- VSS
+
+IGNORE_DISCONNECTED_MODULES:
+- gf180mcu_fd_io__bi_24t
+- dieart_tl
+- dieart_tr
+- dieart_bl
+- dieart_br
+
+# Placement
+PL_TARGET_DENSITY_PCT: 55
+PL_MAX_DISPLACEMENT_Y: 200
+GRT_ALLOW_CONGESTION: true
+
+# Fix antenna violations after detailed routing
+DRT_ANTENNA_REPAIR_ITERS: 15
+DRT_ANTENNA_REPAIR_MARGIN: 25 # %
+GRT_ANTENNA_REPAIR_ITERS: 6
+GRT_ANTENNA_REPAIR_MARGIN: 20 # %
+
+# PDN
+PDN_CFG: dir::pdn/pdn_cfg.tcl
+PDN_ENABLE_PINS: False
+PDN_VWIDTH: 5
+PDN_HWIDTH: 5
+PDN_VSPACING: 1
+PDN_HSPACING: 1
+PDN_VPITCH: 75
+PDN_HPITCH: 75
+PDN_CORE_RING: True
+PDN_CORE_RING_VWIDTH: 25
+PDN_CORE_RING_HWIDTH: 25
+PDN_CORE_RING_CONNECT_TO_PADS: True
+PDN_CORE_VERTICAL_LAYER: Metal4
+PDN_CORE_HORIZONTAL_LAYER: Metal3
+PDN_CORE_RING_CONNECT_TO_PAD_LAYERS: [Metal2]
+
+# Report magic DRC but do not stop on it (KLayout DRC is the sign-off deck)
+ERROR_ON_MAGIC_DRC: False
+
+# Prevent false-positive DRC errors inside the foundry I/O cells
+MAGIC_GDS_FLATGLOB:
+- "*_CDNS_*"
+- "*$$*"
+- "ypass_gate*"
+- "dcap_103*"
+- "din_*"
+- "mux821_*"
+- "rdummy_*"
+- "pmoscap_*"
+- "xdec_*"
+- "ypredec*"
+- "xpredec*"
+- "prexdec_*"
+- "xdec8_*"
+- "xdec16_*"
+- "xdec32_*"
+- "sa_*"
+- "M1_N*"
+- "M1_P*"
+- "M2_M1*"
+- "M3_M2*"
+- "nmos_5p0*"
+- "nmos_1p2*"
+- "pmos_5p0*"
+- "pmos_1p2*"
+- "via1_*"
+- "G_ring_*"
+
+# Metal2 cannot meet minimum density next to active metal
+KLAYOUT_FILLER_OPTIONS:
+  Metal2_ignore_active: true
+
+# Several supply pads per power domain
+MAGIC_EXT_UNIQUE: notopports
+
+# Flow render
+KLAYOUT_RENDER_RESOLUTION: 2048
+KLAYOUT_RENDER_OVERSAMPLING: 3
+KLAYOUT_PROPERTIES: dir::../gf180mcu_render.lyp
+
+# DRC
+KLAYOUT_DRC_THREADS: 1
+KLAYOUT_DRC_OPTIONS:
+  decks: "all,-antenna,-density,-cup"
+  variant: ref::$PDK
+  workers: max
+KLAYOUT_DENSITY_OPTIONS:
+  decks: "density"
+  variant: ref::$PDK
+  workers: max
+KLAYOUT_ANTENNA_OPTIONS:
+  decks: "antenna"
+  variant: ref::$PDK
+  workers: max

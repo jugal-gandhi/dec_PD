@@ -1,0 +1,32 @@
+# Stage 1 of the hierarchical flow: harden the posit<32,2> decoder as a macro.
+# Metal1-Metal4 only, so the SoC top level can route and strap Metal5 over it.
+meta:
+  version: 3
+  flow: Classic
+
+DESIGN_NAME: posit_decoder_32_2
+VERILOG_FILES:
+- dir::../../../../src/posit_decoder_32_2.v
+
+PNR_SDC_FILE: dir::macro.sdc
+SIGNOFF_SDC_FILE: dir::macro.sdc
+FALLBACK_SDC: dir::macro.sdc
+CLOCK_PERIOD: 20
+
+VDD_NETS: [VDD]
+GND_NETS: [VSS]
+
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 200, 200]
+PL_TARGET_DENSITY_PCT: 55
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+
+# Macro power grid: vertical Metal4 straps only; the top level adds Metal5
+PDN_MULTILAYER: false
+PDN_VPITCH: 40
+PDN_VOFFSET: 10
+PDN_VWIDTH: 2
+RT_MAX_LAYER: Metal4
+
+DESIGN_REPAIR_MAX_SLEW_PCT: 40
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 35

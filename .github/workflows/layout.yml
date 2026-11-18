@@ -18,8 +18,162 @@ defaults:
     shell: bash
 
 jobs:
+  macros3:
+    name: "v3 macro: ${{ matrix.macro }}"
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        macro: [cpu_core, dsp_mac, simd_alu, spimemio, simpleuart, posit_decoder_32_2]
+    steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Fetch GF180MCU PDK
+        run: nix develop --command make clone-pdk
+      - name: Harden macro
+        id: flow
+        run: nix develop --command make macro3-${{ matrix.macro }} 2>&1 | tee flow_console_${{ matrix.macro }}.log
+      - name: Upload macro views
+        if: steps.flow.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: macro3-${{ matrix.macro }}
+          path: ip/v3/macros/${{ matrix.macro }}
+          retention-days: 7
+      - name: Collect and publish macro reports
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          bash scripts/collect_macro3.sh ${{ matrix.macro }} "${{ steps.flow.outcome }}"
+          bash scripts/publish_results.sh m3_${{ matrix.macro }} results-v3m-${{ matrix.macro }}
+
+  sim3:
+    name: v3 firmware and chip-level simulation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install RISC-V GCC
+        run: sudo apt-get update -q && sudo apt-get install -y -q gcc-riscv64-unknown-elf
+      - name: Build firmware
+        id: fw
+        continue-on-error: true
+        run: bash firmware/v3/build.sh 2>&1 | tee firmware_build.log
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Fetch GF180MCU PDK
+        run: nix develop --command make clone-pdk
+      - name: Chip-level SoC simulation
+        id: sim
+        continue-on-error: true
+        run: nix develop --command make soc3-sim 2>&1 | tail -n 400 | tee soc_sim_console.log
+      - name: Lint top level with Yosys
+        id: lint
+        continue-on-error: true
+        run: |
+          nix develop --command yosys -q -p "read_verilog -sv -DUSE_POWER_PINS ip/v3/vh/*.v ip/posit_macro/vh/posit_decoder_32_2.v ip/dieart/vh/*.v pdk/gf180mcuD/libs.ref/gf180mcu_fd_ip_sram/verilog/gf180mcu_fd_ip_sram__sram512x8m8wm1__blackbox_pp.v; read_verilog -sv src/v3/soc3_top.v src/soc/soc_sram_2kb.v; hierarchy -top soc3_top; proc; check; stat" 2>&1 | tee lint3.log
+      - name: Publish
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p results/v3sim
+          cp -f firmware_build.log soc_sim_console.log lint3.log firmware/v3/firmware.hex verif/v3/out/*.log results/v3sim/ 2>/dev/null || true
+          echo '{"firmware": "${{ steps.fw.outcome }}", "sim": "${{ steps.sim.outcome }}", "lint": "${{ steps.lint.outcome }}", "commit": "${{ github.sha }}"}' > results/v3sim/status.json
+          bash scripts/publish_results.sh v3sim results-v3sim
+
+  soc3:
+    name: GF180MCU multi-block SoC (v3)
+    needs: macros3
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+      - uses: actions/checkout@v4
+      - name: Download macro views
+        uses: actions/download-artifact@v4
+        with:
+          pattern: macro3-*
+          path: macro_artifacts
+      - name: Place macro views
+        run: |
+          for d in macro_artifacts/macro3-*; do
+            m=${d#macro_artifacts/macro3-}
+            mkdir -p ip/v3/macros/$m && cp -r "$d"/. ip/v3/macros/$m/
+          done
+          find ip/v3/macros -maxdepth 3 -type d | sort
+      - name: Install RISC-V GCC
+        run: sudo apt-get update -q && sudo apt-get install -y -q gcc-riscv64-unknown-elf
+      - name: Build firmware
+        id: fw
+        continue-on-error: true
+        run: bash firmware/v3/build.sh 2>&1 | tee firmware_build.log
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Fetch GF180MCU PDK
+        run: nix develop --command make clone-pdk
+      - name: Implement the SoC chip
+        id: flow
+        continue-on-error: true
+        run: nix develop --command make soc3 2>&1 | tee flow_console_soc3.log
+      - name: Render layer masks
+        if: always()
+        continue-on-error: true
+        run: |
+          GDS=$(ls final_soc3/gds/soc3_chip_top.gds 2>/dev/null || ls -1 librelane/soc3/runs/*/*-klayout-filler/soc3_chip_top.gds 2>/dev/null | tail -n 1)
+          if [ -n "$GDS" ]; then
+            nix develop --command python3 scripts/render_masks.py "$GDS" results/soc3/masks --pdk gf180
+          fi
+      - name: Collect results
+        if: always()
+        run: |
+          bash scripts/collect_results.sh soc3 "${{ steps.flow.outcome }}"
+          echo '{"firmware": "${{ steps.fw.outcome }}", "flow": "${{ steps.flow.outcome }}"}' > results/soc3/stages.json
+      - name: Publish results branch
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/publish_results.sh soc3 results-soc3
+
   soc:
     name: GF180MCU RISC-V SoC (hierarchical)
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     timeout-minutes: 350
     steps:

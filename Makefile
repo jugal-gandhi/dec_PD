@@ -68,6 +68,29 @@ soc: clone-pdk ## Stage 2: RISC-V SoC chip with SRAM and posit macros (Chip flow
 	librelane --condensed librelane/soc/pads.yaml librelane/soc/config.yaml $(GF_OPTS) --save-views-to $(CURDIR)/final_soc
 .PHONY: soc
 
+# ---------------- v3: multi-block SoC ----------------
+V3_MACROS = cpu_core spimemio simpleuart dsp_mac simd_alu posit_decoder_32_2
+
+macro3-%: clone-pdk ## v3 stage 1: harden one macro (e.g. make macro3-cpu_core)
+	librelane --condensed librelane/v3/macros/$*/config.yaml $(GF_OPTS) --save-views-to $(CURDIR)/build/macros/$*
+	bash scripts/export_macro3.sh $*
+
+firmware3: ## Build the v3 self-test firmware
+	bash firmware/v3/build.sh
+.PHONY: firmware3
+
+soc3-sim: clone-pdk ## v3 chip-level RTL simulation
+	bash verif/v3/run_sim.sh
+.PHONY: soc3-sim
+
+soc3-plan: ## v3: place macros from their hardened sizes
+	python3 scripts/plan_floorplan3.py
+.PHONY: soc3-plan
+
+soc3: clone-pdk soc3-plan ## v3 stage 2: multi-block SoC chip
+	librelane --condensed librelane/soc3/pads.yaml librelane/soc3/config.yaml librelane/soc3/floorplan.yaml $(GF_OPTS) --save-views-to $(CURDIR)/final_soc3
+.PHONY: soc3
+
 chip-gui: ## Open the last GF180 run in KLayout
 	librelane $(GF_CONFIGS) $(GF_OPTS) --last-run --flow OpenInKLayout
 .PHONY: chip-gui

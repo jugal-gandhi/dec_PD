@@ -10,6 +10,7 @@ case "$NAME" in
   gf180)  RUNS=librelane/runs;        FINAL=final;        TOP=chip_top ;;
   sky130) RUNS=librelane/sky130/runs; FINAL=final_sky130; TOP=posit_decoder_32_2 ;;
   soc)    RUNS=librelane/soc/runs;    FINAL=final_soc;    TOP=soc_chip_top ;;
+  soc3)   RUNS=librelane/soc3/runs;   FINAL=final_soc3;   TOP=soc3_chip_top ;;
   *) echo "unknown target $NAME"; exit 1 ;;
 esac
 
@@ -45,6 +46,20 @@ if [ "$NAME" = soc ]; then
       | tar czf "$R/macro/run_reports.tar.gz" --null -T - 2>/dev/null || true
   fi
   [ -f build/posit_macro/metrics.json ] && cp -f build/posit_macro/metrics.json "$R/macro/metrics.json"
+fi
+if [ "$NAME" = soc3 ]; then
+  cp -f firmware_build.log soc_sim_console.log "$R/" 2>/dev/null || true
+  cp -f verif/v3/out/sim.log "$R/soc_sim.log" 2>/dev/null || true
+  cp -f firmware/v3/firmware.hex librelane/soc3/floorplan.yaml "$R/" 2>/dev/null || true
+  # Hardened macro views for block-level colouring and the summary card
+  for d in ip/v3/macros/*/; do
+    m=$(basename "$d")
+    mkdir -p "$R/macros/$m"
+    cp -f "$d"/metrics.json "$d"/lef/*.lef "$R/macros/$m/" 2>/dev/null || true
+    for f in "$d"/def/*.def "$d"/nl/*.nl.v; do
+      [ -f "$f" ] && gzip -9 -c "$f" > "$R/macros/$m/$(basename "$f").gz"
+    done
+  done
 fi
 if [ -d verif/out ]; then
   mkdir -p "$R/equiv"

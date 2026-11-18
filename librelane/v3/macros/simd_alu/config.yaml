@@ -1,0 +1,32 @@
+# v3 stage 1: harden simd_alu as a GF180 macro (Metal1-Metal4 only).
+meta:
+  version: 3
+  flow: Classic
+
+DESIGN_NAME: simd_alu
+VERILOG_FILES:
+- dir::../../../../src/v3/simd_alu.v
+
+CLOCK_PORT: clk
+CLOCK_PERIOD: 40
+
+VDD_NETS: [VDD]
+GND_NETS: [VSS]
+
+# Size from content
+FP_SIZING: relative
+FP_CORE_UTIL: 45
+FP_ASPECT_RATIO: 1
+PL_TARGET_DENSITY_PCT: 57
+
+# Macro power grid: vertical Metal4 straps; the top level adds Metal5
+PDN_MULTILAYER: false
+PDN_VPITCH: 40
+PDN_VOFFSET: 10
+PDN_VWIDTH: 2
+RT_MAX_LAYER: Metal4
+
+# Repair against all three process corners
+RSZ_CORNERS: [nom_tt_025C_5v00, nom_ss_125C_4v50, nom_ff_n40C_5v50]
+DESIGN_REPAIR_MAX_SLEW_PCT: 30
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 25
