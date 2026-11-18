@@ -1,4 +1,4 @@
-# Clocked SoC: 25 MHz from the clk pad (Schmitt-trigger input).
+# Clocked SoC: 20 MHz from the clk pad (Schmitt-trigger input).
 current_design $::env(DESIGN_NAME)
 set_units -time ns
 
@@ -17,6 +17,10 @@ set_output_delay $io_delay -clock $clocks $bidir
 set_input_delay -min 0 -clock $clocks $ins
 set_input_delay -max $io_delay -clock $clocks $ins
 set_output_delay $io_delay -clock $clocks $outs
+
+# The interrupt lines are asynchronous, level-sensitive inputs: no timing
+# relation to clk exists, so they carry no setup or hold requirement.
+set_false_path -from [get_ports {irq5_PAD irq6_PAD}]
 
 set_max_fanout $::env(MAX_FANOUT_CONSTRAINT) [current_design]
 if { [info exists ::env(MAX_TRANSITION_CONSTRAINT)] } {

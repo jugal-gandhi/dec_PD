@@ -88,8 +88,14 @@ if [ -n "$GDS" ]; then
   gzip -9 -c "$GDS" > "$R/$TOP.gds.gz"
 fi
 DEF=$(ls "$FINAL"/def/"$TOP".def 2>/dev/null | head -n 1)
+if [ -z "$DEF" ] && [ -n "${RUN:-}" ]; then
+  DEF=$(ls -1 "$RUN"/*/"$TOP".def 2>/dev/null | sort | tail -n 1)
+fi
 [ -n "$DEF" ] && gzip -9 -c "$DEF" > "$R/$TOP.def.gz"
 NL=$(ls "$FINAL"/nl/"$TOP".nl.v 2>/dev/null | head -n 1)
+if [ -z "$NL" ] && [ -n "${RUN:-}" ]; then
+  NL=$(ls -1 "$RUN"/*/"$TOP".nl.v 2>/dev/null | sort | tail -n 1)
+fi
 [ -n "$NL" ] && gzip -9 -c "$NL" > "$R/$TOP.nl.v.gz"
 mkdir -p "$R/flow_render"
 cp -f "$FINAL"/render/*.png "$R/flow_render/" 2>/dev/null || true

@@ -18,10 +18,13 @@ VERILOG_FILES:
 
 PRIMARY_GDSII_STREAMOUT_TOOL: klayout
 
-# Clock: 25 MHz from the Schmitt-trigger clock pad
+# Clock: 20 MHz from the Schmitt-trigger clock pad. The CPU's bus path
+# (address out, SRAM/peripheral select, read data back) crosses the die
+# between hard macros, so the top level runs at 50 ns; the macros were
+# hardened at 40 ns and carry that margin.
 CLOCK_PORT: clk_PAD
 CLOCK_NET: pad_clk/Y
-CLOCK_PERIOD: 40
+CLOCK_PERIOD: 50
 PNR_SDC_FILE: dir::chip.sdc
 SIGNOFF_SDC_FILE: dir::chip.sdc
 FALLBACK_SDC: dir::chip.sdc
@@ -47,16 +50,24 @@ IGNORE_DISCONNECTED_MODULES:
 - dieart_bl
 - dieart_br
 
+# Clock tree: one leaf per hard macro (no macro clustering), buffered
+# long wires and a slew limit, so macro clock pins see a sharp edge
+CTS_MACRO_CLUSTERING_SIZE: 1
+CTS_MACRO_CLUSTERING_MAX_DIAMETER: 50
+CTS_CLK_MAX_WIRE_LENGTH: 300
+CTS_DISTANCE_BETWEEN_BUFFERS: 300
+CTS_MAX_SLEW: 1.0
+
 # Placement
 PL_TARGET_DENSITY_PCT: 55
 PL_MAX_DISPLACEMENT_Y: 200
 GRT_ALLOW_CONGESTION: true
 
 # Fix antenna violations after detailed routing
-DRT_ANTENNA_REPAIR_ITERS: 15
-DRT_ANTENNA_REPAIR_MARGIN: 25 # %
-GRT_ANTENNA_REPAIR_ITERS: 6
-GRT_ANTENNA_REPAIR_MARGIN: 20 # %
+DRT_ANTENNA_REPAIR_ITERS: 20
+DRT_ANTENNA_REPAIR_MARGIN: 45 # %
+GRT_ANTENNA_REPAIR_ITERS: 10
+GRT_ANTENNA_REPAIR_MARGIN: 40 # %
 
 # PDN
 PDN_CFG: dir::pdn/pdn_cfg.tcl

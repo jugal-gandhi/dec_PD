@@ -233,6 +233,14 @@ def add_legend(img, bm, W, H):
     return canvas
 
 
+BOX_MERGE = {  # labelled view: sub-blocks drawn as one box
+    "ALU adder": "ALU · adder · shifter · compare",
+    "Barrel shifter": "ALU · adder · shifter · compare",
+    "ALU comparator": "ALU · adder · shifter · compare",
+    "ALU logic": "ALU · adder · shifter · compare",
+}
+
+
 def sub_regions(bm, inst_box, group, nb=22):
     """Largest plurality region of each label inside one macro instance."""
     x0, y0, x1, y1 = inst_box
@@ -244,7 +252,7 @@ def sub_regions(bm, inst_box, group, nb=22):
         cx, cy = (rx0 + rx1) / 2, (ry0 + ry1) / 2
         if not (x0 <= cx < x1 and y0 <= cy < y1):
             continue
-        cnt[lab][int((cy - y0) / bh), int((cx - x0) / bw)] += 1
+        cnt[BOX_MERGE.get(lab, lab)][int((cy - y0) / bh), int((cx - x0) / bw)] += 1
     if not cnt:
         return {}
     labs = list(cnt)
