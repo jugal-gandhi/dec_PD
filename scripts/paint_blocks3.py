@@ -73,9 +73,13 @@ PALETTE = [
         ("Sign / NaR", "#ff4081"),
     ]),
     ("top", "TOP-LEVEL GLUE", [
-        ("Bus / GPIO glue", "#b0bec5"),
-        ("SRAM interface", "#90caf9"),
+        ("Bus read mux", "#e0e0e0"),
         ("Posit I/O regs", "#fff59d"),
+        ("SRAM interface", "#90caf9"),
+        ("GPIO", "#b39ddb"),
+        ("Reset sync", "#ef9a9a"),
+        ("Long-wire repeaters", "#80deea"),
+        ("Hold-fix delay cells", "#ffab91"),
         ("Pad interface", "#78909c"),
     ]),
 ]

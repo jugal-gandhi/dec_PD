@@ -63,10 +63,12 @@ RULES = {
         (R(r"^(inf|S)$"), "Sign / NaR"),
     ],
     "top": [
+        (R(r"u_soc\.(mem_rdata|io_rdata|io_ready|mem_ready)"), "Bus read mux"),
         (R(r"u_soc\.posit"), "Posit I/O regs"),
-        (R(r"u_soc\.(gpio|io_)"), "Bus / GPIO glue"),
-        (R(r"u_soc\.u_(ram|scratch)"), "SRAM interface"),
-        (R(r"u_soc\."), "Bus / GPIO glue"),
+        (R(r"(gpio|u_soc\.gpio)"), "GPIO"),
+        (R(r"u_soc\.(u_ram|u_scratch|ram_|scr_)"), "SRAM interface"),
+        (R(r"rst"), "Reset sync"),
+        (R(r"u_soc\."), "Bus read mux"),
         (R(r"."), "Pad interface"),
     ],
 }
@@ -393,6 +395,13 @@ def main():
     if os.path.exists(nl_top):
         cells = read_netlist(nl_top, "soc3_chip_top")
         lab = classify(cells, RULES["top"])
+        for name in lab:                                  # resizer cells on the long top-level wires
+            if re.match(r"(wire|max_cap|load_slew|max_length|fanout|rebuffer|split)\d", name):
+                lab[name] = "Long-wire repeaters"
+            elif re.match(r"hold\d", name):
+                lab[name] = "Hold-fix delay cells"
+            elif re.match(r"(input|output|pad_)", name):
+                lab[name] = "Pad interface"
         for name, l in lab.items():
             c = top.get(name)
             s = c and size_of(c[0])
