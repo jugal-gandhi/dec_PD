@@ -71,13 +71,13 @@ def cell_area(d, keep=("comb", "buf", "clk", "seq", "tie", "tap", "endcap", "ant
 
 def roles(ds):
     base = next(d for d in ds if d["key"] == "this")
-    other = next(d for d in ds if d["key"] != "this")
-    return base, other
+    others = [d for d in ds if d["key"] != "this"]
+    return base, others
 
 
 # 1. layouts at one scale
 def fig_layouts(ds, out):
-    fig, ax = plt.subplots(figsize=(5.2, 3.5))
+    fig, ax = plt.subplots(figsize=(COL2, 3.4))
     x0, gap = 0.0, 36.0
     top = max(json.load(open(os.path.join(d["masks"], "views.json")))["die_um"][3] for d in ds)
     for d in ds:
@@ -112,7 +112,7 @@ def fig_layouts(ds, out):
 
 # 2. delay against supply, one figure per process/temperature
 def fig_delay_vdd(ds, out):
-    base, other = roles(ds)
+    base, others = roles(ds)
     for k, (p, t, lab) in enumerate(SEL):
         fig, ax = plt.subplots(figsize=(COL1, 2.4))
         grid(ax)
@@ -125,63 +125,75 @@ def fig_delay_vdd(ds, out):
                             color=d["col"], alpha=0.15, lw=0)
             ax.plot(v, [c["rc"]["nom"]["max_delay"] for c in cs], color=d["col"], marker=d["marker"], ms=4.2, lw=1.4,
                     mec="white", mew=0.5, label=d["label"], zorder=3)
-        for a, b in zip(get(base), get(other)):
-            r = 100 * (1 - a["rc"]["nom"]["max_delay"] / b["rc"]["nom"]["max_delay"])
-            ax.text(a["vdd"], a["rc"]["nom"]["max_delay"] * 0.78, f"$-${r:.1f}%", ha="center", va="top", fontsize=6.2,
-                    color=base["col"], bbox=dict(boxstyle="round,pad=0.12", fc="white", ec="none", alpha=0.85))
+        for j, o in enumerate(others):
+            for a, b in zip(get(base), get(o)):
+                r = 100 * (1 - a["rc"]["nom"]["max_delay"] / b["rc"]["nom"]["max_delay"])
+                ax.text(a["vdd"], a["rc"]["nom"]["max_delay"] * (0.8 - 0.13 * j), f"{-r:+.1f}%", ha="center",
+                        va="top", fontsize=5.9, color=o["col"],
+                        bbox=dict(boxstyle="round,pad=0.1", fc="white", ec="none", alpha=0.85))
         ax.axhline(PERIOD_NS, color=INK2, lw=0.6, ls=(0, (4, 2)))
         ax.set_yscale("log")
-        ax.set_yticks([4, 5, 10, 20, 50, 100])
-        ax.set_yticklabels(["", "5", "10", "20", "50", "100"])
+        ax.set_yticks([5, 10, 20, 50, 100])
+        ax.set_yticklabels(["5", "10", "20", "50", "100"])
         vv = [c["vdd"] for c in get(base)]
         ax.set_xlim(min(vv) - 0.45, max(vv) + 0.45)
-        ax.set_ylim(3.8, 130)
+        ax.set_ylim(3.0, 130)
         ax.set_xlabel("Supply voltage, $V_{DD}$ (V)")
         ax.set_ylabel("Critical-path delay (ns)")
         ax.legend(loc="upper right", fontsize=6.4)
-        ax.set_title(f"{lab}; labels: delay reduction of this work", loc="left", fontsize=6.8, color=INK2)
+        ax.set_title(f"{lab}; labels: delay of this work against each design", loc="left", fontsize=6.6,
+                     color=INK2)
         save(fig, out, f"cmp02{'abc'[k]}_delay_vs_vdd_{p}_{str(t).replace('-', 'm')}C")
 
 
-# 3. ratio heat map over all corners
+# 3. ratio heat map over all corners (one block per compared design)
+GREEN_ORANGE = mcolors.LinearSegmentedColormap.from_list("go", ["#5f8a5b", "#a9bf8f", "#efe8d2", "#efa46f", "#e2622a"])
+
+
 def fig_ratio_heatmap(ds, out):
-    a, b = roles(ds)
+    a, others = roles(ds)
     names = ordered_names(a)
     rows = [("Critical-path delay", lambda r: r["max_delay"]),
             ("Dynamic power", lambda r: r["power"]["internal"] + r["power"]["switching"]),
-            ("Leakage power", lambda r: r["power"]["leakage"]),
             ("Energy per decode", lambda r: r["power"]["total"]),
-            ("Energy-delay product", lambda r: r["power"]["total"] * r["max_delay"]),
-            ("Area-delay product", lambda r: r["max_delay"])]
-    area_r = cell_area(b) / cell_area(a)
-    M = []
-    for lab, f in rows:
-        row = [f(corner(b, n)) / f(corner(a, n)) for n in names]
-        if lab == "Area-delay product":
-            row = [x * area_r for x in row]
-        M.append(row)
-    M = np.array(M)
-    fig, ax = plt.subplots(figsize=(COL2, 2.5))
-    cmap = mcolors.LinearSegmentedColormap.from_list("div", ["#2a78d6", "#f4f3ef", "#eb6834"])
-    norm = mcolors.TwoSlopeNorm(vmin=0.9, vcenter=1.0, vmax=2.5)
-    im = ax.imshow(M, aspect="auto", cmap=cmap, norm=norm)
-    for i in range(M.shape[0]):
-        for j in range(M.shape[1]):
-            ax.text(j, i, f"{M[i, j]:.2f}", ha="center", va="center", fontsize=5.4, color=INK)
-    ax.set_yticks(range(len(rows)))
-    ax.set_yticklabels([r for r, _ in rows], fontsize=6.4)
-    ax.set_xticks(range(len(names)))
+            ("Energy-delay product", lambda r: r["power"]["total"] * r["max_delay"])]
+    GAP = 0.45                                       # gap between blocks, in rows
+    nb = len(rows)
+    fig, ax = plt.subplots(figsize=(COL2, 0.36 * (nb * len(others) + GAP) + 0.85))
+    cmap = GREEN_ORANGE
+    norm = mcolors.TwoSlopeNorm(vmin=0.6, vcenter=1.0, vmax=2.5)
+    nx = len(names)
+    yt, yl = [], []
+    for k, o in enumerate(others):
+        M = np.array([[f(corner(o, n)) / f(corner(a, n)) for n in names] for _, f in rows])
+        y0 = k * (nb + GAP)
+        im = ax.pcolormesh(np.arange(nx + 1) - 0.5, y0 + np.arange(nb + 1) - 0.5, M, cmap=cmap, norm=norm,
+                           edgecolors="white", linewidth=0.8)
+        for i in range(nb):
+            for j in range(nx):
+                ax.text(j, y0 + i, f"{M[i, j]:.2f}", ha="center", va="center", fontsize=5.6, color=INK)
+            yt.append(y0 + i)
+            yl.append(rows[i][0])
+        ax.annotate("", xy=(-3.55, y0 - 0.4), xytext=(-3.55, y0 + nb - 0.6), xycoords="data", annotation_clip=False,
+                    arrowprops=dict(arrowstyle="-", color=o["col"], lw=2.2))
+        ax.text(-3.75, y0 + (nb - 1) / 2, f"{o['label']} / {a['label']}", rotation=90, ha="right", va="center",
+                fontsize=6.6, color=o["col"], fontweight="bold", clip_on=False)
+    ytop = (len(others) - 1) * (nb + GAP) + nb - 0.5
+    for x in (5.5, 8.5):
+        for k in range(len(others)):
+            y0 = k * (nb + GAP)
+            ax.plot([x, x], [y0 - 0.5, y0 + nb - 0.5], color="white", lw=2.4)
+    ax.set_xlim(-0.5, nx - 0.5)
+    ax.set_ylim(ytop, -0.5)
+    ax.set_yticks(yt)
+    ax.set_yticklabels(yl, fontsize=6.3)
+    ax.set_xticks(range(nx))
     ax.set_xticklabels([clabel(a["p"]["corners"][n]) for n in names], fontsize=5.4)
+    ax.tick_params(axis="y", length=0)
     for sp in ax.spines.values():
         sp.set_visible(False)
-    ax.set_xticks(np.arange(-0.5, len(names)), minor=True)
-    ax.set_yticks(np.arange(-0.5, len(rows)), minor=True)
-    ax.grid(which="minor", color="white", lw=0.8)
-    ax.tick_params(which="minor", length=0)
-    for x in (5.5, 8.5):
-        ax.axvline(x, color="white", lw=2.4)
-    cb = fig.colorbar(im, ax=ax, fraction=0.03, pad=0.012, ticks=[0.9, 1, 1.5, 2, 2.5])
-    cb.set_label(f"{b['label']} / {a['label']}", fontsize=6.6)
+    cb = fig.colorbar(im, ax=ax, fraction=0.025, pad=0.012, ticks=[0.6, 0.8, 1, 1.5, 2, 2.5])
+    cb.set_label("Ratio to this work", fontsize=6.6)
     cb.ax.tick_params(labelsize=5.8)
     cb.outline.set_visible(False)
     ax.set_title("Values above 1 favour this work (nominal RC; 0.2 activity, 50 MHz)", loc="left", fontsize=6.8,
@@ -191,16 +203,17 @@ def fig_ratio_heatmap(ds, out):
 
 # 4. energy against delay, all corners
 def fig_energy_delay(ds, out):
-    base, other = roles(ds)
+    base, others = roles(ds)
     fig, ax = plt.subplots(figsize=(COL1, 2.75))
     grid(ax)
     names = ordered_names(base)
-    for n in names:
-        p0, p1 = corner(other, n), corner(base, n)
-        ax.annotate("", xy=(p1["max_delay"], p1["power"]["total"] * PERIOD_NS * 1e3),
-                    xytext=(p0["max_delay"], p0["power"]["total"] * PERIOD_NS * 1e3),
-                    arrowprops=dict(arrowstyle="-|>", color=INK3, lw=0.5, mutation_scale=5, shrinkA=2.5, shrinkB=2.5),
-                    zorder=1)
+    for o in others:
+        for n in names:
+            p0, p1 = corner(o, n), corner(base, n)
+            ax.annotate("", xy=(p1["max_delay"], p1["power"]["total"] * PERIOD_NS * 1e3),
+                        xytext=(p0["max_delay"], p0["power"]["total"] * PERIOD_NS * 1e3),
+                        arrowprops=dict(arrowstyle="-|>", color=o["col"], alpha=0.45, lw=0.5, mutation_scale=5,
+                                        shrinkA=2.5, shrinkB=2.5), zorder=1)
     for d in ds:
         ax.scatter([corner(d, n)["max_delay"] for n in names],
                    [corner(d, n)["power"]["total"] * PERIOD_NS * 1e3 for n in names], s=22, marker=d["marker"],
@@ -214,13 +227,14 @@ def fig_energy_delay(ds, out):
     ax.set_xlabel("Critical-path delay (ns)")
     ax.set_ylabel("Energy per decode (pJ)")
     ax.legend(loc="upper right", fontsize=6.2)
-    ax.set_title("15 PVT corners; arrows: LDD to this work, same corner", loc="left", fontsize=6.6, color=INK2)
+    ax.set_title("15 PVT corners; arrows point to this work at the same corner", loc="left", fontsize=6.4,
+                 color=INK2)
     save(fig, out, "cmp04_energy_vs_delay")
 
 
 # 5. normalised metrics at TT 5 V
 def fig_normalised(ds, out):
-    base, other = roles(ds)
+    base, others = roles(ds)
 
     def vals(d):
         tt, ss = corner(d, "tt_025C_5v00"), corner(d, "ss_125C_4v50")
@@ -234,25 +248,32 @@ def fig_normalised(ds, out):
                 ("Area-delay product, TT", cell_area(d) * tt["max_delay"])]
     bv = vals(base)
     labs = [k for k, _ in bv]
-    r = np.array([v / b for (_, v), (_, b) in zip(vals(other), bv)])
-    fig, ax = plt.subplots(figsize=(COL1, 3.1))
+    fig, ax = plt.subplots(figsize=(COL1, 3.4))
     grid(ax, "x")
     y = np.arange(len(labs))
-    ax.hlines(y, 1, r, color=other["col"], lw=1.6)
-    ax.scatter(r, y, s=24, marker=other["marker"], color=other["col"], edgecolor="white", lw=0.5, zorder=3,
-               label=other["label"])
-    for yi, ri in zip(y, r):
-        ax.text(ri * 1.04, yi, f"{ri:.2f}$\\times$", va="center", ha="left", fontsize=5.8, color=other["col"])
+    offs = np.linspace(-0.17, 0.17, len(others)) if len(others) > 1 else [0.0]
+    lo, hi = 1.0, 1.0
+    for o, off in zip(others, offs):
+        r = np.array([v / b for (_, v), (_, b) in zip(vals(o), bv)])
+        lo, hi = min(lo, r.min()), max(hi, r.max())
+        ax.hlines(y + off, 1, r, color=o["col"], lw=1.4)
+        ax.scatter(r, y + off, s=20, marker=o["marker"], color=o["col"], edgecolor="white", lw=0.5, zorder=3,
+                   label=o["label"])
+        for yi, ri in zip(y, r):
+            ax.text(ri * 1.04 if ri >= 1 else ri / 1.04, yi + off, f"{ri:.2f}$\\times$", va="center",
+                    ha="left" if ri >= 1 else "right", fontsize=5.3, color=o["col"])
     ax.axvline(1, color=base["col"], lw=1.4, label=base["label"] + " = 1")
     ax.set_xscale("log")
-    ax.set_xlim(0.9, 3.6)
-    ax.set_xticks([1, 1.5, 2, 3])
-    ax.set_xticklabels(["1", "1.5", "2", "3"])
+    ax.set_xlim(min(0.9, lo / 1.25), hi * 1.3)
+    tk = [t for t in (0.5, 0.6, 0.8, 1, 1.5, 2, 3) if min(0.9, lo / 1.25) <= t <= hi * 1.3]
+    ax.set_xticks(tk)
+    ax.set_xticklabels([f"{t:g}" for t in tk])
     ax.set_yticks(y)
     ax.set_yticklabels(labs, fontsize=6.3)
     ax.invert_yaxis()
     ax.set_xlabel("Normalised to this work (log scale)")
-    ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.47), fontsize=6.0)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.4, 1.0), ncol=3, fontsize=6.0, handlelength=1.4,
+              columnspacing=1.0)
     save(fig, out, "cmp05_normalised_metrics")
 
 

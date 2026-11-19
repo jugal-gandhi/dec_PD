@@ -1,0 +1,35 @@
+{
+ "LDD $\\langle 32,2\\rangle$": {
+  "cell_area_um2": 28109.536,
+  "logic_cells": 1250,
+  "die": "0.0 0.0 222.855 240.775",
+  "wirelength_um": 56951,
+  "tt_delay_ns": 10.4213,
+  "ss_delay_ns": 19.2759,
+  "tt_power_mW": 8.9116348,
+  "tt_leakage_nW": 255.64764899999997,
+  "signoff_ss_setup_slack_ns": -0.8608367595742028
+ },
+ "Decoder": {
+  "cell_area_um2": 13381.9392,
+  "logic_cells": 533,
+  "die": "0.0 0.0 155.945 173.865",
+  "wirelength_um": 19387,
+  "tt_delay_ns": 10.3025,
+  "ss_delay_ns": 19.0603,
+  "tt_power_mW": 6.00627298,
+  "tt_leakage_nW": 126.062503,
+  "signoff_ss_setup_slack_ns": -0.573091812449131
+ },
+ "This work": {
+  "cell_area_um2": 14308.3136,
+  "logic_cells": 541,
+  "die": "0.0 0.0 200.0 200.0",
+  "wirelength_um": 21637,
+  "tt_delay_ns": 10.0953,
+  "ss_delay_ns": 18.5864,
+  "tt_power_mW": 4.04647226,
+  "tt_leakage_nW": 143.803859,
+  "signoff_ss_setup_slack_ns": 0.01769251462080498
+ }
+}
