@@ -30,21 +30,5 @@
   "drc": 0,
   "lvs": 0,
   "slew_viol": 4
- },
- "ldd3": {
-  "cell_area": 28603.456,
-  "logic_cells": 1209,
-  "core_area": 43280.6,
-  "die": "0.0 0.0 222.31 240.23",
-  "wl": 55797,
-  "vias": 8855,
-  "tt_delay": 10.4177,
-  "ss_delay": 19.1629,
-  "tt_power_mw": 8.75597354,
-  "tt_leak_nw": 257.98596,
-  "signoff_ss_slack": -1.060378481701137,
-  "drc": 0,
-  "lvs": 0,
-  "slew_viol": 0
  }
 }
