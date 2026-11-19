@@ -23,7 +23,7 @@ module tb_cmp;
                 if (err <= 20) $display("MISMATCH in=%h got=%h exp=%h", in, {sign, regi, expo, frac, allone, allzero}, vexp[i]);
             end
         end
-        $display("RESULT design=%s tests=%0d errors=%0d", `"`TOP`", `NV, err);
+        $display("RESULT tests=%0d errors=%0d", `NV, err);
         $finish;
     end
 endmodule
