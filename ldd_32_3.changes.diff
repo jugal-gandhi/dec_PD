@@ -1,0 +1,263 @@
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/LDD.v build/ext/ldd_32_3/LDD.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/LDD.v	2026-11-19 08:57:03.827924429 +0000
++++ build/ext/ldd_32_3/LDD.v	2026-11-19 09:23:28.761285980 +0000
+@@ -1,40 +1,37 @@
+ module LDD(out, allone, allzero, in);
+-parameter n = 64;
+-
+-input [n-2:0] in;
+-output [n-3:0] out;
++input [30:0] in;
++output [29:0] out;
+ output allone, allzero;
+ 
+-wire [n-3:0] diff, invdif; //'0' if diff
+-wire [n-3:0] ndiff;
+-wire [n-4:0] en, inven; //'0' if disable
++wire [29:0] diff, invdif; //'0' if diff
++wire [29:0] ndiff;
++wire [28:0] en, inven; //'0' if disable
+ wire [1:0] no;//not in use
+ 
+ genvar i;
+ 
+-for (i = 0; i < n-2; i = i + 1) begin
+-	assign invdif[i] = diff[n-3-i];
++for (i = 0; i < 30; i = i + 1) begin
++	assign invdif[i] = diff[29-i];
+ end
+ 
+-for (i = 0; i < n-3; i = i + 1) begin
+-	assign en[i] = inven[n-4-i];
++for (i = 0; i < 29; i = i + 1) begin
++	assign en[i] = inven[28-i];
+ end
+ 
+-for (i = 0; i < n-2; i = i + 1) begin
++for (i = 0; i < 30; i = i + 1) begin
+ 	xor(ndiff[i],in[i],in[i+1]);
+ 	assign diff[i] = ~ndiff[i];
+ end
+ 
++and32 a0({no,inven[28:0]},{2'b11,invdif[29:0]});
+ 
+-and64 a0({no,inven[n-4:0]},{2'b11,invdif[n-3:0]});
+-
+-assign out[n-3] = ndiff[n-3];
+-and(out[n-4], diff[n-3], ndiff[n-4]);
+-for (i = 0; i < n-4; i = i + 1) begin
++assign out[29] = ndiff[29];
++and(out[28], diff[29], ndiff[28]);
++for (i = 0; i < 28; i = i + 1) begin
+ 	and(out[i], en[i+1], ndiff[i]);
+ end
+ 
+-and(allone, en[0], in[n-2]);
+-and(allzero, en[0], ~in[n-2]);
++and(allone, en[0], in[30]);
++and(allzero, en[0], ~in[30]);
+ 
+ endmodule
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/LDDShifter.v build/ext/ldd_32_3/LDDShifter.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/LDDShifter.v	2026-11-19 08:57:03.828102654 +0000
++++ build/ext/ldd_32_3/LDDShifter.v	2026-11-19 09:23:28.761330691 +0000
+@@ -1,103 +1,93 @@
+ module LDDShifter(regi, expo, frac, ldd, allone, in);
+-parameter n = 64;
+-parameter es = 4;
+-parameter rs = 7;//size of regi
+-parameter fs = n-es-3;//size of frac
+-parameter ls = n-2;//size of ldd
++parameter n = 32;
++parameter es = 3;
++parameter rs = 6;//size of regi
+ 
+-input [ls-1:0] ldd;
+-input [n-2:0] in;
++input [29:0] ldd;
++input [30:0] in;
+ input allone;
+ 
+-output reg [rs-1:0] regi; //Update based on the input size
+-output [es-1:0] expo;
+-output [fs-1:0] frac;
+-
+-wire [(rs+es+fs)*ls:0] temp; 
+-wire [rs-1:0] oneRe, oneReTemp;
+-assign oneReTemp = n-2;
+-//total output size: (rs+es+fs)=68; ldd: ls, total:(rs+es+fs)*ls=4216
+-//regi[i] under ldd[j]: temp[j*rs+i+(es+fs)*ls]
++output reg [5:0] regi;
++output [2:0] expo;
++output [25:0] frac;
++
++wire [1049:0] temp; 
++wire [5:0] oneRe, oneReTemp;
++assign oneReTemp = 30;
++//total output size: 6+3+26=35; ldd: 30, total:35*30=1050
++//regi[i] under ldd[j]: temp[j*6+i+870]
+ //regi[i] under allone: oneRe[i]
+-//expo[i] under ldd[j]: temp[j*es+i+fs*ls]
+-//frac[i] under ldd[j]: temp[j*fs+i]
+-wire [(rs+es+fs)*ls:0] outtemp;
+-//regi[i] under ldd[j]: outtemp[j+i*ls+(es+fs)*ls]
+-//expo[i] under ldd[j]: outtemp[j+i*ls+fs*ls]
+-//frac[i] under ldd[j]: outtemp[j+i*ls]
+-wire [fs+ls-2:0] fractemp;
+-wire [ls-2:0] zerobus;
+-assign zerobus = 0;
+-assign fractemp = {in[fs-1:0],zerobus};
++//expo[i] under ldd[j]: temp[j*3+i+780]
++//frac[i] under ldd[j]: temp[j*26+i]
++wire [1049:0] outtemp;
++//regi[i] under ldd[j]: outtemp[j+i*30+870]
++//expo[i] under ldd[j]: outtemp[j+i*30+780]
++//frac[i] under ldd[j]: outtemp[j+i*30]
++wire [54:0] fractemp;
++assign fractemp = {in[25:0],29'b00000000000000000000000000000};
+ 
+-wire [rs-1:0] tempregi;//take the absolute of regi
++wire [5:0] tempregi;
+ 
+ genvar i,j;
+ 
+ //regi: check absolute value first, do bit inverse (~) to get negative at the output stage
+-for (i = 0; i < ls; i = i + 1) begin//under ldd[i]
+-	assign temp[i*rs+(es+fs)*ls+rs-1:i*rs+(es+fs)*ls] = ls-1-i;
++for (i = 0; i < 30; i = i + 1) begin//under ldd[i]
++	assign temp[i*6+875:i*6+870] = 29-i;
+ end
+ 
+ //expo:
+-for (i = es; i < ls; i = i+1) begin
+-	assign temp[i*es+fs*ls+es-1:i*es+fs*ls] = in[i-1:i-es];
+-end
+-//expo that have no enough bits left
+-for (i = 0; i < es; i = i+1) begin
+-for (j = 0; j < i; j = j+1) begin
+-	assign temp[i*es+fs*ls+j] = in[j];
+-end
+-for (j = i; j < es; j = j+1) begin
+-	assign temp[i*es+fs*ls+j] = 1'b0;
+-end
++for (i = 3; i < 30; i = i+1) begin
++	assign temp[i*3+782:i*3+780] = in[i-1:i-3];
+ end
++assign temp[788:786] = {1'b0, in[1:0]};//ldd[2]
++assign temp[785:783] = {2'b00, in[0]};//ldd[1]
++assign temp[782:780] = 0;//ldd[0]
++
+ //frac:
+-for (i = 0; i < ls; i = i + 1) begin
+-	assign temp[i*fs+fs-1:i*fs] = fractemp[i+fs-1:i];
++for (i = 0; i < 30; i = i + 1) begin
++	assign temp[i*26+25:i*26] = fractemp[i+25:i];
+ end
+ 
+-//switch order for output
+-for (i = 0; i < rs; i = i + 1) begin
+-for (j = 0; j < ls; j = j + 1) begin
+-	nand(outtemp[j+i*ls+(es+fs)*ls], temp[j*rs+i+(es+fs)*ls], ldd[j]);
++//switch order for temp
++for (i = 0; i < 6; i = i + 1) begin
++for (j = 0; j < 30; j = j + 1) begin
++	nand(outtemp[j+i*30+870], temp[j*6+i+870], ldd[j]);
+ 	//assign outtemp[j+i*30+870] = temp[j*6+i+870];
+ end
+ end
+-for (i = 0; i < rs; i = i + 1) begin
++for (i = 0; i < 6; i = i + 1) begin
+ 	nand(oneRe[i], oneReTemp[i], allone);
+ end
+ 
+-for (i = 0; i < es; i = i + 1) begin
+-for (j = 0; j < ls; j = j + 1) begin
+-	nand(outtemp[j+i*ls+fs*ls], temp[j*es+i+fs*ls], ldd[j]);
++for (i = 0; i < 3; i = i + 1) begin
++for (j = 0; j < 30; j = j + 1) begin
++	nand(outtemp[j+i*30+780], temp[j*3+i+780], ldd[j]);
+ 	//assign outtemp[j+i*30+780] = temp[j*3+i+780];
+ end
+ end
+ 
+-for (i = 0; i < fs; i = i + 1) begin
+-for (j = 0; j < ls; j = j + 1) begin
+-	nand(outtemp[j+i*ls], temp[j*fs+i], ldd[j]);
++for (i = 0; i < 26; i = i + 1) begin
++for (j = 0; j < 30; j = j + 1) begin
++	nand(outtemp[j+i*30], temp[j*26+i], ldd[j]);
+ 	//assign outtemp[j+i*30] = temp[j*26+i];
+ end
+ end
+ 
+ //frac out:
+-for (i = 0; i < rs; i = i + 1) begin
+-	assign tempregi[i] = ~&({outtemp[ls-1+i*ls+(es+fs)*ls:i*ls+(es+fs)*ls],oneRe[i]});
++for (i = 0; i < 6; i = i + 1) begin
++	assign tempregi[i] = ~&({outtemp[29+i*30+870:i*30+870],oneRe[i]});
+ end
+-for (i = 0; i < es; i = i + 1) begin
+-	assign expo[i] = ~&(outtemp[ls-1+i*ls+fs*ls:i*ls+fs*ls]);
++for (i = 0; i < 3; i = i + 1) begin
++	assign expo[i] = ~&(outtemp[29+i*30+780:i*30+780]);
+ end
+-for (i = 0; i < fs; i = i + 1) begin
+-	assign frac[i] = ~&(outtemp[ls-1+i*ls:i*ls]);
++for (i = 0; i < 26; i = i + 1) begin
++	assign frac[i] = ~&(outtemp[29+i*30:i*30]);
+ end
+ 
+-always @(in[n-2], tempregi)
+-case (in[n-2])
++always @(in[30], tempregi)
++case (in[30])
+ 	1'b1: regi = tempregi;
+ 	1'b0: regi = ~tempregi;
+ endcase
+ 
+-
+ endmodule
+Only in build/ext/LDD_Posit_Decoder/LDD_64_4: and64.v
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/decoder.v build/ext/ldd_32_3/decoder.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/decoder.v	2026-11-19 08:57:03.828102654 +0000
++++ build/ext/ldd_32_3/decoder.v	2026-11-19 09:23:28.761409625 +0000
+@@ -1,21 +1,15 @@
+ module decoder(sign, regi, expo, frac, allone, allzero, in);
+-parameter n = 64;
+-parameter es = 4;
+-parameter rs = 7;//size of regi
+-parameter fs = n-es-3;//size of frac
+-parameter ls = n-2;//size of ldd
++input [31:0] in;
+ 
+-input [n-1:0] in;
+-
+-output [rs-1:0] regi;
+-output [es-1:0] expo;
+-output [fs-1:0] frac;
++output [5:0] regi;
++output [2:0] expo;
++output [25:0] frac;
+ output allone, allzero, sign;
+ 
+-wire [n-2:0] twos_in;
+-wire [ls-1:0] ldd;
++wire [30:0] twos_in;
++wire [29:0] ldd;
+ 
+-assign sign = in[n-1];
++assign sign = in[31];
+ twoscom t0(twos_in, in);
+ LDD l0(ldd, allone, allzero, twos_in);
+ LDDShifter s0(regi, expo, frac, ldd, allone, twos_in);
+Only in build/ext/ldd_32_3: ldd_32_3.v
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/twoscom.v build/ext/ldd_32_3/twoscom.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/twoscom.v	2026-11-19 08:57:03.828102654 +0000
++++ build/ext/ldd_32_3/twoscom.v	2026-11-19 09:23:28.761426004 +0000
+@@ -1,5 +1,5 @@
+ module twoscom(out, in);
+-parameter n = 64;
++parameter n = 32;
+ 
+ input [n-1:0] in;
+ output reg [n-2:0] out;

@@ -1,0 +1,7 @@
+warning: unknown setting 'build-provenance-tags'
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+RESULT tests=204808 errors=0
+verif/cmp/tb_cmp.v:27: $finish called at 204808000 (1ps)
