@@ -20,6 +20,7 @@ defaults:
 jobs:
   macros3:
     name: "v3 macro: ${{ matrix.macro }}"
+    if: "!contains(github.event.head_commit.message, '[pvt-only]')"
     runs-on: ubuntu-24.04
     timeout-minutes: 300
     strategy:
@@ -77,6 +78,7 @@ jobs:
 
   sim3:
     name: v3 firmware and chip-level simulation
+    if: "!contains(github.event.head_commit.message, '[pvt-only]')"
     runs-on: ubuntu-24.04
     timeout-minutes: 120
     steps:
@@ -115,6 +117,44 @@ jobs:
           cp -f firmware_build.log soc_sim_console.log lint3.log firmware/v3/firmware.hex verif/v3/out/*.log results/v3sim/ 2>/dev/null || true
           echo '{"firmware": "${{ steps.fw.outcome }}", "sim": "${{ steps.sim.outcome }}", "lint": "${{ steps.lint.outcome }}", "commit": "${{ github.sha }}"}' > results/v3sim/status.json
           bash scripts/publish_results.sh v3sim results-v3sim
+
+  pvt3:
+    name: Posit decoder PVT sweep (OpenSTA)
+    if: contains(github.event.head_commit.message, '[pvt-only]') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Fetch GF180MCU PDK
+        run: nix develop --command make clone-pdk
+      - name: Restore the signed-off posit macro
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ip/v3/macros/posit_decoder_32_2
+          key: macro3-posit_decoder_32_2-${{ hashFiles('src/v3/cpu_core.v', 'src/v3/dsp_mac.v', 'src/v3/simd_alu.v', 'src/soc/vendor/**', 'src/posit_decoder_32_2.v', 'librelane/v3/macros/posit_decoder_32_2/**', 'scripts/export_macro3.sh', 'flake.lock') }}
+      - name: Harden the macro if the cache misses
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: nix develop --command make macro3-posit_decoder_32_2 2>&1 | tail -n 200
+      - name: PVT sweep
+        run: |
+          nix develop --command bash scripts/pvt_sweep.sh ip/v3/macros/posit_decoder_32_2 results/pvt3 2>&1 | tee pvt_console.log
+          cp pvt_console.log results/pvt3/
+          cp ip/v3/macros/posit_decoder_32_2/metrics.json results/pvt3/ 2>/dev/null || true
+          echo '{"cache_hit": "${{ steps.cache.outputs.cache-hit }}", "commit": "${{ github.sha }}"}' > results/pvt3/status.json
+      - name: Publish
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/publish_results.sh pvt3 results-pvt3
 
   soc3:
     name: GF180MCU multi-block SoC (v3)
