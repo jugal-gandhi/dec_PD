@@ -147,7 +147,7 @@ def fig_delay_vdd(ds, out):
 
 
 # 3. ratio heat map over all corners (one block per compared design)
-GREEN_ORANGE = mcolors.LinearSegmentedColormap.from_list("go", ["#5f8a5b", "#a9bf8f", "#efe8d2", "#efa46f", "#e2622a"])
+GREEN_ORANGE = mcolors.LinearSegmentedColormap.from_list("og", ["#e2622a", "#efa46f", "#efe8d2", "#a9bf8f", "#5f8a5b"])
 
 
 def fig_ratio_heatmap(ds, out):
