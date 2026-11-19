@@ -5,7 +5,7 @@ Output word: {sign, regi[5:0], expo[es-1:0], frac[fs-1:0], allone, allzero}, fs 
 Negative inputs are two's-complemented first (as in the LDD design). regi is the regime
 value k in two's complement. When fewer than es bits follow the regime, the available
 bits form the low exponent bits (the upstream convention). Fraction bits are left-aligned.
-Usage: cmp_golden.py <es> <out_dir> [random_count]
+Usage: cmp_golden.py <es | percival> <out_dir> [random_count]
 """
 import os
 import random
@@ -39,6 +39,22 @@ def decode(x, es):
     return sign, k, expo, frac, 0, 0
 
 
+def decode_percival(x):
+    """PERCIVAL PositFastDecoder_32_2: {Sign, SF[7:0], Frac[26:0], NZN}"""
+    sgn, rc = x >> 31, (x >> 30) & 1
+    body = x & ((1 << 30) - 1)
+    m = 0
+    while m < 30 and ((body >> (29 - m)) & 1) == rc:
+        m += 1
+    cnt = m if m < 30 else (31 if rc == 0 else 30)   # staged normaliser saturation
+    sh = (body << cnt) & ((1 << 30) - 1) if cnt < 30 else 0
+    k = cnt if rc != sgn else (32 | (~cnt & 31))
+    e = ((sh >> 27) & 3) ^ (3 if sgn else 0)
+    frac = sh & ((1 << 27) - 1)
+    nzn = int((x & 0x7FFFFFFF) != 0)
+    return ((((sgn << 8 | (k << 2 | e)) << 27) | frac) << 1) | nzn
+
+
 def pack(o, es):
     fs = N - es - 3
     s, k, e, f, a1, a0 = o
@@ -46,7 +62,8 @@ def pack(o, es):
 
 
 def main():
-    es, out = int(sys.argv[1]), sys.argv[2]
+    mode, out = sys.argv[1], sys.argv[2]
+    es = int(mode) if mode.isdigit() else None
     cnt = int(sys.argv[3]) if len(sys.argv) > 3 else 200000
     os.makedirs(out, exist_ok=True)
     rnd = random.Random(2026)
@@ -64,7 +81,10 @@ def main():
     with open(os.path.join(out, "vin.hex"), "w") as f:
         f.write("\n".join(f"{v:08x}" for v in vec) + "\n")
     with open(os.path.join(out, "vexp.hex"), "w") as f:
-        f.write("\n".join(f"{pack(decode(v, es), es):010x}" for v in vec) + "\n")
+        if es is None:
+            f.write("\n".join(f"{decode_percival(v):010x}" for v in vec) + "\n")
+        else:
+            f.write("\n".join(f"{pack(decode(v, es), es):010x}" for v in vec) + "\n")
     print(len(vec))
 
 

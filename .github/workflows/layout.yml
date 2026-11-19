@@ -164,7 +164,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        design: [ldd_32_2, ldd_32_3]
+        design: [ldd_32_2, percival_32_2]
     steps:
       - uses: actions/checkout@v4
       - name: Setup Nix

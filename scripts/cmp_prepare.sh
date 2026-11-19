@@ -4,9 +4,15 @@
 #   ldd_32_2: the parameterised LDD_64_4 sources set to n = 32, es = 2, rs = 6, with and32
 #             in LDD.v (the procedure in the upstream README)
 #   ldd_32_3: the upstream LDD_32_3 sources, unchanged
+#   percival_32_2: Verilog transcription of the PERCIVAL decoder (src/ext/percival_32_2.v)
 # Usage: cmp_prepare.sh <design>
 set -euo pipefail
 D=$1
+if [ "$D" = "percival_32_2" ]; then        # Verilog transcription kept in src/ext
+  rm -rf "build/ext/$D"; mkdir -p "build/ext/$D"
+  cp src/ext/percival_32_2.v "build/ext/$D/"
+  echo "$D: transcription of PERCIVAL PositFastDecoder_32_2"; exit 0
+fi
 REPO=https://github.com/JSCooode/LDD_Posit_Decoder.git
 PIN=6bef4f3c2563ee7f7d6b3829a51c5db6bbb0bea2
 EXT=build/ext/LDD_Posit_Decoder
