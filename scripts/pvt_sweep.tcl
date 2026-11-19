@@ -4,6 +4,10 @@
 set lib $::env(LIB)
 set out $::env(OUT)
 file mkdir $out
+if {[info exists ::env(TLEF)] && $::env(TLEF) ne ""} {
+  read_lef $::env(TLEF)
+  read_lef $::env(CLEF)
+}
 define_corners min nom max
 foreach c {min nom max} { read_liberty -corner $c $lib }
 read_verilog $::env(NL)
