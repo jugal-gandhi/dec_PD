@@ -41,13 +41,13 @@ foreach c {min nom max} {
 # output-load sweep (nominal RC)
 foreach l {0.005 0.01 0.02 0.05 0.1 0.2} {
   set_load $l [all_outputs]
-  report_worst_slack -max -corner nom -digits 4 > $out/load_${l}.rpt
+  ends max nom $out/load_${l}.rpt
 }
 set_load $::env(LOAD_PF) [all_outputs]
 # input-slew sweep (nominal RC)
 foreach s {0.1 0.25 0.5 1.0 2.0} {
   set_input_transition $s [all_inputs]
-  report_worst_slack -max -corner nom -digits 4 > $out/slew_${s}.rpt
+  ends max nom $out/slew_${s}.rpt
 }
 set_input_transition 0.5 [all_inputs]
 # power against clock period and input switching activity
