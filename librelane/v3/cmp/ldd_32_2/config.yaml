@@ -1,0 +1,24 @@
+# Comparison design ldd_32_2 (JSCooode/LDD_Posit_Decoder), hardened with the same settings
+# and SDC as the posit_decoder_32_2 macro. Sizing: 45 % core utilisation, which matches
+# the 45.5 % of the posit macro, instead of a fixed die.
+meta:
+  version: 3
+  flow: Classic
+DESIGN_NAME: ldd_32_2
+VERILOG_FILES: dir::../../../../build/ext/ldd_32_2/*.v
+PNR_SDC_FILE: dir::../../macros/posit_decoder_32_2/macro.sdc
+SIGNOFF_SDC_FILE: dir::../../macros/posit_decoder_32_2/macro.sdc
+FALLBACK_SDC: dir::../../macros/posit_decoder_32_2/macro.sdc
+CLOCK_PERIOD: 20
+VDD_NETS: [VDD]
+GND_NETS: [VSS]
+FP_SIZING: relative
+FP_CORE_UTIL: 45
+PL_TARGET_DENSITY_PCT: 55
+PDN_MULTILAYER: false
+PDN_VPITCH: 40
+PDN_VOFFSET: 10
+PDN_VWIDTH: 2
+RT_MAX_LAYER: Metal4
+DESIGN_REPAIR_MAX_SLEW_PCT: 40
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 35

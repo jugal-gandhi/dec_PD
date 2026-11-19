@@ -1,6 +1,6 @@
 # PVT sweep of the hardened posit decoder with OpenSTA (inside OpenROAD).
 # One run per Liberty corner; the three extracted RC corners load as STA corners.
-# Env: LIB, NL, SPEF_DIR, OUT, LOAD_PF, POWER_SWEEP (1 = frequency/activity sweep)
+# Env: TOP, LIB, NL, SPEF_DIR, OUT, LOAD_PF, POWER_SWEEP (1 = frequency/activity sweep)
 set lib $::env(LIB)
 set out $::env(OUT)
 file mkdir $out
@@ -11,8 +11,8 @@ if {[info exists ::env(TLEF)] && $::env(TLEF) ne ""} {
 define_corners min nom max
 foreach c {min nom max} { read_liberty -corner $c $lib }
 read_verilog $::env(NL)
-link_design posit_decoder_32_2
-foreach c {min nom max} { read_spef -corner $c $::env(SPEF_DIR)/posit_decoder_32_2.$c.spef }
+link_design $::env(TOP)
+foreach c {min nom max} { read_spef -corner $c $::env(SPEF_DIR)/$::env(TOP).$c.spef }
 
 proc constrain {period load} {
   create_clock -name vclk -period $period

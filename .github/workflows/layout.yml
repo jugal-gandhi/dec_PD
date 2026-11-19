@@ -20,7 +20,7 @@ defaults:
 jobs:
   macros3:
     name: "v3 macro: ${{ matrix.macro }}"
-    if: "!contains(github.event.head_commit.message, '[pvt-only]')"
+    if: "!contains(github.event.head_commit.message, '[pvt-only]') && !contains(github.event.head_commit.message, '[cmp-only]')"
     runs-on: ubuntu-24.04
     timeout-minutes: 300
     strategy:
@@ -78,7 +78,7 @@ jobs:
 
   sim3:
     name: v3 firmware and chip-level simulation
-    if: "!contains(github.event.head_commit.message, '[pvt-only]')"
+    if: "!contains(github.event.head_commit.message, '[pvt-only]') && !contains(github.event.head_commit.message, '[cmp-only]')"
     runs-on: ubuntu-24.04
     timeout-minutes: 120
     steps:
@@ -155,6 +155,60 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/publish_results.sh pvt3 results-pvt3
+
+  cmp3:
+    name: "Comparison decoder: ${{ matrix.design }}"
+    if: contains(github.event.head_commit.message, '[cmp-only]') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        design: [ldd_32_2, ldd_32_3]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Nix
+        uses: ./.github/actions/setup_nix
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Nix shell
+        uses: ./.github/actions/build_nix
+        with:
+          nix_system: x86_64-linux
+      - name: Fetch GF180MCU PDK
+        run: nix develop --command make clone-pdk
+      - name: Prepare sources
+        run: bash scripts/cmp_prepare.sh ${{ matrix.design }}
+      - name: Functional check against the reference model
+        id: sim
+        continue-on-error: true
+        run: nix develop --command bash scripts/cmp_sim.sh ${{ matrix.design }} 2>&1 | tail -n 60 | tee cmp_sim.log
+      - name: Harden
+        id: flow
+        run: nix develop --command make cmp3-${{ matrix.design }} 2>&1 | tail -n 300 | tee flow_console.log
+      - name: Render layer masks
+        continue-on-error: true
+        run: nix develop --command python3 scripts/render_masks.py ip/v3/macros/${{ matrix.design }}/gds/${{ matrix.design }}.gds results/cmp_${{ matrix.design }}/masks --pdk gf180
+      - name: PVT sweep
+        continue-on-error: true
+        run: nix develop --command bash scripts/pvt_sweep.sh ip/v3/macros/${{ matrix.design }} results/cmp_${{ matrix.design }}/pvt ${{ matrix.design }}
+      - name: Collect and publish
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          R=results/cmp_${{ matrix.design }}
+          M=ip/v3/macros/${{ matrix.design }}
+          mkdir -p $R
+          cp -f cmp_sim.log flow_console.log $R/ 2>/dev/null || true
+          cp -f build/ext/${{ matrix.design }}.changes.diff $R/ 2>/dev/null || true
+          cp -rf build/ext/${{ matrix.design }} $R/src 2>/dev/null || true
+          cp -f $M/metrics.json $R/ 2>/dev/null || true
+          cp -f $M/lef/*.lef $R/ 2>/dev/null || true
+          gzip -c $M/def/${{ matrix.design }}.def > $R/${{ matrix.design }}.def.gz 2>/dev/null || true
+          gzip -c $M/nl/${{ matrix.design }}.nl.v > $R/${{ matrix.design }}.nl.v.gz 2>/dev/null || true
+          echo '{"sim": "${{ steps.sim.outcome }}", "flow": "${{ steps.flow.outcome }}", "commit": "${{ github.sha }}"}' > $R/status.json
+          bash scripts/publish_results.sh cmp_${{ matrix.design }} results-cmp-${{ matrix.design }}
 
   soc3:
     name: GF180MCU multi-block SoC (v3)

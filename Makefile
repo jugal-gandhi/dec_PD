@@ -75,6 +75,11 @@ macro3-%: clone-pdk ## v3 stage 1: harden one macro (e.g. make macro3-cpu_core)
 	librelane --condensed librelane/v3/macros/$*/config.yaml $(GF_OPTS) --save-views-to $(CURDIR)/build/macros/$*
 	bash scripts/export_macro3.sh $*
 
+cmp3-%: clone-pdk ## Harden a comparison decoder (e.g. make cmp3-ldd_32_2)
+	bash scripts/cmp_prepare.sh $*
+	librelane --condensed librelane/v3/cmp/$*/config.yaml $(GF_OPTS) --save-views-to $(CURDIR)/build/macros/$*
+	bash scripts/export_macro3.sh $*
+
 firmware3: ## Build the v3 self-test firmware
 	bash firmware/v3/build.sh
 .PHONY: firmware3

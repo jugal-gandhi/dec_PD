@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Run pvt_sweep.tcl for every Liberty corner of the 7-track 5 V library.
-# Usage: pvt_sweep.sh <macro_dir> <out_dir>
+# Usage: pvt_sweep.sh <macro_dir> <out_dir> [top]
 set -uo pipefail
 M=$1
 OUT=$2
+TOP=${3:-posit_decoder_32_2}
 PDK_ROOT=${PDK_ROOT:-$PWD/pdk}
 SCL=$PDK_ROOT/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0
 mkdir -p "$OUT"
@@ -24,7 +25,7 @@ for lib in $(cat "$OUT/liberty_list.txt"); do
   [ -n "${seen[$c]:-}" ] && continue
   seen[$c]=1
   ps=0; [ "$c" = "tt_025C_5v00" ] && ps=1
-  TLEF=$TLEF CLEF=$CLEF LIB=$lib NL=$M/nl/posit_decoder_32_2.nl.v SPEF_DIR=$M/spef OUT=$OUT/$c \
+  TLEF=$TLEF CLEF=$CLEF TOP=$TOP LIB=$lib NL=$M/nl/$TOP.nl.v SPEF_DIR=$M/spef OUT=$OUT/$c \
     LOAD_PF=$LOAD_PF POWER_SWEEP=$ps timeout 1800 $RUN scripts/pvt_sweep.tcl > "$OUT/$c.log" 2>&1
   echo "$c: exit $? $(grep -c . "$OUT/$c.log") log lines"
 done
