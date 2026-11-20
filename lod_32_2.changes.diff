@@ -1,0 +1,53 @@
+diff -ru build/ext/LDD_Posit_Decoder/LOD_32_3/decoder.v build/ext/lod_32_2/decoder.v
+--- build/ext/LDD_Posit_Decoder/LOD_32_3/decoder.v	2026-11-20 06:00:37.170398029 +0000
++++ build/ext/lod_32_2/decoder.v	2026-11-20 06:00:42.797873447 +0000
+@@ -2,8 +2,8 @@
+ input [31:0] in;
+ 
+ output reg [5:0] regi;
+-output [2:0] expo;
+-output [25:0] frac;
++output [1:0] expo;
++output [26:0] frac;
+ output reg allone, allzero;
+ output sign;
+ 
+Only in build/ext/lod_32_2: lod_32_2.v
+diff -ru build/ext/LDD_Posit_Decoder/LOD_32_3/shift.v build/ext/lod_32_2/shift.v
+--- build/ext/LDD_Posit_Decoder/LOD_32_3/shift.v	2026-11-20 06:00:37.170398029 +0000
++++ build/ext/lod_32_2/shift.v	2026-11-20 06:00:42.798375326 +0000
+@@ -2,28 +2,24 @@
+ input [30:0] xin;
+ input [4:0] k;
+ 
+-output reg [2:0] expo;
+-output [25:0] frac;
++output reg [1:0] expo;
++output [26:0] frac;
+ 
+ wire [30:0] sh0;
+ 
+ left_shifter s0(sh0, xin, k);
+ 
+ always @(xin, sh0, k) begin
+-if (k < 28)
+-	expo = sh0[30:28];
+-else if (k == 28) begin
+-	expo[2] = 0;
+-	expo[1:0] = sh0[30:29];
+-	end
++if (k < 29)
++	expo = sh0[30:29];
+ else if (k == 29) begin
+-	expo[2:1] = 0;
++	expo[1] = 0;
+ 	expo[0] = sh0[30];
+ 	end
+ else
+ 	expo = 0;
+ end
+ 
+-assign frac = sh0[27:2];
++assign frac = sh0[28:2];
+ 
+ endmodule

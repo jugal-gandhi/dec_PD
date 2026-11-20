@@ -1,0 +1,15 @@
+06:00:42 Mem:           15701        1213        2321          48       12551       14487 | 196840 Runner.Worker 147524 provjobd4534232 98184 Runner.Listener 
+06:01:02 Mem:           15701        1576        1929          48       12581       14125 | 420356 .openroad-wrapp 197588 Runner.Worker 150404 provjobd4534232 
+06:01:22 Mem:           15701        2771         734          48       12581       12929 | 1733068 .openroad-wrapp 197692 Runner.Worker 140832 provjobd4534232 
+06:01:42 Mem:           15701        3923         240          48       11923       11778 | 2994024 .openroad-wrapp 198480 Runner.Worker 134620 provjobd4534232 
+06:02:02 Mem:           15701        5123         205          48       10759       10578 | 4220252 .openroad-wrapp 196572 Runner.Worker 134728 provjobd4534232 
+06:02:22 Mem:           15701        6290         215          48        9581        9411 | 5419312 .openroad-wrapp 196684 Runner.Worker 137948 provjobd4534232 
+06:02:42 Mem:           15701        7460         208          48        8418        8240 | 6599504 .openroad-wrapp 196808 Runner.Worker 138004 provjobd4534232 
+06:03:02 Mem:           15701        8599         208          48        7279        7102 | 7771956 .openroad-wrapp 196952 Runner.Worker 138076 provjobd4534232 
+06:03:22 Mem:           15701        9761         205          48        6120        5940 | 8948088 .openroad-wrapp 197156 Runner.Worker 138076 provjobd4534232 
+06:03:42 Mem:           15701       10884         148          49        5055        4816 | 10100296 .openroad-wrapp 177372 Runner.Worker 138416 provjobd4534232 
+06:04:02 Mem:           15701       11942         151          49        3994        3759 | 11203436 .openroad-wrapp 177508 Runner.Worker 138416 provjobd4534232 
+06:04:22 Mem:           15701       12232         178          49        3677        3469 | 11503908 .openroad-wrapp 177644 Runner.Worker 138552 provjobd4534232 
+06:04:42 Mem:           15701       12236         178          49        3672        3464 | 11503908 .openroad-wrapp 177772 Runner.Worker 138580 provjobd4534232 
+06:05:02 Mem:           15701       12214         390          49        3482        3487 | 11504224 .openroad-wrapp 177912 Runner.Worker 138580 provjobd4534232 
+06:05:22 Mem:           15701       12206         225          49        3655        3495 | 11504224 .openroad-wrapp 177976 Runner.Worker 138528 provjobd4534232 

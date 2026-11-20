@@ -1,0 +1,301 @@
+               corner…                                                          
+[06:00:47] [I] Skipping corner min_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[06:00:47] [I] Skipping corner min_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[06:00:47] [I] Skipping corner min_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[06:00:47] [I] Skipping corner max_tt_025C_5v00 for STA          openroad.py:797
+               (identical to nom_tt_025C_5v00 at this stage)…                   
+[06:00:47] [I] Skipping corner max_ss_125C_4v50 for STA          openroad.py:797
+               (identical to nom_ss_125C_4v50 at this stage)…                   
+[06:00:47] [I] Skipping corner max_ff_n40C_5v50 for STA          openroad.py:797
+               (identical to nom_ff_n40C_5v50 at this stage)…                   
+[06:00:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/12-openroad-staprepnr/nom_tt_025C_5v00/sta.log'…             
+[06:00:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/12-openroad-staprepnr/nom_ss_125C_4v50/sta.log'…             
+[06:00:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/12-openroad-staprepnr/nom_ff_n40C_5v50/sta.log'…             
+[06:00:48] [I] Finished STA for the nom_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[06:00:48] [I] Finished STA for the nom_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[06:00:48] [I] Finished STA for the nom_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[06:00:48] [V] Running 'OpenROAD.Floorplan' at                      step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/13-openroad-floorplan'…                                      
+[06:00:48] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:48] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/13-openroad-floorplan/openroad-floorplan.log'…               
+[06:00:49] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:49] [V] Running 'OpenROAD.DumpRCValues' at                   step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/14-openroad-dumprcvalues'…                                   
+[06:00:49] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:49] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/14-openroad-dumprcvalues/openroad-dumprcvalues.l             
+               og'…                                                             
+[06:00:50] [V] Running 'Odb.CheckMacroAntennaProperties' at         step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/15-odb-checkmacroantennaproperties'…                         
+[06:00:50] [I] No cells provided, skipping                            odb.py:234
+               'Odb.CheckMacroAntennaProperties'…                               
+[06:00:50] [V] Running 'Odb.SetPowerConnections' at                 step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/16-odb-setpowerconnections'…                                 
+[06:00:50] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/16-odb-setpowerconnections/odb-setpowerconnectio             
+               ns.log'…                                                         
+[06:00:50] [V] Running 'Odb.ManualMacroPlacement' at                step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/17-odb-manualmacroplacement'…                                
+[06:00:50] [I] No instances found, skipping                           odb.py:468
+               'Odb.ManualMacroPlacement'…                                      
+[06:00:50] [V] Running 'OpenROAD.CutRows' at                        step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/18-openroad-cutrows'…                                        
+[06:00:50] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:50] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/18-openroad-cutrows/openroad-cutrows.log'…                   
+[06:00:51] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:51] [V] Running 'OpenROAD.TapEndcapInsertion' at             step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/19-openroad-tapendcapinsertion'…                             
+[06:00:51] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:51] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/19-openroad-tapendcapinsertion/openroad-tapendca             
+               pinsertion.log'…                                                 
+[06:00:51] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:52] [V] Running 'Odb.AddPDNObstructions' at                  step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/20-odb-addpdnobstructions'…                                  
+[06:00:52] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.AddPDNObstructions'…                                        
+[06:00:52] [V] Running 'OpenROAD.GeneratePDN' at                    step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/21-openroad-generatepdn'…                                    
+[06:00:52] [I] 'PDN_CFG' not explicitly set, setting it to      openroad.py:1506
+               /nix/store/2x5v27nhwvwii7nbykkiqy260f8zf28k-pyth                 
+               on3-3.13.13-env/lib/python3.13/site-packages/lib                 
+               relane/scripts/openroad/common/pdn_cfg.tcl…                      
+[06:00:52] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:52] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/21-openroad-generatepdn/openroad-generatepdn.log             
+               '…                                                               
+[06:00:52] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:52] [V] Running 'Odb.RemovePDNObstructions' at               step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/22-odb-removepdnobstructions'…                               
+[06:00:52] [I] 'PDN_OBSTRUCTIONS' is not defined. Skipping            odb.py:589
+               'Odb.RemovePDNObstructions'…                                     
+[06:00:52] [V] Running 'Odb.AddRoutingObstructions' at              step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/23-odb-addroutingobstructions'…                              
+[06:00:52] [I] 'ROUTING_OBSTRUCTIONS' is not defined. Skipping        odb.py:589
+               'Odb.AddRoutingObstructions'…                                    
+[06:00:52] [V] Running 'OpenROAD.GlobalPlacementSkipIO' at          step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/24-openroad-globalplacementskipio'…                          
+[06:00:52] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:52] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/24-openroad-globalplacementskipio/openroad-globa             
+               lplacementskipio.log'…                                           
+[06:00:53] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:53] [V] Running 'OpenROAD.IOPlacement' at                    step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/25-openroad-ioplacement'…                                    
+[06:00:53] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:53] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/25-openroad-ioplacement/openroad-ioplacement.log             
+               '…                                                               
+[06:00:54] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:54] [V] Running 'Odb.CustomIOPlacement' at                   step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/26-odb-customioplacement'…                                   
+[06:00:54] [I] No custom I/O placement file configured, skipping      odb.py:718
+               'Odb.CustomIOPlacement'…                                         
+[06:00:54] [V] Running 'Odb.ApplyDEFTemplate' at                    step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/27-odb-applydeftemplate'…                                    
+[06:00:54] [I] No DEF template provided, skipping                     odb.py:302
+               'Odb.ApplyDEFTemplate'…                                          
+[06:00:54] [V] Running 'OpenROAD.GlobalPlacement' at                step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/28-openroad-globalplacement'…                                
+[06:00:54] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/28-openroad-globalplacement/openroad-globalplace             
+               ment.log'…                                                       
+[06:00:54] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:56] [V] Running 'Odb.WriteVerilogHeader' at                  step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/29-odb-writeverilogheader'…                                  
+[06:00:56] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/29-odb-writeverilogheader/odb-writeverilogheader             
+               .log'…                                                           
+[06:00:56] [V] Running 'Checker.PowerGridViolations' at             step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/30-checker-powergridviolations'…                             
+[06:00:56] [I] Check for power grid violations (as reported by    checker.py:131
+               OpenROAD PSM- you may ignore these if LVS passes)                
+               clear.                                                           
+[06:00:56] [V] Running 'OpenROAD.STAMidPNR' at                      step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/31-openroad-stamidpnr'…                                      
+[06:00:56] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:56] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/31-openroad-stamidpnr/openroad-stamidpnr.log'…               
+[06:00:57] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:00:57] [V] Running 'OpenROAD.RepairDesignPostGPL' at            step.py:1138
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/32-openroad-repairdesignpostgpl'…                            
+[06:00:57] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:00:57] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06-00             
+               -43/32-openroad-repairdesignpostgpl/openroad-repaird             
+               esignpostgpl.log'…                                               
+[06:00:58] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ff_n40C_5v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already                    
+               exists.                                                          
+[06:00:58] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_                
+               5v50.lib line 17, library                                        
+               gf180mcu_fd_io__ff_n40C_5v50 already exists.                     
+[06:00:58] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__tt_025C_5v00.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already                    
+               exists.                                                          
+[06:00:59] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_                
+               5v00.lib line 17, library                                        
+               gf180mcu_fd_io__tt_025C_5v00 already exists.                     
+[06:00:59] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ff_n40C_5v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already                    
+               exists.                                                          
+[06:00:59] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_                
+               5v50.lib line 17, library                                        
+               gf180mcu_fd_io__ff_n40C_5v50 already exists.                     
+[06:00:59] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__tt_025C_5v00.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already                    
+               exists.                                                          
+[06:01:00] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_                
+               5v00.lib line 17, library                                        
+               gf180mcu_fd_io__tt_025C_5v00 already exists.                     
+[06:01:00] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ss_125C_4v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already                    
+               exists.                                                          
+[06:01:00] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_                
+               4v50.lib line 17, library                                        
+               gf180mcu_fd_io__ss_125C_4v50 already exists.                     
+[06:01:00] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_                
+               mcu7t5v0__ss_125C_4v50.lib line 17, library                      
+               gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already                    
+               exists.                                                          
+[06:01:01] [W] [STA-1140]                                        openroad.py:321
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/lib                
+               s.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_                
+               4v50.lib line 17, library                                        
+               gf180mcu_fd_io__ss_125C_4v50 already exists.                     
+[06:01:01] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:05:31] [W] The following warnings were generated by the flow:    flow.py:699
+[06:05:31] [W] [Checker.LintWarnings] 1 Lint warnings found.         flow.py:701
+[06:05:31] [W] [OpenROAD.Floorplan] [STA-0450] virtual clock vclk    flow.py:701
+               can not be propagated. (and 8 similar warnings)                  
+[06:05:31] [W] [OpenROAD.RepairDesignPostGPL] [STA-1140]             flow.py:701
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.re            
+               f/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0            
+               __ff_n40C_5v50.lib line 17, library                              
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.            
+               (and 11 similar warnings)                                        
+[06:05:31] [E] The flow has encountered an unexpected error:     __main__.py:185
+               OpenROAD.RepairDesignPostGPL failed with an                      
+               unexpected error. Please check                                   
+               'librelane/v3/cmp/lod_32_2/runs/RUN_2026-11-20_06                
+               -00-43/32-openroad-repairdesignpostgpl/openroad-r                
+               epairdesignpostgpl.log' and unless you wrote the                 
+               step yourself, file an issue.                                    
+               Last 10 lines:                                                   
+                       15# 0x00007FFFF7E22961 in                                
+               /nix/store/mzx2cj89c7phpv7cb6r9hydadnndp53m-tcl-8                
+               .6.16/lib/libtcl.so                                              
+                       16# Tcl_EvalEx in                                        
+               /nix/store/mzx2cj89c7phpv7cb6r9hydadnndp53m-tcl-8                
+               .6.16/lib/libtcl.so                                              
+                       17# Tcl_Eval in                                          
+               /nix/store/mzx2cj89c7phpv7cb6r9hydadnndp53m-tcl-8                
+               .6.16/lib/libtcl.so                                              
+                       18# sta::sourceTclFile(char const*, bool,                
+               bool, Tcl_Interp*) in                                            
+               /nix/store/bccb19a0l8q7g83kdgbabr8fh6j2gf74-openr                
+               oad-2026-02-17/bin/openroad                                      
+                       19# ord::tclInit(Tcl_Interp*) in                         
+               /nix/store/bccb19a0l8q7g83kdgbabr8fh6j2gf74-openr                
+               oad-2026-02-17/bin/openroad                                      
+                       20# Tcl_MainEx in                                        
+               /nix/store/mzx2cj89c7phpv7cb6r9hydadnndp53m-tcl-8                
+               .6.16/lib/libtcl.so                                              
+                       21# main in                                              
+               /nix/store/bccb19a0l8q7g83kdgbabr8fh6j2gf74-openr                
+               oad-2026-02-17/bin/openroad                                      
+                       22# 0x00007FFFF262B285 in                                
+               /nix/store/57iz36553175g3178pvxjij8z5rcsd4n-glibc                
+               -2.42-61/lib/libc.so.6                                           
+                       23# __libc_start_main in                                 
+               /nix/store/57iz36553175g3178pvxjij8z5rcsd4n-glibc                
+               -2.42-61/lib/libc.so.6                                           
+                       24# _start in                                            
+               /nix/store/bccb19a0l8q7g83kdgbabr8fh6j2gf74-openr                
+               oad-2026-02-17/bin/openroad                                      
+                                                                                
+[06:05:31] [E] LibreLane will now quit.                          __main__.py:186
+make: *** [Makefile:80: cmp3-lod_32_2] Error 1
+flow exit code 2
