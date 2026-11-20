@@ -44,6 +44,9 @@ LEG1 = {"AND-OR network": "AND-OR network", "Boundary comparator": "Comparator",
         "Physical cells": "Tap/endcap"}
 
 
+FLOW_POWER_MW = 2.57          # sign-off power reported by the flow (power__total)
+
+
 def fig_share(b, out, folded, name):
     cats, rows = shares(b, folded)
     fig, ax = plt.subplots(figsize=(COL1 * 1.25, 1.95))
@@ -60,7 +63,7 @@ def fig_share(b, out, folded, name):
                 ax.text(left + v / 2, y, f"{v:.0f}%", ha="center", va="center", fontsize=6.0,
                         color=INK if light(MATTE[c]) else "white")
             left += v
-        val = f"{tot:,.0f} {unit}" if lab == "Area" else (f"{tot * 1e3:.2f} {unit}" if lab == "Power"
+        val = f"{tot:,.0f} {unit}" if lab == "Area" else (f"{FLOW_POWER_MW:.2f} {unit}" if lab == "Power"
                                                           else f"{tot:.2f} {unit}")
         ax.text(100, y + 0.3, f"Total: {val}", ha="right", va="top", fontsize=5.6, color=INK2)
     ax.set_yticks([i * pitch for i in range(len(rows))])
