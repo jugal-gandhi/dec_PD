@@ -8,12 +8,19 @@ read_liberty $::env(LIB)
 read_verilog $::env(NL)
 link_design $::env(TOP)
 read_spef $::env(SPEF)
-create_clock -name vclk -period 20.0
-set_input_delay 0 -clock vclk [all_inputs]
-set_output_delay 0 -clock vclk [all_outputs]
-set_input_transition 0.5 [all_inputs]
-set_load $::env(LOAD_PF) [all_outputs]
-set_power_activity -input -activity 0.2
+if {[info exists ::env(SDC)] && $::env(SDC) ne ""} {
+  # the flow's own constraints and OpenSTA's default switching activity
+  read_sdc $::env(SDC)
+} else {
+  create_clock -name vclk -period 20.0
+  set_input_delay 0 -clock vclk [all_inputs]
+  set_output_delay 0 -clock vclk [all_outputs]
+  set_input_transition 0.5 [all_inputs]
+  set_load $::env(LOAD_PF) [all_outputs]
+}
+if {![info exists ::env(ACT)] || $::env(ACT) ne "none"} {
+  set_power_activity -input -activity 0.2
+}
 file mkdir $::env(OUT)
 report_power -digits 8 > $::env(OUT)/power_total.rpt
 report_power -instances [get_cells *] -digits 8 > $::env(OUT)/power_instances.rpt

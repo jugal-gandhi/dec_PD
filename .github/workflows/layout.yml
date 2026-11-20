@@ -148,6 +148,10 @@ jobs:
         run: |
           nix develop --command bash scripts/pvt_sweep.sh ip/v3/macros/posit_decoder_32_2 results/pvt3 2>&1 | tee pvt_console.log
           nix develop --command bash scripts/comp_apd.sh ip/v3/macros/posit_decoder_32_2 results/pvt3/comp posit_decoder_32_2 2>&1 | tee -a pvt_console.log
+          SDC=$PWD/librelane/v3/macros/posit_decoder_32_2/macro.sdc ACT=none CORNERS="tt_025C_5v00 ss_125C_4v50 ff_n40C_5v50" \
+            DESIGN_NAME=posit_decoder_32_2 CLOCK_PERIOD=20 OUTPUT_CAP_LOAD=72.91 MAX_FANOUT_CONSTRAINT=10 \
+            CLOCK_UNCERTAINTY_CONSTRAINT=0.25 TIME_DERATING_CONSTRAINT=5 \
+            nix develop --command bash scripts/comp_apd.sh ip/v3/macros/posit_decoder_32_2 results/pvt3/comp_flow posit_decoder_32_2 2>&1 | tee -a pvt_console.log
           cp pvt_console.log results/pvt3/
           cp ip/v3/macros/posit_decoder_32_2/metrics.json results/pvt3/ 2>/dev/null || true
           echo '{"cache_hit": "${{ steps.cache.outputs.cache-hit }}", "commit": "${{ github.sha }}"}' > results/pvt3/status.json
