@@ -150,6 +150,9 @@ def fig_delay_vdd(ds, out):
 GREEN_ORANGE = mcolors.LinearSegmentedColormap.from_list("og", ["#e2622a", "#efa46f", "#efe8d2", "#a9bf8f", "#5f8a5b"])
 
 
+CITE_GAP = {"ldd2": 8}
+
+
 def fig_ratio_heatmap(ds, out):
     a, others = roles(ds)
     names = ordered_names(a)
@@ -203,7 +206,8 @@ def fig_ratio_heatmap(ds, out):
         bc = matte.get(o["key"], o["col"])
         ax.plot([xbar, xbar], [y0 - 0.42, y0 + nb - 0.58], transform=trans, color=bc, lw=2.4,
                 solid_capstyle="round", clip_on=False)
-        ax.text(xtxt, y0 + (nb - 1) / 2, f"{o['label']} / {a['label']}", transform=trans, rotation=90, ha="right",
+        gap = " " * CITE_GAP.get(o["key"], 1)            # room for a citation added in LaTeX
+        ax.text(xtxt, y0 + (nb - 1) / 2, f"{o['label']}{gap}/ {a['label']}", transform=trans, rotation=90, ha="right",
                 va="center", fontsize=8.2, color=bc, fontweight="bold", clip_on=False)
     cb = fig.colorbar(im, ax=ax, fraction=0.025, pad=0.012, ticks=[0.6, 0.8, 1, 1.5, 2, 2.5])
     cb.set_label("Ratio to this work", fontsize=6.6)
