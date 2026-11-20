@@ -1,0 +1,37 @@
+Startpoint: posit_in[30] (input port clocked by vclk)
+Endpoint: reg_O[5] (output port clocked by vclk)
+Path Group: vclk
+Path Type: min
+Corner: min
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.0000    0.0000    0.0000   clock vclk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.0000    0.0000 ^ input external delay
+     1    0.0414    0.5000    0.0000    0.0000 ^ posit_in[30] (in)
+                    0.5008    0.0003    0.0003 ^ input24/I (gf180mcu_fd_sc_mcu7t5v0__buf_20)
+     4    0.0708    0.7987    1.2850    1.2853 ^ input24/Z (gf180mcu_fd_sc_mcu7t5v0__buf_20)
+                    0.7987    0.0018    1.2871 ^ u_out/_07_/A1 (gf180mcu_fd_sc_mcu7t5v0__xnor2_1)
+     1    0.0166    2.0705    1.5792    2.8663 v u_out/_07_/ZN (gf180mcu_fd_sc_mcu7t5v0__xnor2_1)
+                    2.0705    0.0003    2.8666 v u_out/_08_/I (gf180mcu_fd_sc_mcu7t5v0__buf_8)
+     6    0.0443    0.5959    2.4281    5.2947 v u_out/_08_/Z (gf180mcu_fd_sc_mcu7t5v0__buf_8)
+                    0.5959    0.0009    5.2956 v output69/I (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+     1    0.0066    0.8049    2.2461    7.5417 v output69/Z (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+                    0.8049    0.0001    7.5419 v wire105/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_3)
+     1    0.0759    1.8434    3.0268   10.5686 v wire105/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_3)
+                    1.8434    0.0017   10.5704 v reg_O[5] (out)
+                                       10.5704   data arrival time
+
+                    0.0000    0.0000    0.0000   clock vclk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.0000    0.0000   clock reconvergence pessimism
+                              0.0000    0.0000   output external delay
+                                        0.0000   data required time
+-------------------------------------------------------------------------------------
+                                        0.0000   data required time
+                                      -10.5704   data arrival time
+-------------------------------------------------------------------------------------
+                                       10.5704   slack (MET)
+
+

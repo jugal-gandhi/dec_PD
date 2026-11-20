@@ -1,0 +1,400 @@
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/53-odb-cellfrequencytables'…                  
+[06:41:09] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/53-odb-cellfrequencytables/buffer             
+               _list.txt'…                                                      
+[06:41:09] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/53-odb-cellfrequencytables/odb-ce             
+               llfrequencytables.log'…                                          
+[06:41:10] [V] Running 'OpenROAD.RCX' at                            step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/54-openroad-rcx'…                             
+[06:41:10] [I] Running RCX for corners matching nom_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/v3/cm                 
+               p/posit_decoder_32_2_hier/runs/RUN_2026-11-20_06                 
+               -40-24/54-openroad-rcx/nom/rcx.log)…                             
+[06:41:10] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:41:10] [I] Running RCX for corners matching min_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/v3/cm                 
+               p/posit_decoder_32_2_hier/runs/RUN_2026-11-20_06                 
+               -40-24/54-openroad-rcx/min/rcx.log)…                             
+[06:41:10] [I] Running RCX for corners matching max_*           openroad.py:2190
+               (/home/runner/work/dec_PD/dec_PD/librelane/v3/cm                 
+               p/posit_decoder_32_2_hier/runs/RUN_2026-11-20_06                 
+               -40-24/54-openroad-rcx/max/rcx.log)…                             
+[06:41:10] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:41:10] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:41:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/54-openroad-rcx/nom/rcx.log'…                 
+[06:41:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/54-openroad-rcx/min/rcx.log'…                 
+[06:41:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/54-openroad-rcx/max/rcx.log'…                 
+[06:41:10] [I] Finished RCX for corners matching nom_*.         openroad.py:2199
+[06:41:10] [I] Finished RCX for corners matching min_*.         openroad.py:2199
+[06:41:10] [I] Finished RCX for corners matching max_*.         openroad.py:2199
+[06:41:10] [V] Running 'OpenROAD.STAPostPNR' at                     step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr'…                      
+[06:41:10] [I] Starting STA for the nom_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[06:41:10] [I] Starting STA for the nom_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[06:41:10] [I] Starting STA for the nom_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[06:41:10] [I] Starting STA for the min_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[06:41:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/nom_tt_025             
+               C_5v00/sta.log'…                                                 
+[06:41:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/nom_ss_125             
+               C_4v50/sta.log'…                                                 
+[06:41:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/nom_ff_n40             
+               C_5v50/sta.log'…                                                 
+[06:41:10] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/min_tt_025             
+               C_5v00/sta.log'…                                                 
+[06:41:12] [I] Finished STA for the min_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[06:41:12] [I] Finished STA for the nom_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[06:41:12] [I] Finished STA for the nom_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/min_tt_025             
+               C_5v00/filter_unannotated.log'…                                  
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/nom_ss_125             
+               C_4v50/filter_unannotated.log'…                                  
+[06:41:12] [I] Finished STA for the nom_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/nom_ff_n40             
+               C_5v50/filter_unannotated.log'…                                  
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/nom_tt_025             
+               C_5v00/filter_unannotated.log'…                                  
+[06:41:12] [I] Starting STA for the min_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/min_ss_125             
+               C_4v50/sta.log'…                                                 
+[06:41:12] [I] Starting STA for the min_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[06:41:12] [I] Starting STA for the max_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/min_ff_n40             
+               C_5v50/sta.log'…                                                 
+[06:41:12] [I] Starting STA for the max_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/max_ss_125             
+               C_4v50/sta.log'…                                                 
+[06:41:12] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/max_tt_025             
+               C_5v00/sta.log'…                                                 
+[06:41:13] [I] Finished STA for the min_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[06:41:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/min_ss_125             
+               C_4v50/filter_unannotated.log'…                                  
+[06:41:13] [I] Finished STA for the max_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[06:41:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/max_ss_125             
+               C_4v50/filter_unannotated.log'…                                  
+[06:41:13] [I] Finished STA for the min_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[06:41:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/min_ff_n40             
+               C_5v50/filter_unannotated.log'…                                  
+[06:41:13] [I] Finished STA for the max_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[06:41:13] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/max_tt_025             
+               C_5v00/filter_unannotated.log'…                                  
+[06:41:14] [I] Starting STA for the max_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[06:41:14] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/max_ff_n40             
+               C_5v50/sta.log'…                                                 
+[06:41:15] [I] Finished STA for the max_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[06:41:15] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/55-openroad-stapostpnr/max_ff_n40             
+               C_5v50/filter_unannotated.log'…                                  
+[06:41:15] [V] Running 'OpenROAD.IRDropReport' at                   step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/56-openroad-irdropreport'…                    
+[06:41:15] [W] 'VSRC_LOC_FILES' was not given a value, which    openroad.py:2291
+               may make the results of IR drop analysis                         
+               inaccurate. If you are not integrating a                         
+               top-level chip for manufacture, you may ignore                   
+               this warning, otherwise, see the documentation                   
+               for 'VSRC_LOC_FILES'.                                            
+[06:41:16] [V] OpenROAD will use 4 threads                       openroad.py:520
+[06:41:16] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/56-openroad-irdropreport/openroad             
+               -irdropreport.log'…                                              
+[06:41:16] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[06:41:17] [V] + analyze_power_grid -net VDD -voltage_file      openroad.py:2303
+               /home/runner/work/dec_PD/dec_PD/librelane/v3/cmp                 
+               /posit_decoder_32_2_hier/runs/RUN_2026-11-20_06-                 
+               40-24/56-openroad-irdropreport/net-VDD.csv                       
+               [INFO PSM-0040] All shapes on net VDD are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VDD                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 9.86e-03 W                                    
+               Supply voltage   : 5.00e+00 V                                    
+               Worstcase voltage: 5.00e+00 V                                    
+               Average voltage  : 5.00e+00 V                                    
+               Average IR drop  : 2.24e-04 V                                    
+               Worstcase IR drop: 5.27e-04 V                                    
+               Percentage drop  : 0.01 %                                        
+               ######################################                           
+               + analyze_power_grid -net VSS -voltage_file                      
+               /home/runner/work/dec_PD/dec_PD/librelane/v3/cmp                 
+               /posit_decoder_32_2_hier/runs/RUN_2026-11-20_06-                 
+               40-24/56-openroad-irdropreport/net-VSS.csv                       
+               [INFO PSM-0040] All shapes on net VSS are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VSS                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 9.86e-03 W                                    
+               Supply voltage   : 0.00e+00 V                                    
+               Worstcase voltage: 5.32e-04 V                                    
+               Average voltage  : 2.25e-04 V                                    
+               Average IR drop  : 2.25e-04 V                                    
+               Worstcase IR drop: 5.32e-04 V                                    
+               Percentage drop  : 0.01 %                                        
+               ######################################                           
+                                                                                
+[06:41:17] [V] Running 'Magic.StreamOut' at                         step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/57-magic-streamout'…                          
+[06:41:17] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/57-magic-streamout/magic-streamou             
+               t.log'…                                                          
+[06:41:21] [V] Running 'KLayout.StreamOut' at                       step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/58-klayout-streamout'…                        
+[06:41:21] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/58-klayout-streamout/klayout-stre             
+               amout.log'…                                                      
+[06:41:22] [V] Running 'KLayout.Render' at                          step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/59-klayout-render'…                           
+[06:41:22] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/59-klayout-render/klayout-render.             
+               log'…                                                            
+[06:41:23] [V] Running 'Magic.WriteLEF' at                          step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/60-magic-writelef'…                           
+[06:41:23] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/60-magic-writelef/magic-writelef.             
+               log'…                                                            
+[06:41:27] [V] Running 'Odb.CheckDesignAntennaProperties' at        step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/61-odb-checkdesignantennaproperti             
+               es'…                                                             
+[06:41:27] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/61-odb-checkdesignantennaproperti             
+               es/odb-checkdesignantennaproperties.log'…                        
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__fill1 references       odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_ef_io__bi_t references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__in_c references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__bi_t references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__in_s references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__bi_24t references      odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__fillnc references      odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__brk5 references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__asig_5p0 references    odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__dvdd references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__dvss references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__fill5 references       odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__fill10 references      odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__brk2 references        odb.py:71
+               unknown site GF_IO_Site                                          
+[06:41:28] [W] [ODB-0186] macro gf180mcu_fd_io__cor references unknown odb.py:71
+               site GF_COR_Site                                                 
+[06:41:28] [V] Running 'KLayout.XOR' at                             step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/62-klayout-xor'…                              
+[06:41:28] [I] Running XOR with 4 threads…                        klayout.py:406
+[06:41:28] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/62-klayout-xor/klayout-xor.log'…              
+[06:41:30] [V] Running 'Checker.XOR' at                             step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/63-checker-xor'…                              
+[06:41:30] [I] Check for XOR differences clear.                   checker.py:131
+[06:41:30] [V] Running 'Magic.DRC' at                               step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/64-magic-drc'…                                
+[06:41:30] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/64-magic-drc/magic-drc.log'…                  
+[06:41:31] [V] Running 'KLayout.DRC' at                             step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/65-klayout-drc'…                              
+[06:41:31] [I] Running KLayout DRC with 4 threads…                klayout.py:672
+[06:41:31] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/65-klayout-drc/klayout-drc.log'…              
+[06:41:46] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/65-klayout-drc/xml_drc_report_to_             
+               json.log'…                                                       
+[06:41:47] [V] Running 'Checker.MagicDRC' at                        step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/66-checker-magicdrc'…                         
+[06:41:47] [I] Check for Magic DRC errors clear.                  checker.py:131
+[06:41:47] [V] Running 'Checker.KLayoutDRC' at                      step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/67-checker-klayoutdrc'…                       
+[06:41:47] [I] Check for KLayout DRC errors clear.                checker.py:131
+[06:41:47] [V] Running 'Magic.SpiceExtraction' at                   step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/68-magic-spiceextraction'…                    
+[06:41:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/68-magic-spiceextraction/magic-sp             
+               iceextraction.log'…                                              
+[06:41:47] [V] Running 'Checker.IllegalOverlap' at                  step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/69-checker-illegaloverlap'…                   
+[06:41:47] [I] Check for Magic Illegal Overlap errors clear.      checker.py:131
+[06:41:47] [V] Running 'Netgen.LVS' at                              step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/70-netgen-lvs'…                               
+[06:41:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/70-netgen-lvs/netgen-lvs.log'…                
+[06:41:48] [V] Running 'Checker.LVS' at                             step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/71-checker-lvs'…                              
+[06:41:48] [I] Check for LVS errors clear.                        checker.py:131
+[06:41:48] [I] Gating variable for step 'Yosys.EQY' set to     sequential.py:362
+               'False'- the step will be skipped.                               
+[06:41:48] [I] Skipping step 'Equivalence Check'…              sequential.py:370
+[06:41:48] [V] Running 'Checker.SetupViolations' at                 step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/72-checker-setupviolations'…                  
+[06:41:48] [W] Setup violations found in the following corners:   checker.py:626
+               * max_ss_125C_4v50                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[06:41:48] [V] No setup violations found                          checker.py:628
+[06:41:48] [V] Running 'Checker.HoldViolations' at                  step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/73-checker-holdviolations'…                   
+[06:41:48] [V] No hold violations found                           checker.py:628
+[06:41:48] [V] Running 'Checker.MaxSlewViolations' at               step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/74-checker-maxslewviolations'…                
+[06:41:48] [V] No max slew violations found                       checker.py:628
+[06:41:48] [V] Running 'Checker.MaxCapViolations' at                step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/75-checker-maxcapviolations'…                 
+[06:41:48] [V] No max cap violations found                        checker.py:628
+[06:41:48] [V] Running 'Misc.ReportManufacturability' at            step.py:1138
+               'librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2             
+               026-11-20_06-40-24/76-misc-reportmanufacturability'…             
+[06:41:48] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/librelane/v3/cmp/po             
+               sit_decoder_32_2_hier/runs/RUN_2026-11-20_06-40-24/f             
+               inal'…                                                           
+[06:41:48] [I] Flow complete.                                  sequential.py:413
+[06:41:48] [W] The following warnings were generated by the flow:    flow.py:699
+[06:41:48] [W] [Checker.LintWarnings] 1 Lint warnings found.         flow.py:701
+[06:41:48] [W] [Checker.YosysUnmappedCells] 9 Unmapped Yosys         flow.py:701
+               instances found.                                                 
+[06:41:48] [W] [OpenROAD.Floorplan] [STA-0450] virtual clock vclk    flow.py:701
+               can not be propagated. (and 21 similar warnings)                 
+[06:41:48] [W] [OpenROAD.RepairDesignPostGPL] [STA-1140]             flow.py:701
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.re            
+               f/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0            
+               __ff_n40C_5v50.lib line 17, library                              
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.            
+               (and 23 similar warnings)                                        
+[06:41:48] [W] [OpenROAD.RepairDesignPostGPL] [RSZ-0020] found 2     flow.py:701
+               floating nets.                                                   
+[06:41:48] [W] [OpenROAD.CTS] No CLOCK_NET (or CLOCK_PORT)           flow.py:701
+               specified. CTS cannot be performed. Returning state              
+               unaltered…                                                       
+[06:41:48] [W] [OpenROAD.ResizerTimingPostCTS] [RSZ-0062] Unable to  flow.py:701
+               repair all setup violations.                                     
+[06:41:48] [W] [OpenROAD.DetailedRouting] [DRT-0349] LEF58_ENCLOSURE flow.py:701
+               with no CUTCLASS is not supported. Skipping for layer            
+               Via1 (and 7 similar warnings)                                    
+[06:41:48] [W] [Checker.WireLength] Threshold for                    flow.py:701
+               Threshold-surpassing long wires is not set. The                  
+               checker will be skipped.                                         
+[06:41:48] [W] [OpenROAD.IRDropReport] 'VSRC_LOC_FILES' was not      flow.py:701
+               given a value, which may make the results of IR drop             
+               analysis inaccurate. If you are not integrating a                
+               top-level chip for manufacture, you may ignore this              
+               warning, otherwise, see the documentation for                    
+               'VSRC_LOC_FILES'.                                                
+[06:41:48] [W] [Odb.CheckDesignAntennaProperties] [ODB-0186] macro   flow.py:701
+               gf180mcu_fd_io__fill1 references unknown site                    
+               GF_IO_Site (and 14 similar warnings)                             
+[06:41:48] [W] [Checker.SetupViolations] Setup violations found in   flow.py:701
+               the following corners:                                           
+               * max_ss_125C_4v50                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[06:41:48] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/build/macros/posit_             
+               decoder_32_2_hier'…                                              
+bash scripts/export_macro3.sh posit_decoder_32_2_hier
+  SIZE 200.000 BY 200.000 ;

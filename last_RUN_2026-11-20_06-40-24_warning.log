@@ -1,0 +1,80 @@
+1 Lint warnings found.
+9 Unmapped Yosys instances found.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_5v50.lib line 17, library gf180mcu_fd_io__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_5v00.lib line 17, library gf180mcu_fd_io__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_5v50.lib line 17, library gf180mcu_fd_io__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_5v00.lib line 17, library gf180mcu_fd_io__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_4v50.lib line 17, library gf180mcu_fd_io__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_4v50.lib line 17, library gf180mcu_fd_io__ss_125C_4v50 already exists.
+[STA-0450] virtual clock vclk can not be propagated.
+[RSZ-0020] found 2 floating nets.
+[STA-0450] virtual clock vclk can not be propagated.
+No CLOCK_NET (or CLOCK_PORT) specified. CTS cannot be performed. Returning state unaltered…
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_5v50.lib line 17, library gf180mcu_fd_io__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_5v00.lib line 17, library gf180mcu_fd_io__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ff_n40C_5v50.lib line 17, library gf180mcu_fd_io__ff_n40C_5v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__tt_025C_5v00.lib line 17, library gf180mcu_fd_io__tt_025C_5v00 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_4v50.lib line 17, library gf180mcu_fd_io__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+[STA-1140] /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.ref/gf180mcu_fd_io/lib/gf180mcu_fd_io__ss_125C_4v50.lib line 17, library gf180mcu_fd_io__ss_125C_4v50 already exists.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[RSZ-0062] Unable to repair all setup violations.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[STA-0450] virtual clock vclk can not be propagated.
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+[STA-0450] virtual clock vclk can not be propagated.
+Threshold for Threshold-surpassing long wires is not set. The checker will be skipped.
+[STA-0450] virtual clock vclk can not be propagated.
+'VSRC_LOC_FILES' was not given a value, which may make the results of IR drop analysis inaccurate. If you are not integrating a top-level chip for manufacture, you may ignore this warning, otherwise, see the documentation for 'VSRC_LOC_FILES'.
+[STA-0450] virtual clock vclk can not be propagated.
+[ODB-0186] macro gf180mcu_fd_io__fill1 references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_ef_io__bi_t references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__in_c references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__bi_t references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__in_s references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__bi_24t references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__fillnc references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__brk5 references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__asig_5p0 references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__dvdd references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__dvss references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__fill5 references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__fill10 references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__brk2 references unknown site GF_IO_Site
+[ODB-0186] macro gf180mcu_fd_io__cor references unknown site GF_COR_Site
+Setup violations found in the following corners:
+* max_ss_125C_4v50
+* min_ss_125C_4v50
+* nom_ss_125C_4v50

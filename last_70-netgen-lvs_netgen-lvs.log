@@ -1,0 +1,150 @@
+  Class: gf180mcu_fd_sc_mcu7t5v0__oai21_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_12 instances:  39
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_4 instances:  89
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_4 instances: 210
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_1 instances:  24
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_2 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__inv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__mux2_2 instances: 119
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_1 instances:  35
+  Class: gf180mcu_fd_sc_mcu7t5v0__xnor2_1 instances:   6
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__tiel instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_64 instances:  17
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_3 instances:   6
+Circuit contains 466 nets.
+Contents of circuit 2:  Circuit: 'posit_decoder_32_2_hier'
+Circuit posit_decoder_32_2_hier contains 940 device instances.
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_8 instances:  34
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor4_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__aoi22_4 instances:   2
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_16 instances:   9
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_2 instances:  30
+  Class: gf180mcu_fd_sc_mcu7t5v0__aoi21_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_8 instances: 174
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor4_1 instances:   2
+  Class: gf180mcu_fd_sc_mcu7t5v0__and4_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__xor2_2 instances:   5
+  Class: gf180mcu_fd_sc_mcu7t5v0__or4_4 instances:   4
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor3_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_20 instances:   4
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_16 instances:  74
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_32 instances:  33
+  Class: gf180mcu_fd_sc_mcu7t5v0__or2_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__oai21_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_12 instances:  39
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_4 instances:  89
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_4 instances: 210
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_1 instances:  24
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_2 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__inv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__mux2_2 instances: 119
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_1 instances:  35
+  Class: gf180mcu_fd_sc_mcu7t5v0__xnor2_1 instances:   6
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__tiel instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_64 instances:  17
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_3 instances:   6
+Circuit contains 638 nets.
+
+Circuit was modified by parallel/series device merging.
+New circuit summary:
+
+Contents of circuit 1:  Circuit: 'posit_decoder_32_2_hier'
+Circuit posit_decoder_32_2_hier contains 437 device instances.
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_8 instances:  34
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor4_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__aoi22_4 instances:   2
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_16 instances:   9
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_2 instances:  30
+  Class: gf180mcu_fd_sc_mcu7t5v0__aoi21_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_8 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor4_1 instances:   2
+  Class: gf180mcu_fd_sc_mcu7t5v0__and4_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__or4_4 instances:   4
+  Class: gf180mcu_fd_sc_mcu7t5v0__xor2_2 instances:   5
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor3_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_20 instances:   4
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_16 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_32 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__or2_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__oai21_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_12 instances:  39
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_4 instances:  89
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_1 instances:  24
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_2 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__inv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__mux2_2 instances: 119
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_1 instances:  35
+  Class: gf180mcu_fd_sc_mcu7t5v0__xnor2_1 instances:   6
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__tiel instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_64 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_3 instances:   6
+Circuit contains 466 nets.
+Contents of circuit 2:  Circuit: 'posit_decoder_32_2_hier'
+Circuit posit_decoder_32_2_hier contains 437 device instances.
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_8 instances:  34
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor4_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__aoi22_4 instances:   2
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_16 instances:   9
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_2 instances:  30
+  Class: gf180mcu_fd_sc_mcu7t5v0__aoi21_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_8 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor4_1 instances:   2
+  Class: gf180mcu_fd_sc_mcu7t5v0__and4_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__xor2_2 instances:   5
+  Class: gf180mcu_fd_sc_mcu7t5v0__or4_4 instances:   4
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor3_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_20 instances:   4
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_16 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_32 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__or2_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__oai21_4 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_12 instances:  39
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_4 instances:  89
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__buf_1 instances:  24
+  Class: gf180mcu_fd_sc_mcu7t5v0__nand4_2 instances:   3
+  Class: gf180mcu_fd_sc_mcu7t5v0__inv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__mux2_2 instances: 119
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_1 instances:  35
+  Class: gf180mcu_fd_sc_mcu7t5v0__xnor2_1 instances:   6
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_4 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__tiel instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkinv_2 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__fillcap_64 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__nor2_1 instances:   1
+  Class: gf180mcu_fd_sc_mcu7t5v0__clkbuf_3 instances:   6
+Circuit contains 638 nets.
+
+Circuit 1 contains 437 devices, Circuit 2 contains 437 devices.
+Circuit 1 contains 466 nets,    Circuit 2 contains 466 nets.
+
+
+Final result: 
+Circuits match uniquely.
+.
+Logging to file "/home/runner/work/dec_PD/dec_PD/librelane/v3/cmp/posit_decoder_32_2_hier/runs/RUN_2026-11-20_06-40-24/70-netgen-lvs/reports/lvs.netgen.rpt" disabled
+LVS Done.
