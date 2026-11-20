@@ -198,11 +198,13 @@ def fig_ratio_heatmap(ds, out):
     xbar = (left - 4.5 * pt - axb.x0) / axb.width
     xtxt = (left - 7.5 * pt - axb.x0) / axb.width
     trans = matplotlib.transforms.blended_transform_factory(ax.transAxes, ax.transData)
+    matte = {"ldd2": "#7d6b8f", "perc": "#4f7896", "lod2": "#6f8a6a"}   # matte block-label colours
     for y0, o in blocks:
-        ax.plot([xbar, xbar], [y0 - 0.42, y0 + nb - 0.58], transform=trans, color=o["col"], lw=2.4,
+        bc = matte.get(o["key"], o["col"])
+        ax.plot([xbar, xbar], [y0 - 0.42, y0 + nb - 0.58], transform=trans, color=bc, lw=2.4,
                 solid_capstyle="round", clip_on=False)
         ax.text(xtxt, y0 + (nb - 1) / 2, f"{o['label']} / {a['label']}", transform=trans, rotation=90, ha="right",
-                va="center", fontsize=8.2, color=o["col"], fontweight="bold", clip_on=False)
+                va="center", fontsize=8.2, color=bc, fontweight="bold", clip_on=False)
     cb = fig.colorbar(im, ax=ax, fraction=0.025, pad=0.012, ticks=[0.6, 0.8, 1, 1.5, 2, 2.5])
     cb.set_label("Ratio to this work", fontsize=6.6)
     cb.ax.tick_params(labelsize=5.8)
