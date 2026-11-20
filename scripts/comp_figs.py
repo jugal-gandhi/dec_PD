@@ -13,8 +13,8 @@ import numpy as np                                     # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paper_figs3 import COL1, GRID, INK, INK2, save, setup_style    # noqa: E402
 
-MATTE = {"AND-OR network": "#a9c1da", "Boundary comparator": "#e6d2a6", "In-line shifter": "#c7badd",
-         "Output encoding": "#e6bccb", "Timing-repair buffers": "#eec5ad", "I/O buffers": "#c9c4bc",
+MATTE = {"AND-OR network": "#a9c1da", "Boundary comparator": "#e6d2a6", "In-line shifter": "#cfcdc9",
+         "Output encoding": "#e6bccb", "Timing-repair buffers": "#eec5ad", "I/O buffers": "#c7badd",
          "Physical cells": "#ebe8e1"}
 SHORT = {"AND-OR network": "AND-OR network", "Boundary comparator": "1-bit boundary comparator",
          "In-line shifter": "In-line shifter", "Output encoding": "Output encoding",
