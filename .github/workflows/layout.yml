@@ -185,11 +185,15 @@ jobs:
         run: nix develop --command bash scripts/cmp_sim.sh ${{ matrix.design }} 2>&1 | tail -n 60 | tee cmp_sim.log
       - name: Harden
         id: flow
-        timeout-minutes: 35
+        timeout-minutes: 40
         run: |
           ( while true; do echo "$(date -u +%T) $(free -m | sed -n 2p) | $(ps -eo rss,comm --sort=-rss | sed -n 2,4p | tr '\n' ' ')"; sleep 20; done ) > mem.log 2>&1 &
-          nix develop --command make cmp3-${{ matrix.design }} > flow_full.log 2>&1
+          set +e
+          timeout 1800 nix develop --command bash -c "ulimit -v 12000000; make cmp3-${{ matrix.design }}" > flow_full.log 2>&1
+          rc=$?
           tail -n 300 flow_full.log > flow_console.log
+          echo "flow exit code $rc" >> flow_console.log
+          exit $rc
       - name: Render layer masks
         continue-on-error: true
         run: nix develop --command python3 scripts/render_masks.py ip/v3/macros/${{ matrix.design }}/gds/${{ matrix.design }}.gds results/cmp_${{ matrix.design }}/masks --pdk gf180
