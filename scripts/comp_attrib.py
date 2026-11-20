@@ -219,6 +219,21 @@ def main():
         else:
             comp = "Shared|" + "+".join(sorted(fams))
         attrib[c["name"]] = dict(cell=c["cell"], comp=comp, sig=s)
+    # owner of each buffer: the first non-buffer driver upstream (or the input port)
+    drv = {c["out"]: c for c in cells if c["out"]}
+    bufs = ("buf", "clkbuf", "dlya", "dlyb", "dlyc", "dlyd")
+    chain = bufs + ("inv", "clkinv")
+    for c in cells:
+        if c["base"] not in bufs and not attrib[c["name"]]["comp"].startswith(("Timing-repair", "I/O")):
+            continue
+        net, hops = next(iter(c["ins"].values())), 0
+        while net in drv and drv[net]["base"] in chain and \
+                attrib[drv[net]["name"]]["comp"].startswith(("Timing-repair", "I/O")) and hops < 50:
+            net, hops = next(iter(drv[net]["ins"].values())), hops + 1
+        if net in drv:
+            attrib[c["name"]]["owner"] = drv[net]["name"]
+        else:
+            attrib[c["name"]]["owner"] = "port:" + net
     summary = defaultdict(int)
     for v in attrib.values():
         summary[v["comp"]] += 1
