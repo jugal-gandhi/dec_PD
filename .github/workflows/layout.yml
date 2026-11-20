@@ -147,6 +147,7 @@ jobs:
       - name: PVT sweep
         run: |
           nix develop --command bash scripts/pvt_sweep.sh ip/v3/macros/posit_decoder_32_2 results/pvt3 2>&1 | tee pvt_console.log
+          nix develop --command bash scripts/comp_apd.sh ip/v3/macros/posit_decoder_32_2 results/pvt3/comp posit_decoder_32_2 2>&1 | tee -a pvt_console.log
           cp pvt_console.log results/pvt3/
           cp ip/v3/macros/posit_decoder_32_2/metrics.json results/pvt3/ 2>/dev/null || true
           echo '{"cache_hit": "${{ steps.cache.outputs.cache-hit }}", "commit": "${{ github.sha }}"}' > results/pvt3/status.json
