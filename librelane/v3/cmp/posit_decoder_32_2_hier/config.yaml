@@ -1,0 +1,27 @@
+# Component-structured posit<32,2> decoder (src/posit_decoder_32_2_hier.v), hardened with
+# the same settings as the posit_decoder_32_2 macro, but with the synthesis hierarchy kept
+# so every cell carries its component's instance name (component-wise area/delay/power).
+meta:
+  version: 3
+  flow: Classic
+DESIGN_NAME: posit_decoder_32_2_hier
+VERILOG_FILES: dir::../../../../build/ext/posit_decoder_32_2_hier/*.v
+PNR_SDC_FILE: dir::../../macros/posit_decoder_32_2/macro.sdc
+SIGNOFF_SDC_FILE: dir::../../macros/posit_decoder_32_2/macro.sdc
+FALLBACK_SDC: dir::../../macros/posit_decoder_32_2/macro.sdc
+CLOCK_PERIOD: 20
+VDD_NETS: [VDD]
+GND_NETS: [VSS]
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 200, 200]
+PL_TARGET_DENSITY_PCT: 55
+IO_PIN_ORDER_CFG: dir::../../macros/posit_decoder_32_2/pin_order.cfg
+PDN_MULTILAYER: false
+PDN_VPITCH: 40
+PDN_VOFFSET: 10
+PDN_VWIDTH: 2
+RT_MAX_LAYER: Metal4
+DESIGN_REPAIR_MAX_SLEW_PCT: 40
+GRT_DESIGN_REPAIR_MAX_SLEW_PCT: 35
+SYNTH_HIERARCHY_MODE: keep
+ERROR_ON_LVS_ERROR: false

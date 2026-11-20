@@ -9,6 +9,11 @@
 # Usage: cmp_prepare.sh <design>
 set -euo pipefail
 D=$1
+if [ "$D" = "posit_decoder_32_2_hier" ]; then   # component-structured form of this work
+  rm -rf "build/ext/$D"; mkdir -p "build/ext/$D"
+  cp src/posit_decoder_32_2_hier.v "build/ext/$D/"
+  echo "$D: component-structured posit decoder"; exit 0
+fi
 if [ "$D" = "percival_32_2" ]; then        # Verilog transcription kept in src/ext
   rm -rf "build/ext/$D"; mkdir -p "build/ext/$D"
   cp src/ext/percival_32_2.v "build/ext/$D/"

@@ -164,7 +164,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        design: ${{ fromJSON(contains(github.event.head_commit.message, '[cmp-lod]') && '["lod_32_2"]' || '["lod_32_2", "ldd_32_2", "percival_32_2"]') }}
+        design: ${{ fromJSON(contains(github.event.head_commit.message, '[cmp-hier]') && '["posit_decoder_32_2_hier"]' || contains(github.event.head_commit.message, '[cmp-lod]') && '["lod_32_2"]' || '["lod_32_2", "ldd_32_2", "percival_32_2"]') }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Nix
@@ -200,6 +200,10 @@ jobs:
       - name: PVT sweep
         continue-on-error: true
         run: nix develop --command bash scripts/pvt_sweep.sh ip/v3/macros/${{ matrix.design }} results/cmp_${{ matrix.design }}/pvt ${{ matrix.design }}
+      - name: Component-wise analysis
+        if: endsWith(matrix.design, '_hier')
+        continue-on-error: true
+        run: nix develop --command bash scripts/comp_apd.sh ip/v3/macros/${{ matrix.design }} results/cmp_${{ matrix.design }}/comp ${{ matrix.design }}
       - name: Collect and publish
         if: always()
         env:
