@@ -163,7 +163,7 @@ def fig_ratio_heatmap(ds, out):
     cmap = GREEN_ORANGE
     norm = mcolors.TwoSlopeNorm(vmin=0.6, vcenter=1.0, vmax=2.5)
     nx = len(names)
-    yt, yl = [], []
+    yt, yl, blocks = [], [], []
     for k, o in enumerate(others):
         M = np.array([[f(corner(o, n)) / f(corner(a, n)) for n in names] for _, f in rows])
         y0 = k * (nb + GAP)
@@ -174,10 +174,7 @@ def fig_ratio_heatmap(ds, out):
                 ax.text(j, y0 + i, f"{M[i, j]:.2f}", ha="center", va="center", fontsize=5.6, color=INK)
             yt.append(y0 + i)
             yl.append(rows[i][0])
-        ax.annotate("", xy=(-3.55, y0 - 0.4), xytext=(-3.55, y0 + nb - 0.6), xycoords="data", annotation_clip=False,
-                    arrowprops=dict(arrowstyle="-", color=o["col"], lw=2.2))
-        ax.text(-3.75, y0 + (nb - 1) / 2, f"{o['label']} / {a['label']}", rotation=90, ha="right", va="center",
-                fontsize=6.6, color=o["col"], fontweight="bold", clip_on=False)
+        blocks.append((y0, o))
     ytop = (len(others) - 1) * (nb + GAP) + nb - 0.5
     for x in (5.5, 8.5):
         for k in range(len(others)):
@@ -192,12 +189,26 @@ def fig_ratio_heatmap(ds, out):
     ax.tick_params(axis="y", length=0)
     for sp in ax.spines.values():
         sp.set_visible(False)
+    # block labels just left of the row labels
+    fig.canvas.draw()
+    rend = fig.canvas.get_renderer()
+    axb = ax.get_window_extent(rend)
+    left = min(t.get_window_extent(rend).x0 for t in ax.get_yticklabels())
+    pt = fig.dpi / 72.0
+    xbar = (left - 4.5 * pt - axb.x0) / axb.width
+    xtxt = (left - 7.5 * pt - axb.x0) / axb.width
+    trans = matplotlib.transforms.blended_transform_factory(ax.transAxes, ax.transData)
+    for y0, o in blocks:
+        ax.plot([xbar, xbar], [y0 - 0.42, y0 + nb - 0.58], transform=trans, color=o["col"], lw=2.4,
+                solid_capstyle="round", clip_on=False)
+        ax.text(xtxt, y0 + (nb - 1) / 2, f"{o['label']} / {a['label']}", transform=trans, rotation=90, ha="right",
+                va="center", fontsize=8.2, color=o["col"], fontweight="bold", clip_on=False)
     cb = fig.colorbar(im, ax=ax, fraction=0.025, pad=0.012, ticks=[0.6, 0.8, 1, 1.5, 2, 2.5])
     cb.set_label("Ratio to this work", fontsize=6.6)
     cb.ax.tick_params(labelsize=5.8)
     cb.outline.set_visible(False)
-    ax.set_title("Values above 1 favour this work (nominal RC; 0.2 activity, 50 MHz)", loc="left", fontsize=6.8,
-                 color=INK2)
+    ax.set_title("Values $>$ 1 indicate an improvement of the proposed architecture over the compared designs "
+                 "(nominal RC; 0.2 activity, 50 MHz)", loc="left", fontsize=6.6, color=INK2)
     save(fig, out, "cmp03_ratio_heatmap_all_corners")
 
 
@@ -425,13 +436,14 @@ def fig_output_dist(ds, out):
         ax.set_xticks(range(len(ds)))
         ax.set_xticklabels([d["label"] for d in ds], fontsize=6.8)
         ax.set_xlim(-0.6, len(ds) - 0.4)
-        ax.set_ylim(0, max(corner(d, n)["max_delay"] for d in ds) * 1.14)
+        ax.set_ylim(0, max(corner(d, n)["max_delay"] for d in ds) * 1.2)
         ax.set_ylabel("Output arrival time (ns)")
-        ax.set_title(lab, loc="left", fontsize=7)
+        ax.text(0.985, 0.985, lab, transform=ax.transAxes, ha="right", va="top", fontsize=7, color=INK)
         h = [Line2D([], [], marker="o", ls="", color=INK2, ms=3, label="Longest path"),
              Line2D([], [], marker="o", ls="", mfc="white", mec=INK2, ms=3, label="Shortest path"),
              Line2D([], [], color=INK, lw=0.8, label="Median, longest")]
-        ax.legend(handles=h, loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=3, fontsize=6.0)
+        ax.legend(handles=h, loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=6.0,
+                  handlelength=1.2, handletextpad=0.3, columnspacing=0.9, borderaxespad=0.2)
         save(fig, out, f"cmp08{'ab'[k]}_output_arrival_{n.split('_')[0]}")
 
 
