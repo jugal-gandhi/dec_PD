@@ -164,7 +164,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        design: [lod_32_2, ldd_32_2, percival_32_2]
+        design: ${{ fromJSON(contains(github.event.head_commit.message, '[cmp-lod]') && '["lod_32_2"]' || '["lod_32_2", "ldd_32_2", "percival_32_2"]') }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Nix
@@ -185,7 +185,11 @@ jobs:
         run: nix develop --command bash scripts/cmp_sim.sh ${{ matrix.design }} 2>&1 | tail -n 60 | tee cmp_sim.log
       - name: Harden
         id: flow
-        run: nix develop --command make cmp3-${{ matrix.design }} 2>&1 | tail -n 300 | tee flow_console.log
+        timeout-minutes: 35
+        run: |
+          ( while true; do echo "$(date -u +%T) $(free -m | sed -n 2p) | $(ps -eo rss,comm --sort=-rss | sed -n 2,4p | tr '\n' ' ')"; sleep 20; done ) > mem.log 2>&1 &
+          nix develop --command make cmp3-${{ matrix.design }} > flow_full.log 2>&1
+          tail -n 300 flow_full.log > flow_console.log
       - name: Render layer masks
         continue-on-error: true
         run: nix develop --command python3 scripts/render_masks.py ip/v3/macros/${{ matrix.design }}/gds/${{ matrix.design }}.gds results/cmp_${{ matrix.design }}/masks --pdk gf180
@@ -200,7 +204,13 @@ jobs:
           R=results/cmp_${{ matrix.design }}
           M=ip/v3/macros/${{ matrix.design }}
           mkdir -p $R
-          cp -f cmp_sim.log flow_console.log $R/ 2>/dev/null || true
+          cp -f cmp_sim.log flow_console.log mem.log $R/ 2>/dev/null || true
+          tail -n 400 flow_full.log > $R/flow_full_tail.log 2>/dev/null || true
+          RUN=$(ls -td librelane/v3/cmp/${{ matrix.design }}/runs/*/ 2>/dev/null | head -n 1)
+          if [ -n "$RUN" ]; then
+            ls "$RUN" > $R/run_steps.txt
+            for f in $(ls -t $(find "$RUN" -name "*.log") | head -n 4); do tail -n 150 "$f" > "$R/last_$(basename $(dirname $f))_$(basename $f)"; done
+          fi
           cp -f build/ext/${{ matrix.design }}.changes.diff $R/ 2>/dev/null || true
           cp -rf build/ext/${{ matrix.design }} $R/src 2>/dev/null || true
           cp -f $M/metrics.json $R/ 2>/dev/null || true
