@@ -4,6 +4,7 @@
 #   ldd_32_2: the parameterised LDD_64_4 sources set to n = 32, es = 2, rs = 6, with and32
 #             in LDD.v (the procedure in the upstream README)
 #   ldd_32_3: the upstream LDD_32_3 sources, unchanged
+#   lod_32_2: the upstream LOD_32_3 sources with the exponent and fraction widths set to es = 2
 #   percival_32_2: Verilog transcription of the PERCIVAL decoder (src/ext/percival_32_2.v)
 # Usage: cmp_prepare.sh <design>
 set -euo pipefail
@@ -32,6 +33,39 @@ case "$D" in
   ldd_32_3)
     cp "$EXT"/LDD_32_3/*.v "$OUT/"
     ES=3 ;;
+  lod_32_2)
+    # LOD_32_3 with its es-dependent parts set to es = 2: port widths in decoder.v and
+    # the exponent/fraction selection in shift.v (same structure as the upstream file).
+    cp "$EXT"/LOD_32_3/*.v "$OUT/"
+    sed -i 's/output \[2:0\] expo;/output [1:0] expo;/; s/output \[25:0\] frac;/output [26:0] frac;/' "$OUT/decoder.v"
+    cat > "$OUT/shift.v" <<'SV'
+module shift(expo, frac, xin, k);
+input [30:0] xin;
+input [4:0] k;
+
+output reg [1:0] expo;
+output [26:0] frac;
+
+wire [30:0] sh0;
+
+left_shifter s0(sh0, xin, k);
+
+always @(xin, sh0, k) begin
+if (k < 29)
+	expo = sh0[30:29];
+else if (k == 29) begin
+	expo[1] = 0;
+	expo[0] = sh0[30];
+	end
+else
+	expo = 0;
+end
+
+assign frac = sh0[28:2];
+
+endmodule
+SV
+    ES=2 ;;
   *) echo "unknown design $D" >&2; exit 1 ;;
 esac
 FS=$((32 - ES - 3))
@@ -49,5 +83,8 @@ module $D (
     decoder u_dec (.sign(sign), .regi(regi), .expo(expo), .frac(frac), .allone(allone), .allzero(allzero), .in(in));
 endmodule
 V
-diff -ru "$EXT/LDD_64_4" "$OUT" > "$OUT.changes.diff" 2>/dev/null || true
+case "$D" in
+  lod_*) diff -ru "$EXT/LOD_32_3" "$OUT" > "$OUT.changes.diff" 2>/dev/null || true ;;
+  *) diff -ru "$EXT/LDD_64_4" "$OUT" > "$OUT.changes.diff" 2>/dev/null || true ;;
+esac
 echo "$D: es=$ES fs=$FS from $PIN"; ls "$OUT"

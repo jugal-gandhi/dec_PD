@@ -5,7 +5,7 @@ Output word: {sign, regi[5:0], expo[es-1:0], frac[fs-1:0], allone, allzero}, fs 
 Negative inputs are two's-complemented first (as in the LDD design). regi is the regime
 value k in two's complement. When fewer than es bits follow the regime, the available
 bits form the low exponent bits (the upstream convention). Fraction bits are left-aligned.
-Usage: cmp_golden.py <es | percival> <out_dir> [random_count]
+Usage: cmp_golden.py <es | lod<es> | percival> <out_dir> [random_count]
 """
 import os
 import random
@@ -15,7 +15,7 @@ N = 32
 M31 = (1 << 31) - 1
 
 
-def decode(x, es):
+def decode(x, es, zero_regi=63):
     fs = N - es - 3
     sign = x >> 31
     low = x & M31
@@ -27,7 +27,7 @@ def decode(x, es):
     if m == 31:                                   # no terminating bit
         if r0:
             return sign, 30, 0, 0, 1, 0
-        return sign, 63, 0, 0, 0, 1
+        return sign, zero_regi, 0, 0, 0, 1
     j = 30 - m                                    # bits left after the terminator
     k = (m - 1) if r0 else (-m) & 63
     expo = (t >> (j - es)) & ((1 << es) - 1) if j >= es else t & ((1 << j) - 1)
@@ -63,6 +63,9 @@ def pack(o, es):
 
 def main():
     mode, out = sys.argv[1], sys.argv[2]
+    zr = 63
+    if mode.startswith("lod"):              # LOD: regi = ~(31 - 1) when all bits are zero
+        mode, zr = mode[3:], 33
     es = int(mode) if mode.isdigit() else None
     cnt = int(sys.argv[3]) if len(sys.argv) > 3 else 200000
     os.makedirs(out, exist_ok=True)
@@ -84,7 +87,7 @@ def main():
         if es is None:
             f.write("\n".join(f"{decode_percival(v):010x}" for v in vec) + "\n")
         else:
-            f.write("\n".join(f"{pack(decode(v, es), es):010x}" for v in vec) + "\n")
+            f.write("\n".join(f"{pack(decode(v, es, zr), es):010x}" for v in vec) + "\n")
     print(len(vec))
 
 

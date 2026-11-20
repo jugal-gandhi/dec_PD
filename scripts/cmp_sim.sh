@@ -11,7 +11,8 @@ if [ "$D" = "percival_32_2" ]; then
     -o "$W/sim" verif/cmp/tb_percival.v build/ext/$D/*.v
 else
   ES=${D##*_}
-  NV=$(python3 scripts/cmp_golden.py "$ES" "$W")
+  MODE=$ES; case "$D" in lod_*) MODE=lod$ES ;; esac
+  NV=$(python3 scripts/cmp_golden.py "$MODE" "$W")
   iverilog -g2012 -DTOP="$D" -DES="$ES" -DNV="$NV" -DVIN="\"$W/vin.hex\"" -DVEXP="\"$W/vexp.hex\"" \
     -o "$W/sim" verif/cmp/tb_cmp.v build/ext/$D/*.v
 fi
