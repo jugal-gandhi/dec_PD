@@ -1,0 +1,37 @@
+warning: unknown setting 'build-provenance-tags'
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+runner: sta -no_splash -exit | tlef:  | lef: 
+ff_125C_1v98: exit 0 3 log lines
+ff_125C_3v60: exit 0 3 log lines
+ff_125C_5v50: exit 0 3 log lines
+ff_n40C_1v98: exit 0 3 log lines
+ff_n40C_3v60: exit 0 3 log lines
+ff_n40C_5v50: exit 0 3 log lines
+ss_125C_1v62: exit 0 3 log lines
+ss_125C_3v00: exit 0 3 log lines
+ss_125C_4v50: exit 0 3 log lines
+ss_n40C_1v62: exit 0 3 log lines
+ss_n40C_3v00: exit 0 3 log lines
+ss_n40C_4v50: exit 0 3 log lines
+tt_025C_1v80: exit 0 3 log lines
+tt_025C_3v30: exit 0 3 log lines
+tt_025C_5v00: exit 0 3 log lines
+warning: unknown setting 'build-provenance-tags'
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+ss_125C_4v50: exit 0
+tt_025C_5v00: exit 0
+ff_n40C_5v50: exit 0
+warning: unknown setting 'build-provenance-tags'
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+tt_025C_5v00: exit 0
+ss_125C_4v50: exit 0
+ff_n40C_5v50: exit 0

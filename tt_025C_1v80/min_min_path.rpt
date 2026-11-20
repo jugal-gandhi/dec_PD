@@ -1,0 +1,35 @@
+Startpoint: posit_in[31] (input port clocked by vclk)
+Endpoint: S (output port clocked by vclk)
+Path Group: vclk
+Path Type: min
+Corner: min
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.0000    0.0000    0.0000   clock vclk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.0000    0.0000 v input external delay
+     1    0.0047    0.5000    0.0000    0.0000 v posit_in[31] (in)
+                    0.5001    0.0000    0.0000 v input25/I (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+     4    0.0370    0.9888    1.5070    1.5070 v input25/Z (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+                    0.9888    0.0017    1.5087 v _718_/I (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+     1    0.0033    0.2888    1.1524    2.6611 v _718_/Z (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+                    0.2888    0.0000    2.6611 v output63/I (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+     1    0.0073    0.3740    0.9469    3.6080 v output63/Z (gf180mcu_fd_sc_mcu7t5v0__buf_1)
+                    0.3740    0.0002    3.6082 v wire153/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_3)
+     1    0.0758    0.8555    1.3188    4.9270 v wire153/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_3)
+                    0.8555    0.0011    4.9281 v S (out)
+                                        4.9281   data arrival time
+
+                    0.0000    0.0000    0.0000   clock vclk (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.0000    0.0000   clock reconvergence pessimism
+                              0.0000    0.0000   output external delay
+                                        0.0000   data required time
+-------------------------------------------------------------------------------------
+                                        0.0000   data required time
+                                       -4.9281   data arrival time
+-------------------------------------------------------------------------------------
+                                        4.9281   slack (MET)
+
+
