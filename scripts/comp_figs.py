@@ -39,34 +39,41 @@ def shares(b, folded):
     return cats, rows
 
 
+LEG1 = {"AND-OR network": "AND-OR network", "Boundary comparator": "Comparator", "In-line shifter": "Shifter",
+        "Output encoding": "Output enc.", "Timing-repair buffers": "Repair buffers", "I/O buffers": "I/O buffers",
+        "Physical cells": "Tap/endcap"}
+
+
 def fig_share(b, out, folded, name):
     cats, rows = shares(b, folded)
-    fig, ax = plt.subplots(figsize=(COL1 * 1.25, 1.85))
-    y = np.arange(len(rows))
+    fig, ax = plt.subplots(figsize=(COL1 * 1.25, 1.95))
+    pitch = 1.0
     for i, (lab, d, tot, unit) in enumerate(rows):
+        y = i * pitch
         left = 0.0
         for c in cats:
             v = 100 * d.get(c, 0.0) / tot
             if v <= 0:
                 continue
-            ax.barh(i, v, left=left, color=MATTE[c], height=0.62, edgecolor="white", lw=0.6)
+            ax.barh(y, v, left=left, color=MATTE[c], height=0.56, edgecolor="white", lw=0.6)
             if v >= 5.5:
-                ax.text(left + v / 2, i, f"{v:.0f}%", ha="center", va="center", fontsize=6.0,
+                ax.text(left + v / 2, y, f"{v:.0f}%", ha="center", va="center", fontsize=6.0,
                         color=INK if light(MATTE[c]) else "white")
             left += v
-        scale = 1e3 if lab == "Power" else 1
-        ax.text(101.5, i, f"{tot * scale:,.2f} {unit}" if lab != "Area" else f"{tot:,.0f} {unit}", va="center",
-                fontsize=6.2, color=INK)
-    ax.set_yticks(y)
+        val = f"{tot:,.0f} {unit}" if lab == "Area" else (f"{tot * 1e3:.2f} {unit}" if lab == "Power"
+                                                          else f"{tot:.2f} {unit}")
+        ax.text(100, y + 0.3, f"Total: {val}", ha="right", va="top", fontsize=5.6, color=INK2)
+    ax.set_yticks([i * pitch for i in range(len(rows))])
     ax.set_yticklabels([r[0] for r in rows], fontsize=7)
-    ax.invert_yaxis()
+    ax.set_ylim((len(rows) - 1) * pitch + 0.55, -0.4)
     ax.set_xlim(0, 100)
-    ax.set_xlabel("Share of the decoder total (%); power and delay at TT, 25$\\,^{\\circ}$C, 5.00 V")
+    ax.set_xlabel("Component-wise APD contribution (%)")
     ax.grid(True, axis="x", color=GRID, lw=0.5)
     ax.set_axisbelow(True)
     h = [plt.Rectangle((0, 0), 1, 1, color=MATTE[c]) for c in cats]
-    ax.legend(h, [SHORT[c] for c in cats], loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=3, fontsize=5.8,
-              handlelength=1.0, handletextpad=0.4, columnspacing=0.9, frameon=False)
+    ax.legend(h, [LEG1[c] for c in cats], loc="lower center", bbox_to_anchor=(0.46, 1.0), ncol=len(cats),
+              fontsize=5.6, handlelength=0.9, handletextpad=0.3, columnspacing=0.7, frameon=False,
+              borderaxespad=0.2)
     save(fig, out, name)
 
 
