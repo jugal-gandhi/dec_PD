@@ -1,0 +1,1 @@
+{"output_cap_cfg": "set ::env(OUTPUT_CAP_LOAD) '72.91' ; # femtofarad from pin I in liberty file", "load_pf": 0.07291}

@@ -1,0 +1,59 @@
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/LDD.v build/ext/ldd_32_2/LDD.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/LDD.v	2026-11-20 04:03:48.376328296 +0000
++++ build/ext/ldd_32_2/LDD.v	2026-11-20 04:04:31.824460523 +0000
+@@ -1,5 +1,5 @@
+ module LDD(out, allone, allzero, in);
+-parameter n = 64;
++parameter n = 32;
+ 
+ input [n-2:0] in;
+ output [n-3:0] out;
+@@ -26,7 +26,7 @@
+ end
+ 
+ 
+-and64 a0({no,inven[n-4:0]},{2'b11,invdif[n-3:0]});
++and32 a0({no,inven[n-4:0]},{2'b11,invdif[n-3:0]});
+ 
+ assign out[n-3] = ndiff[n-3];
+ and(out[n-4], diff[n-3], ndiff[n-4]);
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/LDDShifter.v build/ext/ldd_32_2/LDDShifter.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/LDDShifter.v	2026-11-20 04:03:48.376450334 +0000
++++ build/ext/ldd_32_2/LDDShifter.v	2026-11-20 04:04:31.823208377 +0000
+@@ -1,7 +1,7 @@
+ module LDDShifter(regi, expo, frac, ldd, allone, in);
+-parameter n = 64;
+-parameter es = 4;
+-parameter rs = 7;//size of regi
++parameter n = 32;
++parameter es = 2;
++parameter rs = 6;//size of regi
+ parameter fs = n-es-3;//size of frac
+ parameter ls = n-2;//size of ldd
+ 
+Only in build/ext/LDD_Posit_Decoder/LDD_64_4: and64.v
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/decoder.v build/ext/ldd_32_2/decoder.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/decoder.v	2026-11-20 04:03:48.376450334 +0000
++++ build/ext/ldd_32_2/decoder.v	2026-11-20 04:04:31.823388399 +0000
+@@ -1,7 +1,7 @@
+ module decoder(sign, regi, expo, frac, allone, allzero, in);
+-parameter n = 64;
+-parameter es = 4;
+-parameter rs = 7;//size of regi
++parameter n = 32;
++parameter es = 2;
++parameter rs = 6;//size of regi
+ parameter fs = n-es-3;//size of frac
+ parameter ls = n-2;//size of ldd
+ 
+Only in build/ext/ldd_32_2: ldd_32_2.v
+diff -ru build/ext/LDD_Posit_Decoder/LDD_64_4/twoscom.v build/ext/ldd_32_2/twoscom.v
+--- build/ext/LDD_Posit_Decoder/LDD_64_4/twoscom.v	2026-11-20 04:03:48.376450334 +0000
++++ build/ext/ldd_32_2/twoscom.v	2026-11-20 04:04:31.823416915 +0000
+@@ -1,5 +1,5 @@
+ module twoscom(out, in);
+-parameter n = 64;
++parameter n = 32;
+ 
+ input [n-1:0] in;
+ output reg [n-2:0] out;

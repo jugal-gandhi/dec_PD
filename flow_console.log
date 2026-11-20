@@ -1,0 +1,300 @@
+[04:05:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/min_ff_n40C_5v50/sta.log'             
+               …                                                                
+[04:05:40] [I] Starting STA for the max_tt_025C_5v00 timing      openroad.py:759
+               corner…                                                          
+[04:05:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/max_tt_025C_5v00/sta.log'             
+               …                                                                
+[04:05:40] [I] Starting STA for the max_ss_125C_4v50 timing      openroad.py:759
+               corner…                                                          
+[04:05:40] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/max_ss_125C_4v50/sta.log'             
+               …                                                                
+[04:05:43] [I] Finished STA for the min_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[04:05:43] [I] Finished STA for the min_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[04:05:43] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/min_ss_125C_4v50/filter_u             
+               nannotated.log'…                                                 
+[04:05:43] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/min_ff_n40C_5v50/filter_u             
+               nannotated.log'…                                                 
+[04:05:43] [I] Finished STA for the max_ss_125C_4v50 timing      openroad.py:774
+               corner.                                                          
+[04:05:43] [I] Finished STA for the max_tt_025C_5v00 timing      openroad.py:774
+               corner.                                                          
+[04:05:43] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/max_ss_125C_4v50/filter_u             
+               nannotated.log'…                                                 
+[04:05:43] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/max_tt_025C_5v00/filter_u             
+               nannotated.log'…                                                 
+[04:05:43] [I] Starting STA for the max_ff_n40C_5v50 timing      openroad.py:759
+               corner…                                                          
+[04:05:43] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/max_ff_n40C_5v50/sta.log'             
+               …                                                                
+[04:05:45] [I] Finished STA for the max_ff_n40C_5v50 timing      openroad.py:774
+               corner.                                                          
+[04:05:45] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/55-openroad-stapostpnr/max_ff_n40C_5v50/filter_u             
+               nannotated.log'…                                                 
+[04:05:46] [V] Running 'OpenROAD.IRDropReport' at                   step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/56-openroad-irdropreport'…                                   
+[04:05:46] [W] 'VSRC_LOC_FILES' was not given a value, which    openroad.py:2291
+               may make the results of IR drop analysis                         
+               inaccurate. If you are not integrating a                         
+               top-level chip for manufacture, you may ignore                   
+               this warning, otherwise, see the documentation                   
+               for 'VSRC_LOC_FILES'.                                            
+[04:05:46] [V] OpenROAD will use 4 threads                       openroad.py:520
+[04:05:46] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/56-openroad-irdropreport/openroad-irdropreport.l             
+               og'…                                                             
+[04:05:47] [W] [STA-0450] virtual clock vclk can not be          openroad.py:321
+               propagated.                                                      
+[04:05:47] [V] + analyze_power_grid -net VDD -voltage_file      openroad.py:2303
+               /home/runner/work/dec_PD/dec_PD/librelane/v3/cmp                 
+               /ldd_32_2/runs/RUN_2026-11-20_04-04-32/56-openro                 
+               ad-irdropreport/net-VDD.csv                                      
+               [INFO PSM-0040] All shapes on net VDD are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VDD                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 4.46e-03 W                                    
+               Supply voltage   : 5.00e+00 V                                    
+               Worstcase voltage: 5.00e+00 V                                    
+               Average voltage  : 5.00e+00 V                                    
+               Average IR drop  : 8.71e-05 V                                    
+               Worstcase IR drop: 2.05e-04 V                                    
+               Percentage drop  : 0.00 %                                        
+               ######################################                           
+               + analyze_power_grid -net VSS -voltage_file                      
+               /home/runner/work/dec_PD/dec_PD/librelane/v3/cmp                 
+               /ldd_32_2/runs/RUN_2026-11-20_04-04-32/56-openro                 
+               ad-irdropreport/net-VSS.csv                                      
+               [INFO PSM-0040] All shapes on net VSS are                        
+               connected.                                                       
+               ########## IR report #################                           
+               Net              : VSS                                           
+               Corner           : nom_tt_025C_5v00                              
+               Total power      : 4.46e-03 W                                    
+               Supply voltage   : 0.00e+00 V                                    
+               Worstcase voltage: 2.01e-04 V                                    
+               Average voltage  : 8.43e-05 V                                    
+               Average IR drop  : 8.43e-05 V                                    
+               Worstcase IR drop: 2.01e-04 V                                    
+               Percentage drop  : 0.00 %                                        
+               ######################################                           
+                                                                                
+[04:05:47] [V] Running 'Magic.StreamOut' at                         step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/57-magic-streamout'…                                         
+[04:05:47] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/57-magic-streamout/magic-streamout.log'…                     
+[04:05:52] [V] Running 'KLayout.StreamOut' at                       step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/58-klayout-streamout'…                                       
+[04:05:52] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/58-klayout-streamout/klayout-streamout.log'…                 
+[04:05:53] [V] Running 'KLayout.Render' at                          step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/59-klayout-render'…                                          
+[04:05:53] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/59-klayout-render/klayout-render.log'…                       
+[04:05:54] [V] Running 'Magic.WriteLEF' at                          step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/60-magic-writelef'…                                          
+[04:05:54] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/60-magic-writelef/magic-writelef.log'…                       
+[04:05:58] [V] Running 'Odb.CheckDesignAntennaProperties' at        step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/61-odb-checkdesignantennaproperties'…                        
+[04:05:58] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/61-odb-checkdesignantennaproperties/odb-checkdes             
+               ignantennaproperties.log'…                                       
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__fill1 references       odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_ef_io__bi_t references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__in_c references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__bi_t references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__in_s references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__bi_24t references      odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__fillnc references      odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__brk5 references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__asig_5p0 references    odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__dvdd references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__dvss references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__fill5 references       odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__fill10 references      odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__brk2 references        odb.py:71
+               unknown site GF_IO_Site                                          
+[04:05:59] [W] [ODB-0186] macro gf180mcu_fd_io__cor references unknown odb.py:71
+               site GF_COR_Site                                                 
+[04:05:59] [V] Running 'KLayout.XOR' at                             step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/62-klayout-xor'…                                             
+[04:05:59] [I] Running XOR with 4 threads…                        klayout.py:406
+[04:05:59] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/62-klayout-xor/klayout-xor.log'…                             
+[04:06:01] [V] Running 'Checker.XOR' at                             step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/63-checker-xor'…                                             
+[04:06:01] [I] Check for XOR differences clear.                   checker.py:131
+[04:06:01] [V] Running 'Magic.DRC' at                               step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/64-magic-drc'…                                               
+[04:06:01] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/64-magic-drc/magic-drc.log'…                                 
+[04:06:04] [V] Running 'KLayout.DRC' at                             step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/65-klayout-drc'…                                             
+[04:06:04] [I] Running KLayout DRC with 4 threads…                klayout.py:672
+[04:06:04] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/65-klayout-drc/klayout-drc.log'…                             
+[04:06:32] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/65-klayout-drc/xml_drc_report_to_json.log'…                  
+[04:06:32] [V] Running 'Checker.MagicDRC' at                        step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/66-checker-magicdrc'…                                        
+[04:06:32] [I] Check for Magic DRC errors clear.                  checker.py:131
+[04:06:32] [V] Running 'Checker.KLayoutDRC' at                      step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/67-checker-klayoutdrc'…                                      
+[04:06:32] [I] Check for KLayout DRC errors clear.                checker.py:131
+[04:06:32] [V] Running 'Magic.SpiceExtraction' at                   step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/68-magic-spiceextraction'…                                   
+[04:06:32] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/68-magic-spiceextraction/magic-spiceextraction.l             
+               og'…                                                             
+[04:06:33] [V] Running 'Checker.IllegalOverlap' at                  step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/69-checker-illegaloverlap'…                                  
+[04:06:33] [I] Check for Magic Illegal Overlap errors clear.      checker.py:131
+[04:06:33] [V] Running 'Netgen.LVS' at                              step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/70-netgen-lvs'…                                              
+[04:06:33] [I] Logging subprocess to                                step.py:1336
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/70-netgen-lvs/netgen-lvs.log'…                               
+[04:06:34] [V] Running 'Checker.LVS' at                             step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/71-checker-lvs'…                                             
+[04:06:34] [I] Check for LVS errors clear.                        checker.py:131
+[04:06:34] [I] Gating variable for step 'Yosys.EQY' set to     sequential.py:362
+               'False'- the step will be skipped.                               
+[04:06:34] [I] Skipping step 'Equivalence Check'…              sequential.py:370
+[04:06:34] [V] Running 'Checker.SetupViolations' at                 step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/72-checker-setupviolations'…                                 
+[04:06:34] [W] Setup violations found in the following corners:   checker.py:626
+               * max_ss_125C_4v50                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[04:06:34] [V] No setup violations found                          checker.py:628
+[04:06:34] [V] Running 'Checker.HoldViolations' at                  step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/73-checker-holdviolations'…                                  
+[04:06:34] [V] No hold violations found                           checker.py:628
+[04:06:34] [V] Running 'Checker.MaxSlewViolations' at               step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/74-checker-maxslewviolations'…                               
+[04:06:34] [W] Max Slew violations found in the following         checker.py:626
+               corners:                                                         
+               * max_ss_125C_4v50                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[04:06:34] [V] No max slew violations found                       checker.py:628
+[04:06:34] [V] Running 'Checker.MaxCapViolations' at                step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/75-checker-maxcapviolations'…                                
+[04:06:34] [V] No max cap violations found                        checker.py:628
+[04:06:34] [V] Running 'Misc.ReportManufacturability' at            step.py:1138
+               'librelane/v3/cmp/ldd_32_2/runs/RUN_2026-11-20_04-04             
+               -32/76-misc-reportmanufacturability'…                            
+[04:06:34] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/librelane/v3/cmp/ld             
+               d_32_2/runs/RUN_2026-11-20_04-04-32/final'…                      
+[04:06:34] [I] Flow complete.                                  sequential.py:413
+[04:06:34] [W] The following warnings were generated by the flow:    flow.py:699
+[04:06:34] [W] [Checker.LintWarnings] 2 Lint warnings found.         flow.py:701
+[04:06:34] [W] [OpenROAD.Floorplan] [STA-0450] virtual clock vclk    flow.py:701
+               can not be propagated. (and 23 similar warnings)                 
+[04:06:34] [W] [OpenROAD.RepairDesignPostGPL] [STA-1140]             flow.py:701
+               /home/runner/work/dec_PD/dec_PD/pdk/gf180mcuD/libs.re            
+               f/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0            
+               __ff_n40C_5v50.lib line 17, library                              
+               gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.            
+               (and 23 similar warnings)                                        
+[04:06:34] [W] [OpenROAD.RepairDesignPostGPL] [RSZ-0020] found 2     flow.py:701
+               floating nets.                                                   
+[04:06:34] [W] [OpenROAD.CTS] No CLOCK_NET (or CLOCK_PORT)           flow.py:701
+               specified. CTS cannot be performed. Returning state              
+               unaltered…                                                       
+[04:06:34] [W] [OpenROAD.DetailedRouting] [DRT-0349] LEF58_ENCLOSURE flow.py:701
+               with no CUTCLASS is not supported. Skipping for layer            
+               Via1 (and 7 similar warnings)                                    
+[04:06:34] [W] [Checker.WireLength] Threshold for                    flow.py:701
+               Threshold-surpassing long wires is not set. The                  
+               checker will be skipped.                                         
+[04:06:34] [W] [OpenROAD.IRDropReport] 'VSRC_LOC_FILES' was not      flow.py:701
+               given a value, which may make the results of IR drop             
+               analysis inaccurate. If you are not integrating a                
+               top-level chip for manufacture, you may ignore this              
+               warning, otherwise, see the documentation for                    
+               'VSRC_LOC_FILES'.                                                
+[04:06:34] [W] [Odb.CheckDesignAntennaProperties] [ODB-0186] macro   flow.py:701
+               gf180mcu_fd_io__fill1 references unknown site                    
+               GF_IO_Site (and 14 similar warnings)                             
+[04:06:34] [W] [Checker.SetupViolations] Setup violations found in   flow.py:701
+               the following corners:                                           
+               * max_ss_125C_4v50                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[04:06:34] [W] [Checker.MaxSlewViolations] Max Slew violations found flow.py:701
+               in the following corners:                                        
+               * max_ss_125C_4v50                                               
+               * min_ss_125C_4v50                                               
+               * nom_ss_125C_4v50                                               
+[04:06:34] [I] Saving views to                                      state.py:209
+               '/home/runner/work/dec_PD/dec_PD/build/macros/ldd_32             
+               _2'…                                                             
+bash scripts/export_macro3.sh ldd_32_2
+  SIZE 222.855 BY 240.775 ;
