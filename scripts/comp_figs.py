@@ -13,9 +13,9 @@ import numpy as np                                     # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from paper_figs3 import COL1, GRID, INK, INK2, save, setup_style    # noqa: E402
 
-MATTE = {"AND-OR network": "#6f8fae", "Boundary comparator": "#c9a66b", "In-line shifter": "#7d9b76",
-         "Output encoding": "#b07c8f", "Timing-repair buffers": "#c4876a", "I/O buffers": "#8f8a83",
-         "Physical cells": "#d6d1c6"}
+MATTE = {"AND-OR network": "#a9c1da", "Boundary comparator": "#e6d2a6", "In-line shifter": "#c7badd",
+         "Output encoding": "#e6bccb", "Timing-repair buffers": "#eec5ad", "I/O buffers": "#c9c4bc",
+         "Physical cells": "#ebe8e1"}
 SHORT = {"AND-OR network": "AND-OR network", "Boundary comparator": "1-bit boundary comparator",
          "In-line shifter": "In-line shifter", "Output encoding": "Output encoding",
          "Timing-repair buffers": "Timing-repair buffers", "I/O buffers": "I/O buffers",
@@ -85,7 +85,7 @@ def fig_path(b, out):
         for c, d, cell, owner in b["delay"][corner]["seq"]:
             ax.barh(i, d, left=left, color=MATTE[owner], height=0.58, edgecolor="white", lw=0.35)
             if "dly" in cell:
-                ax.barh(i, d, left=left, color="none", height=0.58, edgecolor=INK, lw=0, hatch="////")
+                ax.barh(i, d, left=left, color="none", height=0.58, edgecolor="#8a857e", lw=0, hatch="////")
             left += d
             seen.add(owner)
         ax.text(left + 0.25, i, f"{left:.2f} ns", va="center", fontsize=6.2, color=INK)
@@ -99,7 +99,7 @@ def fig_path(b, out):
     ax.set_axisbelow(True)
     order = [c for c in MATTE if c in seen]
     h = [plt.Rectangle((0, 0), 1, 1, color=MATTE[c]) for c in order] + \
-        [plt.Rectangle((0, 0), 1, 1, facecolor="white", edgecolor=INK, lw=0.4, hatch="////")]
+        [plt.Rectangle((0, 0), 1, 1, facecolor="white", edgecolor="#8a857e", lw=0.4, hatch="////")]
     ax.legend(h, [SHORT[c] for c in order] + ["Delay cell (dlyb)"], loc="lower center", bbox_to_anchor=(0.5, 1.0),
               ncol=4, fontsize=5.8, handlelength=1.0, handletextpad=0.4, columnspacing=0.9, frameon=False)
     save(fig, out, "comp03_critical_path_by_component")
